@@ -1,0 +1,19 @@
+-- TODO: paste from Data 360 Query Editor
+-- (SELECT the CI's definition SQL from Data Cloud > Calculated Insights > Account_Case_Aggregates)
+
+-- Stage 2 of 3 in the Account Risk Score pipeline. Feeds Account_Risk_Score__cio
+-- (alongside Account_Portal_Aggregates__cio).
+--
+-- Row count: TODO — not stated in the reference doc.
+--
+-- Dimension: TODO — not explicitly stated in the reference doc (almost
+-- certainly the ERP customer id, matching Account_Risk_Score__cio's
+-- dimension, but unconfirmed).
+--
+-- Measures: TODO — not enumerated in the reference doc, but per schema
+-- reference v3 it tracks an open-case count per account: "Test cases
+-- submitted through the portal agent land on real accounts and inflate
+-- Account_Case_Aggregates open-case counts. Delete test cases (especially
+-- on Highland Tower) or Project 2's risk score will be skewed."
+--
+-- Source: standard Case object via the CRM connector (Case_Home DLO).

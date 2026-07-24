@@ -1,0 +1,17 @@
+-- TODO: paste from Data 360 Query Editor
+-- (SELECT the CI's definition SQL from Data Cloud > Calculated Insights > Account_Portal_Aggregates)
+
+-- Stage 1 of 3 in the Account Risk Score pipeline. Feeds Account_Risk_Score__cio
+-- (alongside Account_Case_Aggregates__cio).
+--
+-- Row count (verified): 48 rows — per schema reference v3, "portal/CSR cover
+-- ~48/50 accounts."
+--
+-- Dimension: TODO — not explicitly stated in the reference doc (almost
+-- certainly the ERP customer id, matching Account_Risk_Score__cio's
+-- dimension, but unconfirmed).
+--
+-- Measures: TODO — not enumerated in the reference doc. Source is the
+-- Portal_Engagement DLO / Portal_Engagement_DMO__dlm, ingested from
+-- portal_engagement.csv (1,834 rows), so likely some aggregation of portal
+-- engagement events per account, but the exact measures are unconfirmed.

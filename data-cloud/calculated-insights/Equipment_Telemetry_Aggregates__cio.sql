@@ -1,0 +1,20 @@
+-- TODO: paste from Data 360 Query Editor
+-- (SELECT the CI's definition SQL from Data Cloud > Calculated Insights > Equipment_Telemetry_Aggregates)
+
+-- Stage 1 of 3 in the Equipment Health Score pipeline (staged to avoid a
+-- telemetry x fault JOIN fan-out). Feeds Equipment_Health_Score__cio.
+--
+-- Row count (verified): 999 rows — coverage is 999 of 1,181 Equipment_Asset__c
+-- records; the remaining 182 units are not telemetry-monitored.
+--
+-- Known measures (per schema reference v3):
+--   AvgVibration__c        -- TODO: exact aggregation/source field unconfirmed
+--   SetpointDeviationSq__c -- TODO: exact aggregation/source field unconfirmed
+--   ReadingCount__c        -- TODO: exact aggregation/source field unconfirmed
+--
+-- Dimension: TODO — not explicitly stated in the reference doc (almost
+-- certainly the equipment identifier, matching Equipment_Fault_Aggregates__cio
+-- and Equipment_Health_Score__cio's EquipmentId__c dimension, but unconfirmed).
+--
+-- Source DLO/DMO: Equipment_Telemetry (DLO) / Equipment_Telemetry_DMO__dlm,
+-- ingested from telemetry_equipment_readings.csv (29,970 rows).

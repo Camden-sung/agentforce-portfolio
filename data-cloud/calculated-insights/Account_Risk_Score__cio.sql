@@ -1,0 +1,22 @@
+-- TODO: paste from Data 360 Query Editor
+-- (SELECT the CI's definition SQL from Data Cloud > Calculated Insights > Account_Risk_Score)
+
+-- Stage 3 of 3 in the Account Risk Score pipeline. Reads
+-- Account_Portal_Aggregates__cio and Account_Case_Aggregates__cio
+-- (Calculated Insights can read other CIOs).
+--
+-- This is Project 2's (Renewal Prep Agent) primary signal.
+--
+-- Row count (verified): 50 rows.
+-- Dimension: ERP customer id (External_ERP_Customer_Id__c on Account).
+-- Measure:   TODO — exact field name not stated in the reference doc.
+--
+-- Verified distribution: min 0, max 84, mean 14.02. Higher = more risk.
+--
+-- Formula: TODO — not stated in the reference doc (unlike Equipment Health
+-- Score, no explicit weighting formula is documented for this CI).
+--
+-- Caution: test Cases submitted through the Project 1 portal agent land on
+-- real accounts and inflate Account_Case_Aggregates__cio's open-case counts,
+-- which skews this score. Delete portal test Cases (especially on Highland
+-- Tower Holdings) before this CI is used for Project 2 development.

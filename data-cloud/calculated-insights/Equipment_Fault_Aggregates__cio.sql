@@ -1,0 +1,20 @@
+-- TODO: paste from Data 360 Query Editor
+-- (SELECT the CI's definition SQL from Data Cloud > Calculated Insights > Equipment_Fault_Aggregates)
+
+-- Stage 2 of 3 in the Equipment Health Score pipeline (staged to avoid a
+-- telemetry x fault JOIN fan-out). Feeds Equipment_Health_Score__cio.
+--
+-- Row count (verified): 881 rows — coverage out of 1,181 Equipment_Asset__c
+-- records (per schema reference v3: "faults cover 881").
+--
+-- Known measures (per schema reference v3):
+--   ActiveFaultScore__c  -- weighted score: Critical = 10, Major = 4, Minor = 1
+--   ActiveFaultCount__c  -- TODO: exact aggregation logic unconfirmed
+--   TotalFaultCount__c   -- TODO: exact aggregation logic unconfirmed
+--
+-- Dimension: TODO — not explicitly stated in the reference doc (almost
+-- certainly the equipment identifier, matching Equipment_Health_Score__cio's
+-- EquipmentId__c dimension, but unconfirmed).
+--
+-- Source DLO/DMO: Equipment_Fault (DLO) / Equipment_Fault_DMO__dlm,
+-- ingested from telemetry_fault_codes.csv (1,490 rows).

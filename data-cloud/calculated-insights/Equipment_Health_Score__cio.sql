@@ -1,0 +1,24 @@
+-- TODO: paste from Data 360 Query Editor
+-- (SELECT the CI's definition SQL from Data Cloud > Calculated Insights > Equipment_Health_Score)
+
+-- Stage 3 of 3 in the Equipment Health Score pipeline. Reads
+-- Equipment_Telemetry_Aggregates__cio and Equipment_Fault_Aggregates__cio
+-- (Calculated Insights can read other CIOs).
+--
+-- Row count (verified): 999 rows.
+-- Dimension: EquipmentId__c
+-- Measure:   HealthScore__c
+--
+-- Formula (per schema reference v3, verified against production values):
+--   HealthScore = 100
+--     - max(0, (AvgVibration        - 0.9) * 25)
+--     - max(0, (SetpointDeviationSq - 2.5) * 3)
+--     - (ActiveFaultScore * 2.5)
+--     , floored at 0
+--
+-- Verified distribution: min 13.41, max 100, mean 90.71.
+--
+-- Write-back: a Data Cloud-Triggered Flow (Sync_Health_Score_To_CRM) copies
+-- HealthScore__c (rounded) onto Equipment_Asset__c.Equipment_Health_Score__c,
+-- matched on External_System_ID__c = EquipmentId__c. See
+-- force-app/main/default/flows/Sync_Health_Score_To_CRM.flow-meta.xml.
