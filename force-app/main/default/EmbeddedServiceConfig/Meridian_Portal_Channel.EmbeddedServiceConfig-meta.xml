@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EmbeddedServiceConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <areGuestUsersAllowed>false</areGuestUsersAllowed>
+    <branding>EmbeddedServiceConfig_BrandingSet_19f862236ab</branding>
+    <deploymentFeature>EmbeddedMessaging</deploymentFeature>
+    <deploymentType>Web</deploymentType>
+    <embeddedServiceMessagingChannel>
+        <isChatInvitationCustomizable>false</isChatInvitationCustomizable>
+        <isEnabled>true</isEnabled>
+        <isInvitationEnabled>false</isInvitationEnabled>
+        <isSendInvtAllowedAfterAccept>false</isSendInvtAllowedAfterAccept>
+        <isSendInvtAllowedAfterReject>false</isSendInvtAllowedAfterReject>
+        <messagingChannel>Meridian_Portal_Channel</messagingChannel>
+        <shouldShowAgentforceTagline>true</shouldShowAgentforceTagline>
+        <shouldShowDeliveryReceipts>false</shouldShowDeliveryReceipts>
+        <shouldShowEmojiSelection>false</shouldShowEmojiSelection>
+        <shouldShowReadReceipts>false</shouldShowReadReceipts>
+        <shouldShowTypingIndicators>false</shouldShowTypingIndicators>
+        <shouldStartNewLineOnEnter>false</shouldStartNewLineOnEnter>
+    </embeddedServiceMessagingChannel>
+    <isEnabled>true</isEnabled>
+    <isTermsAndConditionsEnabled>false</isTermsAndConditionsEnabled>
+    <isTermsAndConditionsRequired>false</isTermsAndConditionsRequired>
+    <masterLabel>Meridian_Portal_Channel</masterLabel>
+    <shouldHideAuthDialog>false</shouldHideAuthDialog>
+    <site>ESW_Meridian_Portal_Channe_17846618054031</site>
+</EmbeddedServiceConfig>

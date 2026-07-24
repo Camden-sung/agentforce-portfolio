@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Deliver personalized customer interactions with an autonomous AI agent. Agentforce Service Agent intelligently supports your customers with common inquiries and escalates complex issues.</description>
+    <localTopicLinks>
+        <genAiPluginName>Account_Service_Info_16jg5000000pg21</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>GeneralFAQ_16jg5000000pg21</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Service_Requests_16jg5000000pg21</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>agent_router_16jg5000000pg21</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>escalation_16jg5000000pg21</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>off_topic_16jg5000000pg21</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>agent_router_16jg5000000pg21</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Welcome the user and determine the appropriate subagent based on user input</description>
+        <developerName>agent_router_16jg5000000pg21</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.
+
+{{state.AgentScriptInternal_agent_instructions}}</description>
+            <developerName>instruction0_179g5000001GXUA</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001GXUA</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Service_Requests_16jg5000000pg21</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Use when the customer is reporting an actual equipment problem and wants Meridian to address it, or explicitly asks to file or open a request right now — for example &quot;my rooftop unit is making a noise,&quot; &quot;my thermostat isn&apos;t working,&quot; or &quot;open a service request for my broken unit.&quot; This subagent files a request on the customer&apos;s behalf. Do NOT use when the customer is only asking HOW to submit a request or how the process works (for example &quot;how do I submit a service request?&quot;) — that informational question is handled by General FAQ.</description>
+        <developerName>Service_Requests_16jg5000000pg21</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179g5000001GXU8</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001GXU8</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Submit_Service_Request_179g5000001GXU8</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Submit_Service_Request_179g5000001GXU8</fullName>
+            <description>Creates a new non-urgent service request case for the customer. Use only after the customer has described a non-emergency issue and confirmed they want to submit it. Do not use for emergencies.</description>
+            <developerName>Submit_Service_Request_179g5000001GXU8</developerName>
+            <invocationTarget>Submit_Service_Request</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Submit_Service_Request</localDeveloperName>
+            <masterLabel>Submit Service Request</masterLabel>
+        </localActions>
+        <localDeveloperName>Service_Requests</localDeveloperName>
+        <masterLabel>Service Requests</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>escalation_16jg5000000pg21</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles requests from users who want to transfer or escalate their conversation to a live human agent.</description>
+        <developerName>escalation_16jg5000000pg21</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179g5000001GXU9</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001GXU9</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>escalation</localDeveloperName>
+        <masterLabel>Escalation</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>off_topic_16jg5000000pg21</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect conversation to relevant topics when user request goes off-topic</description>
+        <developerName>off_topic_16jg5000000pg21</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179g5000001GXU6</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001GXU6</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>off_topic</localDeveloperName>
+        <masterLabel>Off Topic</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Account_Service_Info_16jg5000000pg21</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Looks up the customer&apos;s OWN specific records. Use only when the customer asks about their own account — for example &quot;when is MY next visit,&quot; &quot;what does MY contract cover,&quot; &quot;who is MY technician,&quot; &quot;what did MY last inspection say,&quot; or &quot;how is MY chiller running.&quot; Do not use for general questions about how services or procedures work.</description>
+        <developerName>Account_Service_Info_16jg5000000pg21</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179g5000001GXU7</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001GXU7</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Get_Equipment_Health_179g5000001GXU7</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_last_Inspection_179g5000001GXU7</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Contract_Coverage_179g5000001GXU7</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Next_Visit_179g5000001GXU7</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Get_Equipment_Health_179g5000001GXU7</fullName>
+            <description>Retrieves how a specific piece of the customer&apos;s equipment is currently running, based on automated monitoring — expressed as a 0–100 health score with a plain-language interpretation. Use this whenever a customer asks how a unit is doing, how it&apos;s running, whether it&apos;s operating normally, if there are problems, or about its condition, performance, or health. This is the correct tool for questions like &quot;how is my chiller running?&quot; or &quot;is my rooftop unit OK?&quot;</description>
+            <developerName>Get_Equipment_Health_179g5000001GXU7</developerName>
+            <invocationTarget>Get_Equipment_Health</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Equipment_Health</localDeveloperName>
+            <masterLabel>Get Equipment Health</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Get_Next_Visit_179g5000001GXU7</fullName>
+            <description>Returns the customer&apos;s next scheduled service or maintenance visit, including the visit type, the equipment being serviced, the scheduled date, and the name of the assigned technician. Use this when the customer asks when their next visit or maintenance appointment is, when someone is coming out, or who their assigned technician is.</description>
+            <developerName>Get_Next_Visit_179g5000001GXU7</developerName>
+            <invocationTarget>Get_Next_Visit</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Next_Visit</localDeveloperName>
+            <masterLabel>Get Next Visit</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Get_last_Inspection_179g5000001GXU7</fullName>
+            <description>Retrieves the customer&apos;s most recent equipment inspection report, including the inspection type, equipment inspected, date, overall condition, pass/fail result, recommended action, and inspector name. Use when the customer asks about their last inspection, inspection results, or what an inspector found.</description>
+            <developerName>Get_last_Inspection_179g5000001GXU7</developerName>
+            <invocationTarget>Get_Last_Inspection</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_last_Inspection</localDeveloperName>
+            <masterLabel>Get last Inspection</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Get_Contract_Coverage_179g5000001GXU7</fullName>
+            <description>Description: Retrieves the customer&apos;s active service contract, including coverage level, number of preventive maintenance visits per year, whether emergency service is included, the emergency response target, and the contract end date. Use when the customer asks what their contract covers, what tier they&apos;re on, how many visits they get, or when their contract expires.</description>
+            <developerName>Get_Contract_Coverage_179g5000001GXU7</developerName>
+            <invocationTarget>Get_Contract_Coverage</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Contract_Coverage</localDeveloperName>
+            <masterLabel>Get Contract Coverage</masterLabel>
+        </localActions>
+        <localDeveloperName>Account_Service_Info</localDeveloperName>
+        <masterLabel>Account Service Info</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>GeneralFAQ_16jg5000000pg21</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Answers general, informational &quot;how does this work / what does this mean / what&apos;s included&quot; questions about Meridian&apos;s services, contracts, coverage levels, maintenance and inspection procedures, and company policies, by searching knowledge articles. This includes questions about HOW to submit or file a service request, how to read an inspection report, what a coverage tier includes, what happens during a maintenance visit, and how to reschedule a visit. Use for general information that is NOT about the customer&apos;s own specific records and does not file a request or take any action on their account.</description>
+        <developerName>GeneralFAQ_16jg5000000pg21</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179g5000001GXU5</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001GXU5</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Answer_Questions_with_Meridian_Knowledge_179g5000001GXU5</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Answer_Questions_with_Meridian_Knowledge_179g5000001GXU5</fullName>
+            <description>Utilizes knowledge articles to answer general questions the user may have.</description>
+            <developerName>Answer_Questions_with_Meridian_Knowledge_179g5000001GXU5</developerName>
+            <invocationTarget>Meridian_Answer_From_Knowledge</invocationTarget>
+            <invocationTargetType>generatePromptResponse</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Answer_Questions_with_Meridian_Knowledge</localDeveloperName>
+            <masterLabel>Answer Questions with Meridian Knowledge</masterLabel>
+        </localActions>
+        <localDeveloperName>GeneralFAQ</localDeveloperName>
+        <masterLabel>General FAQ</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <masterLabel>Meridian Customer Portal Assistant</masterLabel>
+    <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+</GenAiPlannerBundle>

@@ -9,3 +9,8 @@
 .vscode
 
 coverage/
+
+# GenAiPlannerBundle agentGraph files: .json extension, but the CLI writes
+# their content as a raw base64 blob, not actual JSON - prettier's parser
+# rejects them.
+**/agentGraph/**
