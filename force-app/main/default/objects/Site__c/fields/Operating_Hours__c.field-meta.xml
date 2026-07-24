@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Operating_Hours__c</fullName>
+    <label>Operating Hours</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>24/7</fullName>
+                <default>false</default>
+                <label>24/7</label>
+            </value>
+            <value>
+                <fullName>Extended (6am–10pm)</fullName>
+                <default>false</default>
+                <label>Extended (6am–10pm)</label>
+            </value>
+            <value>
+                <fullName>Standard Business Hours</fullName>
+                <default>false</default>
+                <label>Standard Business Hours</label>
+            </value>
+            <value>
+                <fullName>Custom</fullName>
+                <default>false</default>
+                <label>Custom</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

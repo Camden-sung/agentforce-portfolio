@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coverage_Scope__c</fullName>
+    <label>Coverage Scope</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>All Equipment at Account</fullName>
+                <default>false</default>
+                <label>All Equipment at Account</label>
+            </value>
+            <value>
+                <fullName>Specific Sites</fullName>
+                <default>false</default>
+                <label>Specific Sites</label>
+            </value>
+            <value>
+                <fullName>Specific Equipment</fullName>
+                <default>false</default>
+                <label>Specific Equipment</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

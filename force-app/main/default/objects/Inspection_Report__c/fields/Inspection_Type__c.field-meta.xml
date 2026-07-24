@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inspection_Type__c</fullName>
+    <label>Inspection Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Annual Compliance</fullName>
+                <default>false</default>
+                <label>Annual Compliance</label>
+            </value>
+            <value>
+                <fullName>Pre-Purchase</fullName>
+                <default>false</default>
+                <label>Pre-Purchase</label>
+            </value>
+            <value>
+                <fullName>Post-Repair</fullName>
+                <default>false</default>
+                <label>Post-Repair</label>
+            </value>
+            <value>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+                <label>Warranty</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Energy Audit</fullName>
+                <default>false</default>
+                <label>Energy Audit</label>
+            </value>
+            <value>
+                <fullName>Code Compliance</fullName>
+                <default>false</default>
+                <label>Code Compliance</label>
+            </value>
+            <value>
+                <fullName>Routine</fullName>
+                <default>false</default>
+                <label>Routine</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

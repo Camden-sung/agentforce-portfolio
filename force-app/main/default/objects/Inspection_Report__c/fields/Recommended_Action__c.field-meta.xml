@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recommended_Action__c</fullName>
+    <label>Recommended Action</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Action Required</fullName>
+                <default>false</default>
+                <label>No Action Required</label>
+            </value>
+            <value>
+                <fullName>Continued Monitoring</fullName>
+                <default>false</default>
+                <label>Continued Monitoring</label>
+            </value>
+            <value>
+                <fullName>Schedule Repair</fullName>
+                <default>false</default>
+                <label>Schedule Repair</label>
+            </value>
+            <value>
+                <fullName>Schedule Replacement</fullName>
+                <default>false</default>
+                <label>Schedule Replacement</label>
+            </value>
+            <value>
+                <fullName>Immediate Action Required</fullName>
+                <default>false</default>
+                <label>Immediate Action Required</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

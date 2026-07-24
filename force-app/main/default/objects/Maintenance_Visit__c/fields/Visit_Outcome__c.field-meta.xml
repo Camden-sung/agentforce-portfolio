@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Outcome__c</fullName>
+    <label>Visit Outcome</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Completed Successfully</fullName>
+                <default>false</default>
+                <label>Completed Successfully</label>
+            </value>
+            <value>
+                <fullName>Issue Resolved</fullName>
+                <default>false</default>
+                <label>Issue Resolved</label>
+            </value>
+            <value>
+                <fullName>Follow-up Required</fullName>
+                <default>false</default>
+                <label>Follow-up Required</label>
+            </value>
+            <value>
+                <fullName>Equipment Replaced</fullName>
+                <default>false</default>
+                <label>Equipment Replaced</label>
+            </value>
+            <value>
+                <fullName>Unable to Complete</fullName>
+                <default>false</default>
+                <label>Unable to Complete</label>
+            </value>
+            <value>
+                <fullName>Customer Cancelled</fullName>
+                <default>false</default>
+                <label>Customer Cancelled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

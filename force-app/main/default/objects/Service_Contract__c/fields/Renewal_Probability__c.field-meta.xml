@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Probability__c</fullName>
+    <label>Renewal Probability</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Very High (90%+)</fullName>
+                <default>false</default>
+                <label>Very High (90%+)</label>
+            </value>
+            <value>
+                <fullName>High (70-89%)</fullName>
+                <default>false</default>
+                <label>High (70-89%)</label>
+            </value>
+            <value>
+                <fullName>Medium (40-69%)</fullName>
+                <default>false</default>
+                <label>Medium (40-69%)</label>
+            </value>
+            <value>
+                <fullName>Low (10-39%)</fullName>
+                <default>false</default>
+                <label>Low (10-39%)</label>
+            </value>
+            <value>
+                <fullName>At Risk (&lt;10%)</fullName>
+                <default>false</default>
+                <label>At Risk (&lt;10%)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

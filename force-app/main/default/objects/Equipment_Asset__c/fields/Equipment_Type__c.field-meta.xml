@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment_Type__c</fullName>
+    <label>Equipment Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Rooftop Unit (RTU)</fullName>
+                <default>false</default>
+                <label>Rooftop Unit (RTU)</label>
+            </value>
+            <value>
+                <fullName>Chiller</fullName>
+                <default>false</default>
+                <label>Chiller</label>
+            </value>
+            <value>
+                <fullName>Boiler</fullName>
+                <default>false</default>
+                <label>Boiler</label>
+            </value>
+            <value>
+                <fullName>Air Handler (AHU)</fullName>
+                <default>false</default>
+                <label>Air Handler (AHU)</label>
+            </value>
+            <value>
+                <fullName>VAV Box</fullName>
+                <default>false</default>
+                <label>VAV Box</label>
+            </value>
+            <value>
+                <fullName>Cooling Tower</fullName>
+                <default>false</default>
+                <label>Cooling Tower</label>
+            </value>
+            <value>
+                <fullName>Heat Pump</fullName>
+                <default>false</default>
+                <label>Heat Pump</label>
+            </value>
+            <value>
+                <fullName>Building Automation Controller</fullName>
+                <default>false</default>
+                <label>Building Automation Controller</label>
+            </value>
+            <value>
+                <fullName>Pump</fullName>
+                <default>false</default>
+                <label>Pump</label>
+            </value>
+            <value>
+                <fullName>Fan/Exhaust</fullName>
+                <default>false</default>
+                <label>Fan/Exhaust</label>
+            </value>
+            <value>
+                <fullName>Split System</fullName>
+                <default>false</default>
+                <label>Split System</label>
+            </value>
+            <value>
+                <fullName>Package Unit</fullName>
+                <default>false</default>
+                <label>Package Unit</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

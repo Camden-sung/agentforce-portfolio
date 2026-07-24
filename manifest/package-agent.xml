@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Meridian Building Solutions — AGENTFORCE manifest
+  Meridian_Customer_Portal_Assistant, its 6 subagents, its actions,
+  and the Meridian_Answer_From_Knowledge prompt template.
+
+  Retrieve with:
+    sf project retrieve start -x manifest/package-agent.xml
+
+  WILDCARDS ARE DELIBERATE HERE.
+  Agent developer names rarely match the labels shown in the builder —
+  "Account_Service_Info" in the UI can be anything underneath. Wildcards
+  avoid a guessing game that would fail the whole retrieve.
+
+  This is the resume-relevant metadata. Everything else in the repo is
+  supporting cast; this is the part that says "I built an agent."
+-->
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <!-- The agent itself -->
+    <types>
+        <members>*</members>
+        <name>Bot</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>BotVersion</name>
+    </types>
+
+    <!-- Orchestrator: connects subagents to actions -->
+    <types>
+        <members>*</members>
+        <name>GenAiPlannerBundle</name>
+    </types>
+
+    <!-- Subagents / topics: agent_router, GeneralFAQ, Account_Service_Info,
+         Service_Requests, escalation, off_topic -->
+    <types>
+        <members>*</members>
+        <name>GenAiPlugin</name>
+    </types>
+
+    <!-- Actions (the 5 flows surfaced as agent actions, with schema.json) -->
+    <types>
+        <members>*</members>
+        <name>GenAiFunction</name>
+    </types>
+
+    <!-- Meridian_Answer_From_Knowledge -->
+    <types>
+        <members>*</members>
+        <name>GenAiPromptTemplate</name>
+    </types>
+
+    <!-- NEW BUILDER / AGENT SCRIPT (API v65+).
+         The schema doc says the agent was built largely by editing Agent
+         Script directly, so this is likely where the real definition lives —
+         a .agent file rather than the older Bot XML.
+
+         If this type errors as unknown, your sourceApiVersion is below 65.
+         Fix sfdx-project.json rather than deleting this block. -->
+    <types>
+        <members>*</members>
+        <name>AiAuthoringBundle</name>
+    </types>
+
+    <version>67.0</version>
+</Package>

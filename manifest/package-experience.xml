@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Meridian Building Solutions — EXPERIENCE CLOUD + MESSAGING manifest
+  The deployment chain from the schema doc:
+
+    Omni-Channel → Queue → Routing Config → Omni-Channel Flow
+      → Messaging Channel → Embedded Service Deployment
+      → Embedded Messaging component → Publish
+
+  Retrieve with:
+    sf project retrieve start -x manifest/package-experience.xml
+
+  Run this one LAST. Experience Cloud metadata is the flakiest of the three.
+  ExperienceBundle in particular can be large and slow, and sometimes fails
+  on sites that have unpublished changes — publish the site first.
+
+  The Omni-Channel Flow (Route_To_Meridian_Assistant) is in the CORE
+  manifest with the other flows, not here.
+-->
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <!-- ============ EXPERIENCE CLOUD SITE ============ -->
+    <!-- Site: Customer Service template, URL path "customers" -->
+    <types>
+        <members>*</members>
+        <name>Network</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>ExperienceBundle</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>CustomSite</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>NavigationMenu</name>
+    </types>
+
+    <!-- ============ BRANDING + ASSETS ============ -->
+    <!-- Added after cross-checking the build conversations against v3.
+         The portal polish session (theme colors, logo, rebuilt home page)
+         happened AFTER v3 was frozen and is undocumented elsewhere.
+
+         The hero / tiles / article-list HTML lives inside ExperienceBundle
+         above — but ONLY if the site is published. Publish before retrieving
+         or you get the last-published version, not your current design. -->
+
+    <!-- Experience Builder theme: Meridian palette + uploaded logo -->
+    <types>
+        <members>*</members>
+        <name>NetworkBranding</name>
+    </types>
+
+    <!-- Asset files. The Meridian logo, if uploaded through Experience
+         Builder, lands here rather than as a StaticResource. -->
+    <types>
+        <members>*</members>
+        <name>ContentAsset</name>
+    </types>
+
+    <!-- Audience targeting rules on Experience Builder pages/components -->
+    <types>
+        <members>*</members>
+        <name>Audience</name>
+    </types>
+
+    <!-- ============ MESSAGING ============ -->
+    <!-- "Meridian Portal Channel" (Messaging for In-App and Web) -->
+    <types>
+        <members>*</members>
+        <name>MessagingChannel</name>
+    </types>
+
+    <!-- Embedded Service Deployment + the widget config on the site -->
+    <types>
+        <members>*</members>
+        <name>EmbeddedServiceConfig</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>EmbeddedServiceMenuSettings</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>EmbeddedServiceBranding</name>
+    </types>
+
+    <!-- ============ OMNI-CHANNEL ============ -->
+    <!-- Queue "Meridian Support Fallback" (object = Messaging Session) -->
+    <types>
+        <members>*</members>
+        <name>Queue</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>QueueRoutingConfig</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>ServiceChannel</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>ServicePresenceStatus</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>PresenceUserConfig</name>
+    </types>
+
+    <version>67.0</version>
+</Package>
