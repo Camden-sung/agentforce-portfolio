@@ -8,8 +8,8 @@
 
 ```mermaid
 flowchart TB
-    User["Portal User (Contact)<br/>e.g. Joshua Martinez"] --> EM["Embedded Messaging<br/>(Experience Cloud site)"]
-    EM --> Router["agent_router<br/>(classifies on subagent descriptions)"]
+    User(["Portal User (Contact)<br/>e.g. Joshua Martinez"]) --> EM(["Embedded Messaging<br/>(Experience Cloud site)"])
+    EM --> Router{{"agent_router<br/>(classifies on subagent descriptions)"}}
 
     Router --> FAQ["GeneralFAQ"]
     Router --> Info["Account_Service_Info"]
@@ -23,15 +23,15 @@ flowchart TB
     Info --> A3["Get_Last_Inspection"]
     Info --> A4["Get_Equipment_Health"]
     Req --> A5["Submit_Service_Request (write)"]
-    Esc --> Human["Live agent handoff<br/>(Omni-Channel Queue + Routing Config)"]
+    Esc --> Human(["Live agent handoff<br/>(Omni-Channel Queue + Routing Config)"])
 
     subgraph CRM["Salesforce CRM — flows run system-context, no sharing"]
         direction TB
-        SC["Service_Contract__c"]
-        MV["Maintenance_Visit__c"]
-        IR["Inspection_Report__c"]
-        EA["Equipment_Asset__c"]
-        CS["Case"]
+        SC[("Service_Contract__c")]
+        MV[("Maintenance_Visit__c")]
+        IR[("Inspection_Report__c")]
+        EA[("Equipment_Asset__c")]
+        CS[("Case")]
     end
 
     A1 -->|"filtered by ContactId&nbsp;&rarr;&nbsp;AccountId"| SC
@@ -44,20 +44,39 @@ flowchart TB
         direction TB
         Retriever["Meridian_KB_Body_Index Retriever"]
         Index["Search Index<br/>(chunks Article_Body__c only)"]
-        KDMO["ssot__KnowledgeArticleVersion__dlm"]
-        Tele["Equipment_Telemetry_Aggregates__cio"]
-        Fault["Equipment_Fault_Aggregates__cio"]
-        Health["Equipment_Health_Score__cio"]
+        KDMO[("ssot__KnowledgeArticleVersion__dlm")]
+        Tele[("Equipment_Telemetry_Aggregates__cio")]
+        Fault[("Equipment_Fault_Aggregates__cio")]
+        Health[("Equipment_Health_Score__cio")]
         Sync["Sync_Health_Score_To_CRM<br/>(Data Cloud-triggered flow)"]
     end
 
     Prompt --> Retriever --> Index --> KDMO
-    KAV["Knowledge__kav<br/>(10 published articles)"] --> KDMO
+    KAV[("Knowledge__kav<br/>(10 published articles)")] --> KDMO
 
     Tele --> Health
     Fault --> Health
     Health --> Sync --> EA
+
+    classDef touchpoint fill:#d4a548,stroke:#8a6423,stroke-width:2px,color:#1b3a5c,font-weight:bold
+    classDef router fill:#1b3a5c,stroke:#0f2847,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef subagent fill:#2d5f8a,stroke:#1b3a5c,stroke-width:1.5px,color:#ffffff
+    classDef action fill:#3d76a8,stroke:#1b3a5c,stroke-width:1.5px,color:#ffffff
+    classDef datastore fill:#eef3f8,stroke:#1b3a5c,stroke-width:1.5px,color:#1b3a5c
+
+    class User,EM,Human touchpoint
+    class Router router
+    class FAQ,Info,Req,Esc,Off subagent
+    class Prompt,A1,A2,A3,A4,A5,Retriever,Index,Sync action
+    class SC,MV,IR,EA,CS,KDMO,Tele,Fault,Health,KAV datastore
+
+    style CRM fill:#f5f8fb,stroke:#1b3a5c,stroke-width:1.5px
+    style DataCloud fill:#fbf7ec,stroke:#8a6423,stroke-width:1.5px
+
+    linkStyle 14,15,16,17,18 stroke:#d4a548,stroke-width:2.5px
 ```
+
+_Gold edges trace the identity/security boundary — the `ContactId → AccountId` filter is the only thing standing between a portal user and another customer's data (see below). Cylinders are data at rest; the hexagon is the routing decision point; rectangles are process/action steps._
 
 The Knowledge grounding path (bottom-left of the Data Cloud box) and the Equipment Health Score write-back path (bottom-right) are independent Data Cloud pipelines that both land back in the CRM objects the agent's action flows read — Knowledge indirectly through the retriever, equipment health directly through the CI write-back flow. Data Cloud also holds a separate three-stage `Account_Risk_Score__cio` pipeline (`Account_Portal_Aggregates__cio` + `Account_Case_Aggregates__cio` → `Account_Risk_Score__cio`); it's built and verified but not yet consumed by any agent — it's the primary input for the not-yet-started Project 2 (Renewal Prep Agent) and is omitted above since nothing in this repo reads it yet.
 
