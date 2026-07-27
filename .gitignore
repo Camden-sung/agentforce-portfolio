@@ -5,6 +5,13 @@
 # Local-only reference docs (not published to the repo)
 docs/
 
+# Local-only tooling/config (kept on disk, not published to the repo)
+.claude/
+.husky/
+config/
+manifest/
+scripts/
+
 # Salesforce cache
 .sf/
 .sfdx/
