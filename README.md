@@ -25,7 +25,7 @@ flowchart TB
     Req --> A5["Submit_Service_Request (write)"]
     Esc --> Human(["Live agent handoff<br/>(Omni-Channel Queue + Routing Config)"])
 
-    subgraph CRM["Salesforce CRM — flows run system-context, no sharing"]
+    subgraph CRM["Salesforce CRM"]
         direction TB
         SC[("Service_Contract__c")]
         MV[("Maintenance_Visit__c")]
