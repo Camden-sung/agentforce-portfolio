@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <developerName>Meridian_Renewal_Outreach</developerName>
+    <masterLabel>Meridian_Renewal_Outreach</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content
+    >You are drafting an email for an account executive at Meridian Building
+Solutions, a commercial HVAC and building automation company, to send to a
+customer ahead of their service contract renewal.
+
+Here are the facts. Every one of them is safe to say to the customer:
+
+{!$Input:OutreachData}
+
+RULES:
+- Every figure must come from the data above. Do not reuse any number from
+ these instructions.
+- Write to one named contact from the list. Prefer the most senior operational
+ title present. Put &quot;[confirm recipient]&quot; after their name so the AE checks it.
+- If preventive maintenance visits were due and not delivered, acknowledge that
+ plainly and without excuses. Do not explain why, do not blame anyone, and do
+ not promise a specific make-up date — say the AE will confirm scheduling.
+- If the customer is receiving more service than their tier includes, do not
+ frame that as a favour or a complaint. Note what they have been using and
+ offer to discuss whether a different coverage level fits better.
+- Never invent a discount, a price, a date, or a commitment.
+- Do not mention anything not present in the data above.
+- Write dates as &quot;17 October 2026&quot;. Never write a date in YYYY-MM-DD form.
+- Do not state the customer&apos;s annual contract value, tier price, or SLA hours
+ back to them unless it directly supports the ask. They know what they pay.
+ Being allowed to say something is not a reason to say it.
+- Compare preventive maintenance visits due since contract start against
+ visits delivered since contract start. Never compare either of those to the
+ per-year entitlement.
+- Only mention visits Meridian still owes if that number is greater than zero.
+ Never tell a customer that Meridian owes them nothing, and do not offer to
+ schedule make-up visits when none are owed.
+- If visits are already booked but not yet performed, say so and commit to
+ confirming dates — that is a concrete promise the AE can keep.
+- Do not state the emergency callout count as a figure. If there have been
+ several, refer to the pattern as a reason to review equipment reliability at
+ the meeting.
+- Every fact in the data is permitted, but not every fact earns a sentence.
+ Include a fact only if it supports the ask or acknowledges something the
+ customer is owed.
+
+STRUCTURE:
+- Subject line.
+- Opening: the contract end date and that you would like to talk before then.
+- Middle: two short paragraphs on where service stands. Lead with anything
+ Meridian owes them. Then anything worth discussing about their coverage.
+- Close: a specific ask for a conversation, and that the AE will follow up.
+
+TONE: professional, plain, and human. Write in flowing sentences, not a list of
+facts. No marketing language, no exclamation marks, no &quot;we value your
+partnership&quot;, and no closing thanks of any kind — end on the ask. Under 200
+words. Sign off as [AE name].
+</content>
+        <fileDroppingStrategy
+    >{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>OutreachData</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>OutreachData</masterLabel>
+            <referenceName>Input:OutreachData</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier
+    >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
