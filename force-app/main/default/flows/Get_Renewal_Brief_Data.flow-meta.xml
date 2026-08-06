@@ -17,6 +17,135 @@
         </assignmentItems>
     </assignments>
     <assignments>
+        <name>Append_Contact</name>
+        <label>Append_Contact</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_ContactList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>frm_ContactLine</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Contacts</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Count_Case_High</name>
+        <label>Count_Case_High</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_CaseHigh</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_CaseTotal</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_CaseList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>frm_CaseLine</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Cases</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Count_Case_Low</name>
+        <label>Count_Case_Low</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_CaseLow</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_CaseTotal</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_CaseList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>frm_CaseLine</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Cases</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Count_Case_Med</name>
+        <label>Count_Case_Med</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_CaseMed</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_CaseTotal</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_CaseList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>frm_CaseLine</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Cases</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Count_Case_Other</name>
+        <label>Count_Case_Other</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_CaseTotal</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_CaseList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>frm_CaseLine</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Cases</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Count_Emergency</name>
         <label>Count_Emergency</label>
         <locationX>0</locationX>
@@ -183,6 +312,22 @@
                 <elementReference>Loop_Book.Account__r.Name</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_MatchedErpId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference
+        >Loop_Book.Account__r.External_ERP_Customer_Id__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_MatchedErpId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference
+        >Loop_Book.Account__r.External_ERP_Customer_Id__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Loop_Book</targetReference>
         </connector>
@@ -199,7 +344,69 @@
                 <elementReference>txt_ServiceSection</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_OutreachData</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>txt_OutreachData</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
+    <decisions>
+        <name>Case_Priority</name>
+        <label>Case_Priority</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Count_Case_Other</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Other Priority</defaultConnectorLabel>
+        <rules>
+            <name>High</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Cases.Priority</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>High</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Count_Case_High</targetReference>
+            </connector>
+            <label>High</label>
+        </rules>
+        <rules>
+            <name>Medium</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Cases.Priority</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Medium</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Count_Case_Med</targetReference>
+            </connector>
+            <label>Medium</label>
+        </rules>
+        <rules>
+            <name>Low</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Cases.Priority</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Low</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Count_Case_Low</targetReference>
+            </connector>
+            <label>Low</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>Classify_Visit</name>
         <label>Classify_Visit</label>
@@ -382,11 +589,81 @@
     </decisions>
     <environments>Default</environments>
     <formulas>
+        <name>frm_ARAged</name>
+        <dataType>Number</dataType>
+        <expression>IF( ISBLANK({!Get_AR_Aging.erp_customer_id__c}), 0,
+    {!Get_AR_Aging.days_60_90__c} + {!Get_AR_Aging.days_90_120__c} + {!Get_AR_Aging.days_120_plus__c} )</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>frm_ARAgeDays</name>
+        <dataType>String</dataType>
+        <expression
+    >IF( ISBLANK({!Get_AR_Aging.snapshot_date__c}), &quot;unknown&quot;,
+    TEXT({!$Flow.CurrentDate} - {!Get_AR_Aging.snapshot_date__c}) )</expression>
+    </formulas>
+    <formulas>
+        <name>frm_ARAsOf</name>
+        <dataType>String</dataType>
+        <expression
+    >IF( ISBLANK({!Get_AR_Aging.snapshot_date__c}), &quot;unknown&quot;,
+    TEXT({!Get_AR_Aging.snapshot_date__c}) )</expression>
+    </formulas>
+    <formulas>
+        <name>frm_ARDetail</name>
+        <dataType>String</dataType>
+        <expression
+    >IF( ISBLANK({!Get_AR_Aging.erp_customer_id__c}), &quot;-&quot;,
+    &quot;total $&quot; &amp; TEXT(ROUND({!Get_AR_Aging.total_outstanding__c}, 0)) &amp;
+    &quot; | aged 60+ $&quot; &amp; TEXT(ROUND({!frm_ARAged}, 0)) &amp;
+    &quot; | 120+ $&quot; &amp; TEXT(ROUND({!Get_AR_Aging.days_120_plus__c}, 0)) )</expression>
+    </formulas>
+    <formulas>
+        <name>frm_ARStatus</name>
+        <dataType>String</dataType>
+        <expression
+    >IF( ISBLANK({!Get_AR_Aging.erp_customer_id__c}), &quot;no AR record on file&quot;,
+IF( {!Get_AR_Aging.credit_status__c} = &quot;On Hold&quot;, &quot;CREDIT HOLD&quot;,
+IF( {!frm_ARAged} &gt; 0, &quot;aged balances present&quot;, &quot;current&quot; )))</expression>
+    </formulas>
+    <formulas>
         <name>frm_AvgSat</name>
         <dataType>String</dataType>
         <expression
     >IF( {!var_SatCount} = 0, &quot;no rated visits on record&quot;,
     TEXT( ROUND({!var_SatSum} / {!var_SatCount}, 1) ) &amp; &quot; / 5 (&quot; &amp; TEXT({!var_SatCount}) &amp; &quot; rated)&quot; )</expression>
+    </formulas>
+    <formulas>
+        <name>frm_CaseLine</name>
+        <dataType>String</dataType>
+        <expression
+    >&quot;  - [&quot; &amp; TEXT({!Loop_Cases.Priority}) &amp; &quot;/&quot; &amp; TEXT({!Loop_Cases.Status}) &amp; &quot;] &quot; &amp; {!Loop_Cases.Subject} &amp; &quot; (&quot; &amp; TEXT({!Loop_Cases.Type}) &amp; &quot;)&quot; &amp; BR()</expression>
+    </formulas>
+    <formulas>
+        <name>frm_CaseSummary</name>
+        <dataType>String</dataType>
+        <expression>IF( {!var_CaseTotal} = 0, &quot;none open&quot;,
+    TEXT({!var_CaseTotal}) &amp; &quot; open (&quot; &amp; TEXT({!var_CaseHigh}) &amp; &quot; high, &quot; &amp;
+    TEXT({!var_CaseMed}) &amp; &quot; medium, &quot; &amp; TEXT({!var_CaseLow}) &amp; &quot; low)&quot; )</expression>
+    </formulas>
+    <formulas>
+        <name>frm_ContactLine</name>
+        <dataType>String</dataType>
+        <expression
+    >&quot;  - &quot; &amp; {!Loop_Contacts.FirstName} &amp; &quot; &quot; &amp; {!Loop_Contacts.LastName} &amp;
+&quot;, &quot; &amp; {!Loop_Contacts.Title} &amp; BR()</expression>
+    </formulas>
+    <formulas>
+        <name>frm_ContactSummary</name>
+        <dataType>String</dataType>
+        <expression
+    >IF( LEN({!var_ContactList}) = 0, &quot;no contacts on record for this account&quot;,
+    {!var_ContactList} )</expression>
+    </formulas>
+    <formulas>
+        <name>frm_EndDate</name>
+        <dataType>String</dataType>
+        <expression>TEXT({!var_MatchedContract.End_Date__c})</expression>
     </formulas>
     <formulas>
         <name>frm_IsMatch</name>
@@ -401,6 +678,15 @@
     >{!Loop_Book.Account__r.Name} &amp; &quot; (&quot; &amp; {!Loop_Book.Name} &amp; &quot;); &quot;</expression>
     </formulas>
     <formulas>
+        <name>frm_NoticeStatus</name>
+        <dataType>String</dataType>
+        <expression
+    >IF( ISBLANK({!var_MatchedContract.Renewal_Notice_Date__c}), &quot;no notice date on record&quot;,
+IF( {!var_MatchedContract.Renewal_Notice_Date__c} &lt;= {!$Flow.CurrentDate},
+    &quot;OPEN since &quot; &amp; TEXT({!var_MatchedContract.Renewal_Notice_Date__c}),
+    &quot;opens &quot; &amp; TEXT({!var_MatchedContract.Renewal_Notice_Date__c}) ))</expression>
+    </formulas>
+    <formulas>
         <name>frm_PMExpected</name>
         <dataType>Number</dataType>
         <expression
@@ -409,26 +695,56 @@
         <scale>0</scale>
     </formulas>
     <formulas>
+        <name>frm_PMOutstanding</name>
+        <dataType>Number</dataType>
+        <expression
+    >MAX( 0, {!frm_PMExpected} - {!var_PMDelivered} )</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
         <name>frm_PMStatus</name>
         <dataType>String</dataType>
         <expression>IF( {!frm_PMExpected} = 0, &quot;TOO EARLY TO ASSESS&quot;,
+IF( {!var_PMDelivered} &gt;= ({!frm_PMExpected} * 2), &quot;OVER-DELIVERING&quot;,
 IF( {!var_PMDelivered} &gt;= {!frm_PMExpected}, &quot;ON TRACK&quot;,
 IF( {!var_PMDelivered} = 0, &quot;NONE DELIVERED&quot;,
 IF( {!var_PMDelivered} &lt; ({!frm_PMExpected} / 2), &quot;SIGNIFICANTLY BEHIND&quot;,
-    &quot;BEHIND&quot; ))))</expression>
+    &quot;BEHIND&quot; )))))</expression>
     </formulas>
     <formulas>
-        <name>frm_ResolvedStub</name>
+        <name>frm_RiskAgeDays</name>
         <dataType>String</dataType>
         <expression
-    >&quot;RESOLVED: &quot; &amp; {!var_MatchedContract.Name} &amp;
-&quot; | ACCOUNT (captured in loop): &quot; &amp; {!var_MatchedAccountName} &amp;
-&quot; | ACCOUNT (span from record var): &quot; &amp; {!var_MatchedContract.Account__r.Name} &amp;
-&quot; | AccountId: &quot; &amp; {!var_MatchedContract.Account__c} &amp;
-&quot; | ContractId: &quot; &amp; {!var_MatchedContract.Id} &amp;
-&quot; | Tier: &quot; &amp; TEXT({!var_MatchedContract.Coverage_Level__c}) &amp;
-&quot; | PM/yr: &quot; &amp; TEXT({!var_MatchedContract.Number_of_PM_Visits_Per_Year__c}) &amp;
-&quot; | Start: &quot; &amp; TEXT({!var_MatchedContract.Start_Date__c})</expression>
+    >IF( ISBLANK({!var_MatchedContract.Account__r.Risk_Score_Last_Synced__c}), &quot;unknown&quot;,
+    TEXT({!$Flow.CurrentDate} - DATEVALUE({!var_MatchedContract.Account__r.Risk_Score_Last_Synced__c})) )</expression>
+    </formulas>
+    <formulas>
+        <name>frm_RiskComponents</name>
+        <dataType>String</dataType>
+        <expression
+    >IF( ISBLANK({!var_MatchedContract.Account__r.Account_Risk_Score__c}),
+    &quot;not available&quot;,
+IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
+    &quot;all risk components are zero&quot;,
+    &quot;portal &quot; &amp; TEXT({!var_MatchedContract.Account__r.Risk_Portal_Points__c}) &amp;
+    &quot; | cases &quot; &amp; TEXT({!var_MatchedContract.Account__r.Risk_Case_Points__c}) &amp;
+    &quot; | AR &quot; &amp; TEXT({!var_MatchedContract.Account__r.Risk_AR_Points__c}) ))</expression>
+    </formulas>
+    <formulas>
+        <name>frm_RiskLine</name>
+        <dataType>String</dataType>
+        <expression
+    >IF( ISBLANK({!var_MatchedContract.Account__r.Account_Risk_Score__c}),
+    &quot;not available&quot;,
+    TEXT({!var_MatchedContract.Account__r.Account_Risk_Score__c}) &amp; &quot;/100&quot; )</expression>
+    </formulas>
+    <formulas>
+        <name>frm_RiskSynced</name>
+        <dataType>String</dataType>
+        <expression
+    >IF( ISBLANK({!var_MatchedContract.Account__r.Risk_Score_Last_Synced__c}),
+    &quot;never synced&quot;,
+    TEXT(DATEVALUE({!var_MatchedContract.Account__r.Risk_Score_Last_Synced__c})) )</expression>
     </formulas>
     <formulas>
         <name>frm_SatCounted</name>
@@ -450,6 +766,14 @@ IF( {!var_PMDelivered} &lt; ({!frm_PMExpected} / 2), &quot;SIGNIFICANTLY BEHIND&
         <dataType>String</dataType>
         <expression>TEXT({!var_MatchedContract.Start_Date__c})</expression>
     </formulas>
+    <formulas>
+        <name>frm_StatedVsComputed</name>
+        <dataType>String</dataType>
+        <expression
+    >&quot;AE&apos;s stored likelihood of RENEWING: &quot; &amp; TEXT({!var_MatchedContract.Renewal_Probability__c}) &amp;
+&quot; (higher = more likely to renew). Computed RISK: &quot; &amp; {!frm_RiskLine} &amp;
+&quot; (higher = more risk). These scales run in OPPOSITE directions.&quot;</expression>
+    </formulas>
     <interviewLabel
   >Get Renewal Brief Data {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Get Renewal Brief Data</label>
@@ -468,6 +792,34 @@ IF( {!var_PMDelivered} &lt; ({!frm_PMExpected} / 2), &quot;SIGNIFICANTLY BEHIND&
         </noMoreValuesConnector>
     </loops>
     <loops>
+        <name>Loop_Cases</name>
+        <label>Loop_Cases</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Open_Cases</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Case_Priority</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_AR_Aging</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_Contacts</name>
+        <label>Loop_Contacts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Account_Contacts</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Append_Contact</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Set_Brief_Output</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
         <name>Loop_Visits</name>
         <label>Loop_Visits</label>
         <locationX>0</locationX>
@@ -478,7 +830,7 @@ IF( {!var_PMDelivered} &lt; ({!frm_PMExpected} / 2), &quot;SIGNIFICANTLY BEHIND&
             <targetReference>Classify_Visit</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Set_Brief_Output</targetReference>
+            <targetReference>Get_Open_Cases</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -500,6 +852,53 @@ IF( {!var_PMDelivered} &lt; ({!frm_PMExpected} / 2), &quot;SIGNIFICANTLY BEHIND&
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Account_Contacts</name>
+        <label>Get_Account_Contacts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Contacts</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference
+        >var_MatchedContract.Account__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Contact</object>
+        <sortField>LastName</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_AR_Aging</name>
+        <label>Get_AR_Aging</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Account_Contacts</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>erp_customer_id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>var_MatchedErpId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ERP_AR_Aging_DMO__dlm</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>Get_Contract_Visits</name>
         <label>Get_Contract_Visits</label>
@@ -551,6 +950,38 @@ IF( {!var_PMDelivered} &lt; ({!frm_PMExpected} / 2), &quot;SIGNIFICANTLY BEHIND&
         <object>Service_Contract__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_Open_Cases</name>
+        <label>Get_Open_Cases</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Cases</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference
+        >var_MatchedContract.Account__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Case</object>
+        <sortField>Priority</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
         <locationX>0</locationX>
         <locationY>0</locationY>
@@ -560,12 +991,49 @@ IF( {!var_PMDelivered} &lt; ({!frm_PMExpected} / 2), &quot;SIGNIFICANTLY BEHIND&
     </start>
     <status>Draft</status>
     <textTemplates>
+        <name>txt_OutreachData</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text
+    >CUSTOMER-SAFE FACTS ONLY. Everything below may be said to the customer.
+
+ACCOUNT: {!var_MatchedAccountName}
+CONTACTS ON RECORD:
+{!frm_ContactSummary}
+COVERAGE TIER: {!var_MatchedContract.Coverage_Level__c}
+CONTRACT TYPE: {!var_MatchedContract.Contract_Type__c}
+ANNUAL CONTRACT VALUE: {!var_MatchedContract.Annual_Contract_Value__c}
+PM VISITS PER YEAR INCLUDED IN TIER: {!var_MatchedContract.Number_of_PM_Visits_Per_Year__c}
+EMERGENCY RESPONSE SLA HOURS: {!var_MatchedContract.Response_SLA_Hours__c}
+CONTRACT END: {!frm_EndDate}
+DAYS UNTIL EXPIRATION: {!var_MatchedContract.Days_Until_Expiration__c}
+AUTO RENEWAL: {!var_MatchedContract.AutoRenewal__c}
+PM VISITS DUE SINCE CONTRACT START: {!frm_PMExpected}
+PM VISITS DELIVERED SINCE CONTRACT START: {!var_PMDelivered}
+PM VISITS MERIDIAN STILL OWES: {!frm_PMOutstanding}
+PM DELIVERY STATUS: {!frm_PMStatus}
+VISITS ALREADY BOOKED BUT NOT YET PERFORMED: {!var_VisitsOverdue}
+EMERGENCY CALLOUTS: {!var_EmergencyCount}
+THEIR OPEN CASES: {!frm_CaseSummary}
+{!var_CaseList}
+WITHHELD BY DESIGN - not present above and must never be referenced: contract margin,
+internal risk score, accounts receivable or credit status, and the account executive&apos;s
+stored renewal probability.
+===</text>
+    </textTemplates>
+    <textTemplates>
         <name>txt_ServiceSection</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
         <text>CONTRACT: {!var_MatchedContract.Name}
 ACCOUNT: {!var_MatchedAccountName}
-TIER: {!var_MatchedContract.Coverage_Level__c} | PM/YR CONTRACTED: {!var_MatchedContract.Number_of_PM_Visits_Per_Year__c}
+TIER: {!var_MatchedContract.Coverage_Level__c} | CONTRACT TYPE: {!var_MatchedContract.Contract_Type__c}
+ANNUAL CONTRACT VALUE: {!var_MatchedContract.Annual_Contract_Value__c}
+CONTRACT MARGIN PCT: {!var_MatchedContract.Contract_Margin__c}
+PM/YR CONTRACTED: {!var_MatchedContract.Number_of_PM_Visits_Per_Year__c} | RESPONSE SLA HOURS: {!var_MatchedContract.Response_SLA_Hours__c}
 CONTRACT START: {!frm_StartDate}
+CONTRACT END: {!frm_EndDate}
+DAYS UNTIL EXPIRATION: {!var_MatchedContract.Days_Until_Expiration__c}
+RENEWAL NOTICE WINDOW: {!frm_NoticeStatus}
+AUTO RENEWAL: {!var_MatchedContract.AutoRenewal__c}
 PM_EXPECTED_TO_DATE: {!frm_PMExpected}
 PM_DELIVERED_IN_TERM: {!var_PMDelivered}
 PM_STATUS: {!frm_PMStatus}
@@ -573,6 +1041,16 @@ VISITS_OVERDUE: {!var_VisitsOverdue}
 VISITS_COMPLETED_ALL_TIME: {!var_VisitsCompleted}
 EMERGENCY_VISITS: {!var_EmergencyCount}
 AVG_SATISFACTION: {!frm_AvgSat}
+OPEN_CASES: {!frm_CaseSummary}
+{!var_CaseList}
+AR_STATUS: {!frm_ARStatus}
+AR_DETAIL: {!frm_ARDetail}
+AR_AS_OF: {!frm_ARAsOf} (this snapshot is {!frm_ARAgeDays} days old)
+RISK_SCORE: {!frm_RiskLine}
+RISK_COMPONENTS: {!frm_RiskComponents}
+RISK_AS_OF: {!frm_RiskSynced} (computed {!frm_RiskAgeDays} days ago)
+RENEWAL_PROBABILITY_VS_RISK: {!frm_StatedVsComputed}
+NOTE: risk score covers portal engagement, open cases, and AR only. It does NOT include service delivery - see PM_STATUS above.
 ===</text>
     </textTemplates>
     <variables>
@@ -580,6 +1058,64 @@ AVG_SATISFACTION: {!frm_AvgSat}
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_CaseHigh</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>var_CaseList</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_CaseLow</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>var_CaseMed</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>var_CaseTotal</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>var_ContactList</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
     <variables>
@@ -620,6 +1156,13 @@ AVG_SATISFACTION: {!frm_AvgSat}
         <objectType>Service_Contract__c</objectType>
     </variables>
     <variables>
+        <name>var_MatchedErpId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>var_MatchNames</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -628,6 +1171,13 @@ AVG_SATISFACTION: {!frm_AvgSat}
     </variables>
     <variables>
         <name>var_Output</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>var_OutreachData</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
