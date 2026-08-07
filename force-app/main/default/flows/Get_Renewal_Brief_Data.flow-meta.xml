@@ -989,7 +989,7 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
             <targetReference>Get_My_Book</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <name>txt_OutreachData</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
