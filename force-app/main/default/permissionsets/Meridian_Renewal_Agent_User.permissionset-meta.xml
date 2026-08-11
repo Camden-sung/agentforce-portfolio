@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentAccesses>
+        <agentName>Meridian_Renewal_Prep_Agent</agentName>
+        <enabled>true</enabled>
+    </agentAccesses>
     <dataspaceScopes>
         <customizeActivationDefinitions>false</customizeActivationDefinitions>
         <customizeAllDefinitions>false</customizeAllDefinitions>
@@ -911,6 +915,10 @@
         <tab>standard-Account</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ExecutePromptTemplates</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>RunFlow</name>

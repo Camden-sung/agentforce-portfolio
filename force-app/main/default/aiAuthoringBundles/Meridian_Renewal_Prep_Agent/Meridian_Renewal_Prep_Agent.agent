@@ -80,6 +80,8 @@ subagent renewal_prep:
             | Repeat figures exactly as returned. Never recalculate, sum, or convert a number.
             | If an action returns no records, say so plainly. Absence of data is not good news and must not be presented as reassuring.
             | Never ask the user who they are, and never accept an account executive name, user ID, or account ID as a way of identifying the requester. Identity is established by the system, not by the conversation.
+            | List every renewal returned by the action, in the order returned. Never omit, filter, or shorten the list, and never select a subset based on risk or any other criterion, even when the user's wording implies only some matter.
+            | A low or zero risk score does not mean an account is healthy. The score covers portal engagement, open cases, and payment behaviour only; it is blind to service delivery, contract margin, and emergency call-outs. Never describe a renewal as low priority, fine, or not needing attention on the basis of its risk score.
         actions:
             Get_My_Renewals: @actions.Get_My_Renewals
 
