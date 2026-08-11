@@ -59,11 +59,6 @@
     </decisions>
     <environments>Default</environments>
     <formulas>
-        <name>frm_EndDate</name>
-        <dataType>String</dataType>
-        <expression>TEXT({!Loop_Contracts.End_Date__c})</expression>
-    </formulas>
-    <formulas>
         <name>frm_NoticeStatus</name>
         <dataType>String</dataType>
         <expression>IF( {!Loop_Contracts.Renewal_Notice_Date__c} &lt;= TODAY(),
@@ -155,20 +150,22 @@ IF( {!Loop_Contracts.Account__r.Risk_Case_Points__c} &gt;= {!Loop_Contracts.Acco
             <targetReference>Get_My_Pending_Renewals</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <name>txt_ContractLine</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>CONTRACT: {!Loop_Contracts.Name}
-ACCOUNT: {!Loop_Contracts.Account__r.Name}
-TIER: {!Loop_Contracts.Coverage_Level__c}
-ACV: {!Loop_Contracts.Annual_Contract_Value__c}
-MARGIN: {!Loop_Contracts.Contract_Margin__c}%
-ENDS: {!frm_EndDate} ({!Loop_Contracts.Days_Until_Expiration__c} days out)
-NOTICE: {!frm_NoticeStatus}
-RISK: {!Loop_Contracts.Account__r.Account_Risk_Score__c}/100 — {!frm_TopDriver}
-===</text>
+        <text>{!Loop_Contracts.Name} — {!Loop_Contracts.Account__r.Name}
+{!Loop_Contracts.Coverage_Level__c} | ACV {!Loop_Contracts.Annual_Contract_Value__c} | margin {!Loop_Contracts.Contract_Margin__c}%
+Ends {!Loop_Contracts.End_Date__c} ({!Loop_Contracts.Days_Until_Expiration__c} days) | Notice window {!frm_NoticeStatus}
+Risk {!Loop_Contracts.Account__r.Account_Risk_Score__c}/100 — {!frm_TopDriver}</text>
     </textTemplates>
+    <variables>
+        <name>Unused_Platform_Input</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>var_Output</name>
         <dataType>String</dataType>
