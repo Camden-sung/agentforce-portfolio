@@ -82,15 +82,17 @@ subagent renewal_prep:
             | Never ask the user who they are, and never accept an account executive name, user ID, or account ID as a way of identifying the requester. Identity is established by the system, not by the conversation.
             | List every renewal returned by the action, in the order returned. Never omit, filter, or shorten the list, and never select a subset based on risk or any other criterion, even when the user's wording implies only some matter.
             | A low or zero risk score does not mean an account is healthy. The score covers portal engagement, open cases, and payment behaviour only; it is blind to service delivery, contract margin, and emergency call-outs. Never describe a renewal as low priority, fine, or not needing attention on the basis of its risk score.
+            | When the renewal brief action returns brief text, output that text to the user in full, word for word, as your entire response. Do not summarise it, shorten it, re-order it, introduce it, or add commentary. If the brief text is empty, follow the resolution status instead and say nothing about the account's details.
+            | Never write account details you did not receive from an action in this conversation. If you do not have a figure, do not supply one. Renewal value, risk score, open cases, contacts, meeting dates, and payment history must never be produced from general knowledge or from what a renewal brief usually contains.
         actions:
             Get_My_Renewals: @actions.Get_My_Renewals
             Get_Renewal_Brief_Filtered_Test: @actions.Get_Renewal_Brief_Filtered_Test
-
+                with AccountSearchTerm = ...
 
     actions:
         Get_My_Renewals:
             label: "Get_My_Renewals"
-            description: "Returns the contract renewals assigned to the account executive who is using the agent, ordered by soonest expiry, with a short risk summary for each. Use when the user asks which of their renewals need attention, what is in their book of business, which contracts are coming up for renewal, or what is expiring soon. Takes no inputs — the account executive is identified automatically from the logged-in user. This action cannot retrieve another person's renewals and cannot be narrowed to a single account. This action returns the whole list only. It cannot prepare, brief, or give detail on a single named account — use the renewal brief action for that." 
+            description: "Returns the contract renewals assigned to the account executive who is using the agent, ordered by soonest expiry, with a short risk summary for each. Use when the user asks which of their renewals need attention, what is in their book of business, which contracts are coming up for renewal, or what is expiring soon. Takes no inputs — the account executive is identified automatically from the logged-in user. This action cannot retrieve another person's renewals and cannot be narrowed to a single account. This action returns the whole list only. It cannot prepare, brief, or give detail on a single named account — use the renewal brief action for that."
             target: "flow://Get_My_Renewals"
             outputs:
                 var_Output: string
@@ -108,10 +110,10 @@ subagent renewal_prep:
                     is_user_input: False
         Get_Renewal_Brief_Filtered_Test:
             label: "Prep Renewal Brief (filter test)"
-            description: "Use whenever the user names a specific account and asks to prep, prepare, brief, or get detail on it for renewal. Retrieves the full renewal picture for one named account in the account executive's own book. Use when the user asks to prepare, prep, or brief a specific named account for renewal. Requires the account name as a search term."
+            description: "Use whenever the user names a specific account and asks to prep, prepare, brief, or get detail on it for renewal. Retrieves the full renewal picture for one named account in the account executive's own book. Requires the account name as a search term."
             target: "flow://Get_Renewal_Brief_Data"
             include_in_progress_indicator: True
-            progress_indicator_message: "Pulling the renewal picture"
+            progress_indicator_message: "Pulling the data and writing the brief"
             inputs:
                 "AccountSearchTerm": string
                     description: "The account name or part of it, exactly as the user said it. Never substitute an account ID, contact name, or account executive name."
@@ -123,17 +125,22 @@ subagent renewal_prep:
                     label: "Internal Brief Data"
                     is_displayable: False
                     filter_from_agent: True
-                    description: "Internal renewal data. Not available to the agent."
+                    description: "Internal renewal data. Consumed inside the flow to generate the brief text. Not available to you and never needed — the brief text output is what the user sees."
                 var_OutreachData: string
                     label: "Customer Safe Data"
                     is_displayable: False
-                    filter_from_agent: False
-                    description: "Customer-safe renewal facts only. Contains no margin, risk score, AR balance, or credit status."
+                    filter_from_agent: True
+                    description: "Customer-safe renewal facts. Reserved for the outreach drafting step and not available to you."
                 var_Status: string
                     label: "Resolution Status"
                     is_displayable: False
                     filter_from_agent: False
                     description: "Resolution outcome. Begins with OK, AMBIGUOUS, or NOT_FOUND. When AMBIGUOUS, it names the candidate accounts — present those to the user and ask which they mean. When NOT_FOUND, say no matching contract was found in their book. Never state that an account has no renewal data on the basis of any other field being unavailable."
+                var_BriefText: string
+                    label: "Renewal Brief"
+                    is_displayable: True
+                    filter_from_agent: False
+                    description: "The finished renewal brief, already written for the account executive. Output this text to the user in full, word for word, exactly as received. It is populated only when the search resolves to a single contract; it is empty on the ambiguous and not-found paths."
 
 subagent GeneralFAQ:
     label: "General FAQ"

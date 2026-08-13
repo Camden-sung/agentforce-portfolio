@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <BotVersion xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>v2</fullName>
+    <fullName>v4</fullName>
     <articleAnswersGPTEnabled>false</articleAnswersGPTEnabled>
     <botDialogs>
         <botSteps>
@@ -8,15 +8,15 @@
                 <message
         >Hi, I&apos;m Agentforce! I use AI to search trusted sources, and more. Ask me &quot;What else can you do?&quot; to see how I can simplify your workday. How can I help?</message>
                 <messageIdentifier
-        >7603c002-4f07-4368-9243-99a71e45e3b0</messageIdentifier>
+        >6b44c384-265d-4ee4-8cbf-8add26d95bd1</messageIdentifier>
             </botMessages>
             <stepIdentifier
-      >0880b731-2f57-43e0-a56e-60762aa4c79c</stepIdentifier>
+      >8b52842c-11db-429a-9af6-10a0842b4da1</stepIdentifier>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <stepIdentifier
-      >8a2f2254-564d-47ea-a29e-40125f66a9dc</stepIdentifier>
+      >dc58b938-dc9d-4d49-bce8-3d1792b65870</stepIdentifier>
             <type>Wait</type>
         </botSteps>
         <developerName>Welcome</developerName>
@@ -29,15 +29,15 @@
             <botMessages>
                 <message>Something went wrong. Try again.</message>
                 <messageIdentifier
-        >bb920d36-e619-43af-bbfc-36879377426f</messageIdentifier>
+        >704538f1-d5cb-47ea-a321-ae6119ef26ca</messageIdentifier>
             </botMessages>
             <stepIdentifier
-      >4418a2fd-fa85-40fd-a685-1f4787cfab9c</stepIdentifier>
+      >3bbaf861-0fa7-492a-8026-6c8ffb481969</stepIdentifier>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <stepIdentifier
-      >84e26903-cb05-48ff-9433-eddf8b6dbbbd</stepIdentifier>
+      >033633c7-e38d-448b-9583-dc117c4e8e00</stepIdentifier>
             <type>Wait</type>
         </botSteps>
         <developerName>Rich_Content_Error_Handling</developerName>
@@ -53,20 +53,12 @@
     </botDialogs>
     <citationsEnabled>false</citationsEnabled>
     <conversationDefinitionPlanners>
-        <genAiPlannerName>Meridian_Renewal_Prep_Agent_v2</genAiPlannerName>
+        <genAiPlannerName>Meridian_Renewal_Prep_Agent_v4</genAiPlannerName>
     </conversationDefinitionPlanners>
     <conversationSystemDialogs>
         <dialog>Rich_Content_Error_Handling</dialog>
         <type>ErrorHandling</type>
     </conversationSystemDialogs>
-    <conversationVariables>
-        <dataType>Text</dataType>
-        <description>The agent instructions</description>
-        <developerName>AgentScriptInternal_agent_instructions</developerName>
-        <includeInPrompt>false</includeInPrompt>
-        <label>Agent Instructions</label>
-        <visibility>Internal</visibility>
-    </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
         <description>The next topic to be visited</description>
@@ -77,11 +69,11 @@
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
-        <description>Salesforce Application Name</description>
-        <developerName>currentAppName</developerName>
+        <description>The agent instructions</description>
+        <developerName>AgentScriptInternal_agent_instructions</developerName>
         <includeInPrompt>false</includeInPrompt>
-        <label>Current App Name</label>
-        <visibility>External</visibility>
+        <label>Agent Instructions</label>
+        <visibility>Internal</visibility>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
@@ -105,6 +97,14 @@
         <developerName>currentRecordId</developerName>
         <includeInPrompt>false</includeInPrompt>
         <label>Current Record Id</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Salesforce Application Name</description>
+        <developerName>currentAppName</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current App Name</label>
         <visibility>External</visibility>
     </conversationVariables>
     <copilotPrimaryLanguage>en_US</copilotPrimaryLanguage>
