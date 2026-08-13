@@ -84,12 +84,13 @@ subagent renewal_prep:
             | A low or zero risk score does not mean an account is healthy. The score covers portal engagement, open cases, and payment behaviour only; it is blind to service delivery, contract margin, and emergency call-outs. Never describe a renewal as low priority, fine, or not needing attention on the basis of its risk score.
         actions:
             Get_My_Renewals: @actions.Get_My_Renewals
+            Get_Renewal_Brief_Filtered_Test: @actions.Get_Renewal_Brief_Filtered_Test
 
 
     actions:
         Get_My_Renewals:
             label: "Get_My_Renewals"
-            description: "Returns the contract renewals assigned to the account executive who is using the agent, ordered by soonest expiry, with a short risk summary for each. Use when the user asks which of their renewals need attention, what is in their book of business, which contracts are coming up for renewal, or what is expiring soon. Takes no inputs — the account executive is identified automatically from the logged-in user. This action cannot retrieve another person's renewals and cannot be narrowed to a single account."
+            description: "Returns the contract renewals assigned to the account executive who is using the agent, ordered by soonest expiry, with a short risk summary for each. Use when the user asks which of their renewals need attention, what is in their book of business, which contracts are coming up for renewal, or what is expiring soon. Takes no inputs — the account executive is identified automatically from the logged-in user. This action cannot retrieve another person's renewals and cannot be narrowed to a single account. This action returns the whole list only. It cannot prepare, brief, or give detail on a single named account — use the renewal brief action for that." 
             target: "flow://Get_My_Renewals"
             outputs:
                 var_Output: string
@@ -105,6 +106,34 @@ subagent renewal_prep:
                     label: "Unused Platform Input"
                     is_required: False
                     is_user_input: False
+        Get_Renewal_Brief_Filtered_Test:
+            label: "Prep Renewal Brief (filter test)"
+            description: "Use whenever the user names a specific account and asks to prep, prepare, brief, or get detail on it for renewal. Retrieves the full renewal picture for one named account in the account executive's own book. Use when the user asks to prepare, prep, or brief a specific named account for renewal. Requires the account name as a search term."
+            target: "flow://Get_Renewal_Brief_Data"
+            include_in_progress_indicator: True
+            progress_indicator_message: "Pulling the renewal picture"
+            inputs:
+                "AccountSearchTerm": string
+                    description: "The account name or part of it, exactly as the user said it. Never substitute an account ID, contact name, or account executive name."
+                    label: "Account Search Term"
+                    is_required: True
+                    is_user_input: True
+            outputs:
+                var_Output: string
+                    label: "Internal Brief Data"
+                    is_displayable: False
+                    filter_from_agent: True
+                    description: "Internal renewal data. Not available to the agent."
+                var_OutreachData: string
+                    label: "Customer Safe Data"
+                    is_displayable: False
+                    filter_from_agent: False
+                    description: "Customer-safe renewal facts only. Contains no margin, risk score, AR balance, or credit status."
+                var_Status: string
+                    label: "Resolution Status"
+                    is_displayable: False
+                    filter_from_agent: False
+                    description: "Resolution outcome. Begins with OK, AMBIGUOUS, or NOT_FOUND. When AMBIGUOUS, it names the candidate accounts — present those to the user and ask which they mean. When NOT_FOUND, say no matching contract was found in their book. Never state that an account has no renewal data on the basis of any other field being unavailable."
 
 subagent GeneralFAQ:
     label: "General FAQ"
