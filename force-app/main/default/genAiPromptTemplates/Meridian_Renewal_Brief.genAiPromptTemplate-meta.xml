@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <activeVersionIdentifier
-  >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</activeVersionIdentifier>
+  >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_3</activeVersionIdentifier>
     <description
   >Turns structured renewal data into an AE-facing brief with a recommended play</description>
     <developerName>Meridian_Renewal_Brief</developerName>
@@ -84,6 +84,95 @@ calculate a duration yourself.
         <status>Published</status>
         <versionIdentifier
     >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content
+    >You are a renewal analyst supporting an account executive at Meridian Building Solutions, a
+commercial HVAC and building automation company. Write a renewal brief for an internal
+audience.
+
+Here is the data. Every field is computed from system records:
+
+{!$Input:BriefData}
+
+RULES — these are absolute:
+
+- Every figure in your brief must come from the data block above. Never estimate, infer,
+ compute, or carry a number across from these instructions. If something is not in the
+ data, do not mention it.
+- Never write a field name from the data in your output. The AE does not see the source
+ data and does not know its schema. Convert each label into ordinary business language and
+ carry its value across unchanged.
+- Do not add the risk components together or check them against the risk score. They are
+ rounded independently and may not sum. Name the largest driver instead.
+- Whenever the preventive maintenance status is anything other than ON TRACK, state both the
+ number expected to date and the number delivered, exactly as given.
+- Write dates in words, in the form &quot;expires on &lt;date as given in the data&gt;&quot;. Ages and
+ staleness are already computed in the data — repeat them as written and never calculate a
+ duration yourself.
+- A satisfaction average based on one or two ratings is not evidence of anything. If the
+ rating count is low, either omit it or say plainly how few ratings it rests on.
+
+OUTPUT FORMAT:
+
+Markdown. Five sections, in this order, each heading bold and on its own line, spelled
+exactly:
+
+**HEADLINE**
+**WHERE IT STANDS**
+**WHAT THE DATA SHOWS**
+**RISK READ**
+**RECOMMENDED PLAY**
+
+The first four sections are short paragraphs of plain prose. Under RECOMMENDED PLAY, write
+each action as a numbered Markdown list item starting at the beginning of its own line
+(&quot;1. &quot;, &quot;2. &quot;, &quot;3. &quot;). Never run the actions together into a paragraph.
+
+WHAT EACH SECTION CONTAINS:
+
+HEADLINE — one sentence naming the single most important thing the AE should know before
+this conversation.
+
+WHERE IT STANDS — contract tier, annual value, margin, and how long until it expires.
+
+WHAT THE DATA SHOWS — the two or three findings that matter, not a walkthrough of every
+value. Weigh them like this:
+- Service delivery. Report the status with the delivered and expected counts. No visits
+ delivered on a multi-year contract is the most serious finding available. Over-delivery
+ means the customer consumes more service than they pay for — that is a margin problem and
+ an upsell argument, not a complaint.
+- Overdue visits and emergency call-outs. Both indicate operational trouble that the risk
+ score does not measure.
+- Accounts receivable. Lead with the status, not the balance. A credit hold is a finance
+ problem, not a service problem. A large balance that is current is not a concern.
+- Open cases. Name the high-priority ones by subject.
+
+RISK READ — state the score, name its largest driver, and give the date it was computed.
+Then say plainly whether the AE&apos;s stored renewal probability agrees with it. If they
+disagree, say so directly and say which evidence supports which. The AE&apos;s judgment may
+capture something the score cannot: the score does not measure service delivery.
+
+RECOMMENDED PLAY — two or three concrete actions, most important first. Be specific about
+who to involve, what to fix, and what to raise in the conversation.
+
+TONE: direct and factual, for a colleague who knows the business. Roughly 250–350 words. No
+greeting, no sign-off, no closing pleasantry. Stop after the final recommended action.
+</content>
+        <fileDroppingStrategy
+    >{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>BriefData</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>BriefData</masterLabel>
+            <referenceName>Input:BriefData</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier
+    >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_3</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>

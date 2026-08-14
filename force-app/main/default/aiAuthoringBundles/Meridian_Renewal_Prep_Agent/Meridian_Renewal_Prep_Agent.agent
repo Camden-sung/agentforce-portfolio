@@ -83,6 +83,8 @@ subagent renewal_prep:
             | List every renewal returned by the action, in the order returned. Never omit, filter, or shorten the list, and never select a subset based on risk or any other criterion, even when the user's wording implies only some matter.
             | A low or zero risk score does not mean an account is healthy. The score covers portal engagement, open cases, and payment behaviour only; it is blind to service delivery, contract margin, and emergency call-outs. Never describe a renewal as low priority, fine, or not needing attention on the basis of its risk score.
             | When the renewal brief action returns brief text, output that text to the user in full, word for word, as your entire response. Do not summarise it, shorten it, re-order it, introduce it, or add commentary. If the brief text is empty, follow the resolution status instead and say nothing about the account's details.
+            | When the action returns outreach text, output that text to the user in full, word for word, as your entire response. Do not summarise it, rewrite it, change the wording, or add commentary. It is a draft for the account executive to review and send, so it must be reproduced exactly.
+            | An outreach draft is a customer-facing email. A renewal brief is an internal document. Never present one as the other, and never combine them in a single response. If the user has not clearly asked for an email or outreach, produce the brief.
             | Never write account details you did not receive from an action in this conversation. If you do not have a figure, do not supply one. Renewal value, risk score, open cases, contacts, meeting dates, and payment history must never be produced from general knowledge or from what a renewal brief usually contains.
         actions:
             Get_My_Renewals: @actions.Get_My_Renewals
@@ -110,7 +112,7 @@ subagent renewal_prep:
                     is_user_input: False
         Get_Renewal_Brief_Filtered_Test:
             label: "Prep Renewal Brief (filter test)"
-            description: "Use whenever the user names a specific account and asks to prep, prepare, brief, or get detail on it for renewal. Retrieves the full renewal picture for one named account in the account executive's own book. Requires the account name as a search term."
+            description: "Use whenever the user names a specific account and asks to prep, prepare, brief, or get detail on it for renewal, OR asks for customer outreach, an email, or a message to send to that customer about their renewal. Retrieves the full renewal picture for one named account in the account executive's own book and produces either an internal renewal brief or a customer-facing email draft. Requires the account name as a search term."
             target: "flow://Get_Renewal_Brief_Data"
             include_in_progress_indicator: True
             progress_indicator_message: "Pulling the data and writing the brief"
@@ -119,6 +121,11 @@ subagent renewal_prep:
                     description: "The account name or part of it, exactly as the user said it. Never substitute an account ID, contact name, or account executive name."
                     label: "Account Search Term"
                     is_required: True
+                    is_user_input: True
+                "GenerateOutreach": boolean
+                    description: "Set to true ONLY when the user asks for customer outreach, an email, or a message to send to the customer. Leave false or omit for every other request, including preparing, prepping, briefing, or reviewing an account. False produces the internal renewal brief; true produces a customer-facing email draft."
+                    label: "Generate Outreach"
+                    is_required: False
                     is_user_input: True
             outputs:
                 var_Output: string
@@ -141,6 +148,11 @@ subagent renewal_prep:
                     is_displayable: True
                     filter_from_agent: False
                     description: "The finished renewal brief, already written for the account executive. Output this text to the user in full, word for word, exactly as received. It is populated only when the search resolves to a single contract; it is empty on the ambiguous and not-found paths."
+                var_OutreachText: string
+                    label: "Outreach Draft"
+                    is_displayable: True
+                    filter_from_agent: False
+                    description: "A drafted customer-facing email for this renewal. Output this text to the user in full, word for word, exactly as received. It is populated only when an outreach draft was requested and the search resolved to a single contract; otherwise it is empty."
 
 subagent GeneralFAQ:
     label: "General FAQ"

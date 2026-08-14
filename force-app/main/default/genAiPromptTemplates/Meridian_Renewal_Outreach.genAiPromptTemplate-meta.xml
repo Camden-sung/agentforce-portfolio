@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier
+  >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</activeVersionIdentifier>
     <developerName>Meridian_Renewal_Outreach</developerName>
     <masterLabel>Meridian_Renewal_Outreach</masterLabel>
     <overridable>false</overridable>
@@ -68,7 +70,7 @@ words. Sign off as [AE name].
         </inputs>
         <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
-        <status>Draft</status>
+        <status>Published</status>
         <versionIdentifier
     >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</versionIdentifier>
     </templateVersions>
