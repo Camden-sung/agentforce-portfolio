@@ -22,6 +22,28 @@
         <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <actionCalls>
+        <name>Generate_Outreach</name>
+        <label>Generate_Outreach</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>Meridian_Renewal_Outreach</actionName>
+        <actionType>generatePromptResponse</actionType>
+        <connector>
+            <targetReference>Set_Generated_Outreach</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>Input:OutreachData</name>
+            <value>
+                <elementReference>var_OutreachData</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <nameSegment>Meridian_Renewal_Outreach</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
     <apiVersion>67.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
@@ -398,7 +420,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Generate_Brief</targetReference>
+            <targetReference>Which_Deliverable</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -412,6 +434,20 @@
             <value>
                 <elementReference
         >Generate_Brief.promptResponse</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Generated_Outreach</name>
+        <label>Set_Generated_Outreach</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_OutreachText</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference
+        >Generate_Outreach.promptResponse</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -648,6 +684,31 @@
                 <targetReference>Get_Contract_Visits</targetReference>
             </connector>
             <label>Single Match</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Which_Deliverable</name>
+        <label>Which_Deliverable</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Generate_Brief</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Brief (default)</defaultConnectorLabel>
+        <rules>
+            <name>Outreach</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GenerateOutreach</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Generate_Outreach</targetReference>
+            </connector>
+            <label>Outreach</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -1078,6 +1139,7 @@ VISITS ALREADY BOOKED BUT NOT YET PERFORMED: {!var_VisitsOverdue}
 EMERGENCY CALLOUTS: {!var_EmergencyCount}
 THEIR OPEN CASES: {!frm_CaseSummary}
 {!var_CaseList}
+SENDER (the account executive writing this email): {!$User.FirstName} {!$User.LastName}
 WITHHELD BY DESIGN - not present above and must never be referenced: contract margin,
 internal risk score, accounts receivable or credit status, and the account executive&apos;s
 stored renewal probability.
@@ -1091,7 +1153,7 @@ ACCOUNT: {!var_MatchedAccountName}
 TIER: {!var_MatchedContract.Coverage_Level__c} | CONTRACT TYPE: {!var_MatchedContract.Contract_Type__c}
 ANNUAL CONTRACT VALUE: {!var_MatchedContract.Annual_Contract_Value__c}
 CONTRACT MARGIN PCT: {!var_MatchedContract.Contract_Margin__c}
-PM/YR CONTRACTED: {!var_MatchedContract.Number_of_PM_Visits_Per_Year__c} | RESPONSE SLA HOURS: {!var_MatchedContract.Response_SLA_Hours__c}
+TIER ENTITLEMENT PM/YR: {!var_MatchedContract.Number_of_PM_Visits_Per_Year__c} | RESPONSE SLA HOURS: {!var_MatchedContract.Response_SLA_Hours__c}
 CONTRACT START: {!frm_StartDate}
 CONTRACT END: {!frm_EndDate}
 DAYS UNTIL EXPIRATION: {!var_MatchedContract.Days_Until_Expiration__c}
@@ -1122,6 +1184,16 @@ NOTE: risk score covers portal engagement, open cases, and AR only. It does NOT 
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>GenerateOutreach</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
     </variables>
     <variables>
         <name>var_BriefText</name>
@@ -1248,6 +1320,13 @@ NOTE: risk score covers portal engagement, open cases, and AR only. It does NOT 
     </variables>
     <variables>
         <name>var_OutreachData</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>var_OutreachText</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <BotVersion xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>v4</fullName>
+    <fullName>v6</fullName>
     <articleAnswersGPTEnabled>false</articleAnswersGPTEnabled>
     <botDialogs>
         <botSteps>
@@ -8,15 +8,15 @@
                 <message
         >Hi, I&apos;m Agentforce! I use AI to search trusted sources, and more. Ask me &quot;What else can you do?&quot; to see how I can simplify your workday. How can I help?</message>
                 <messageIdentifier
-        >6b44c384-265d-4ee4-8cbf-8add26d95bd1</messageIdentifier>
+        >62cc66e0-0e81-40ec-aade-8720e969d5b4</messageIdentifier>
             </botMessages>
             <stepIdentifier
-      >8b52842c-11db-429a-9af6-10a0842b4da1</stepIdentifier>
+      >bffefc5f-20df-4197-8efd-660db065a129</stepIdentifier>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <stepIdentifier
-      >dc58b938-dc9d-4d49-bce8-3d1792b65870</stepIdentifier>
+      >2534a1fd-f05c-4cda-961b-302c05aa3198</stepIdentifier>
             <type>Wait</type>
         </botSteps>
         <developerName>Welcome</developerName>
@@ -29,15 +29,15 @@
             <botMessages>
                 <message>Something went wrong. Try again.</message>
                 <messageIdentifier
-        >704538f1-d5cb-47ea-a321-ae6119ef26ca</messageIdentifier>
+        >51215fbe-6372-4437-9ce0-7bd891a6816c</messageIdentifier>
             </botMessages>
             <stepIdentifier
-      >3bbaf861-0fa7-492a-8026-6c8ffb481969</stepIdentifier>
+      >170b8d88-e5db-413f-9277-1d05780be000</stepIdentifier>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <stepIdentifier
-      >033633c7-e38d-448b-9583-dc117c4e8e00</stepIdentifier>
+      >2753ca86-b120-4fcb-8559-b35eeb212fcf</stepIdentifier>
             <type>Wait</type>
         </botSteps>
         <developerName>Rich_Content_Error_Handling</developerName>
@@ -53,28 +53,12 @@
     </botDialogs>
     <citationsEnabled>false</citationsEnabled>
     <conversationDefinitionPlanners>
-        <genAiPlannerName>Meridian_Renewal_Prep_Agent_v4</genAiPlannerName>
+        <genAiPlannerName>Meridian_Renewal_Prep_Agent_v6</genAiPlannerName>
     </conversationDefinitionPlanners>
     <conversationSystemDialogs>
         <dialog>Rich_Content_Error_Handling</dialog>
         <type>ErrorHandling</type>
     </conversationSystemDialogs>
-    <conversationVariables>
-        <dataType>Text</dataType>
-        <description>The next topic to be visited</description>
-        <developerName>AgentScriptInternal_next_topic</developerName>
-        <includeInPrompt>false</includeInPrompt>
-        <label>Next Topic</label>
-        <visibility>Internal</visibility>
-    </conversationVariables>
-    <conversationVariables>
-        <dataType>Text</dataType>
-        <description>The agent instructions</description>
-        <developerName>AgentScriptInternal_agent_instructions</developerName>
-        <includeInPrompt>false</includeInPrompt>
-        <label>Agent Instructions</label>
-        <visibility>Internal</visibility>
-    </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
         <description>The API name of the current Salesforce object</description>
@@ -98,6 +82,22 @@
         <includeInPrompt>false</includeInPrompt>
         <label>Current Record Id</label>
         <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The next topic to be visited</description>
+        <developerName>AgentScriptInternal_next_topic</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Next Topic</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The agent instructions</description>
+        <developerName>AgentScriptInternal_agent_instructions</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Agent Instructions</label>
+        <visibility>Internal</visibility>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
