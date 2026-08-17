@@ -811,6 +811,20 @@ IF( {!var_MatchedContract.Renewal_Notice_Date__c} &lt;= {!$Flow.CurrentDate},
     &quot;opens &quot; &amp; TEXT({!var_MatchedContract.Renewal_Notice_Date__c}) ))</expression>
     </formulas>
     <formulas>
+        <name>frm_OutreachOwedLine</name>
+        <dataType>String</dataType>
+        <expression>IF( {!frm_PMOutstanding} &gt; 0,
+    &quot;PREVENTIVE MAINTENANCE VISITS MERIDIAN STILL OWES THIS CUSTOMER: &quot; &amp; TEXT({!frm_PMOutstanding}),
+    &quot;&quot; )</expression>
+    </formulas>
+    <formulas>
+        <name>frm_OutreachMissedLine</name>
+        <dataType>String</dataType>
+        <expression>IF( {!var_VisitsOverdue} &gt; 0,
+    &quot;VISITS THAT WERE SCHEDULED BUT DID NOT TAKE PLACE (Meridian did not attend; these are overdue, not upcoming): &quot; &amp; TEXT({!var_VisitsOverdue}),
+    &quot;&quot; )</expression>
+    </formulas>
+    <formulas>
         <name>frm_PMExpected</name>
         <dataType>Number</dataType>
         <expression
@@ -1131,18 +1145,15 @@ EMERGENCY RESPONSE SLA HOURS: {!var_MatchedContract.Response_SLA_Hours__c}
 CONTRACT END: {!frm_EndDate}
 DAYS UNTIL EXPIRATION: {!var_MatchedContract.Days_Until_Expiration__c}
 AUTO RENEWAL: {!var_MatchedContract.AutoRenewal__c}
-PM VISITS DUE SINCE CONTRACT START: {!frm_PMExpected}
-PM VISITS DELIVERED SINCE CONTRACT START: {!var_PMDelivered}
-PM VISITS MERIDIAN STILL OWES: {!frm_PMOutstanding}
-PM DELIVERY STATUS: {!frm_PMStatus}
-VISITS ALREADY BOOKED BUT NOT YET PERFORMED: {!var_VisitsOverdue}
-EMERGENCY CALLOUTS: {!var_EmergencyCount}
+{!frm_OutreachOwedLine}
+{!frm_OutreachMissedLine}
 THEIR OPEN CASES: {!frm_CaseSummary}
 {!var_CaseList}
 SENDER (the account executive writing this email): {!$User.FirstName} {!$User.LastName}
 WITHHELD BY DESIGN - not present above and must never be referenced: contract margin,
-internal risk score, accounts receivable or credit status, and the account executive&apos;s
-stored renewal probability.
+internal risk score, accounts receivable or credit status, the account executive&apos;s
+stored renewal probability, service satisfaction ratings, emergency callout counts, and
+any comparison of visits delivered against visits contracted.
 ===</text>
     </textTemplates>
     <textTemplates>
