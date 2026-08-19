@@ -850,7 +850,7 @@ TEXT(DATEVALUE({!Loop_Calls.call_timestamp__c})) &amp; &quot;)&quot; &amp; BR()<
         <dataType>String</dataType>
         <expression
     >IF( {!var_CallTotal} = 0, &quot;no support calls on record&quot;,
-    TEXT({!var_CallTotal}) &amp; &quot; calls on record, &quot; &amp; TEXT({!var_CallNegative}) &amp;
+    TEXT({!var_CallTotal}) &amp; &quot; on record, &quot; &amp; TEXT({!var_CallNegative}) &amp;
     &quot; with negative sentiment&quot; )</expression>
     </formulas>
     <formulas>
@@ -1300,7 +1300,7 @@ ACCOUNT: {!var_MatchedAccountName}
 TIER: {!var_MatchedContract.Coverage_Level__c} | CONTRACT TYPE: {!var_MatchedContract.Contract_Type__c}
 ANNUAL CONTRACT VALUE: {!var_MatchedContract.Annual_Contract_Value__c}
 CONTRACT MARGIN PCT: {!var_MatchedContract.Contract_Margin__c}
-TIER ENTITLEMENT PM/YR: {!var_MatchedContract.Number_of_PM_Visits_Per_Year__c} | RESPONSE SLA HOURS: {!var_MatchedContract.Response_SLA_Hours__c}
+RESPONSE SLA HOURS: {!var_MatchedContract.Response_SLA_Hours__c}
 CONTRACT START: {!frm_StartDate}
 CONTRACT END: {!frm_EndDate}
 DAYS UNTIL EXPIRATION: {!var_MatchedContract.Days_Until_Expiration__c}
