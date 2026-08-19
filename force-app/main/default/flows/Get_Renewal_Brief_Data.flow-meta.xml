@@ -85,6 +85,52 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Count_Call_Negative</name>
+        <label>Count_Call_Negative</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_CallTotal</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_CallNegative</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_CallList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>frm_CallLine</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Calls</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Count_Call_Other</name>
+        <label>Count_Call_Other</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_CallTotal</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Calls</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Count_Case_High</name>
         <label>Count_Case_High</label>
         <locationX>0</locationX>
@@ -452,6 +498,40 @@
         </assignmentItems>
     </assignments>
     <decisions>
+        <name>Call_Sentiment</name>
+        <label>Call_Sentiment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Count_Call_Other</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Negative</defaultConnectorLabel>
+        <rules>
+            <name>Negative</name>
+            <conditionLogic>1 OR 2</conditionLogic>
+            <conditions>
+                <leftValueReference
+        >Loop_Calls.sentiment_label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Negative</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference
+        >Loop_Calls.sentiment_label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Very Negative</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Count_Call_Negative</targetReference>
+            </connector>
+            <label>Negative</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Case_Priority</name>
         <label>Case_Priority</label>
         <locationX>0</locationX>
@@ -758,6 +838,22 @@ IF( {!frm_ARAged} &gt; 0, &quot;aged balances present&quot;, &quot;current&quot;
     TEXT( ROUND({!var_SatSum} / {!var_SatCount}, 1) ) &amp; &quot; / 5 (&quot; &amp; TEXT({!var_SatCount}) &amp; &quot; rated)&quot; )</expression>
     </formulas>
     <formulas>
+        <name>frm_CallLine</name>
+        <dataType>String</dataType>
+        <expression
+    >&quot;  - [&quot; &amp; {!Loop_Calls.sentiment_label__c} &amp; &quot;] &quot; &amp;
+{!Loop_Calls.topic__c} &amp; &quot; (&quot; &amp; {!Loop_Calls.contact_email__c} &amp; &quot;, &quot; &amp;
+TEXT(DATEVALUE({!Loop_Calls.call_timestamp__c})) &amp; &quot;)&quot; &amp; BR()</expression>
+    </formulas>
+    <formulas>
+        <name>frm_CallSummary</name>
+        <dataType>String</dataType>
+        <expression
+    >IF( {!var_CallTotal} = 0, &quot;no support calls on record&quot;,
+    TEXT({!var_CallTotal}) &amp; &quot; calls on record, &quot; &amp; TEXT({!var_CallNegative}) &amp;
+    &quot; with negative sentiment&quot; )</expression>
+    </formulas>
+    <formulas>
         <name>frm_CaseLine</name>
         <dataType>String</dataType>
         <expression
@@ -937,6 +1033,20 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
         </noMoreValuesConnector>
     </loops>
     <loops>
+        <name>Loop_Calls</name>
+        <label>Loop_Calls</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_CSR_Calls</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Call_Sentiment</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Set_Brief_Output</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
         <name>Loop_Cases</name>
         <label>Loop_Cases</label>
         <locationX>0</locationX>
@@ -961,7 +1071,7 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
             <targetReference>Append_Contact</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Set_Brief_Output</targetReference>
+            <targetReference>Get_CSR_Calls</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
@@ -1064,6 +1174,28 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Maintenance_Visit__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_CSR_Calls</name>
+        <label>Get_CSR_Calls</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Calls</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>account_external_id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>var_MatchedErpId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>CSR_Call_Log_DMO__dlm</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -1183,6 +1315,8 @@ EMERGENCY_VISITS: {!var_EmergencyCount}
 AVG_SATISFACTION: {!frm_AvgSat}
 OPEN_CASES: {!frm_CaseSummary}
 {!var_CaseList}
+SUPPORT_CALLS: {!frm_CallSummary}
+{!var_CallList}
 AR_STATUS: {!frm_ARStatus}
 AR_DETAIL: {!frm_ARDetail}
 AR_AS_OF: {!frm_ARAsOf} (this snapshot is {!frm_ARAgeDays} days old)
@@ -1216,6 +1350,35 @@ NOTE: risk score covers portal engagement, open cases, and AR only. It does NOT 
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>var_CallList</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_CallNegative</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>var_CallTotal</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
     </variables>
     <variables>
         <name>var_CaseHigh</name>
