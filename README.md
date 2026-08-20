@@ -78,7 +78,7 @@ flowchart TB
 
 _Gold edges trace the identity/security boundary. The `ContactId → AccountId` filter is the only thing standing between a portal user and another customer's data (see below). Cylinders are data at rest; the hexagon is the routing decision point; rectangles are process/action steps._
 
-The Knowledge grounding path (bottom-left of the Data Cloud box) and the Equipment Health Score write-back path (bottom-right) are independent Data Cloud pipelines that both land back in the CRM objects the agent's action flows read: Knowledge indirectly through the retriever, equipment health directly through the CI write-back flow. Data Cloud also holds a separate three-stage `Account_Risk_Score__cio` pipeline (`Account_Portal_Aggregates__cio` + `Account_Case_Aggregates__cio` → `Account_Risk_Score__cio`). It's built and verified but not yet consumed by any agent. It's the primary input for the not-yet-started Project 2 (Renewal Prep Agent), so it's omitted above since nothing in this repo reads it yet.
+The Knowledge grounding path (bottom-left of the Data Cloud box) and the Equipment Health Score write-back path (bottom-right) are independent Data Cloud pipelines that both land back in the CRM objects the agent's action flows read: Knowledge indirectly through the retriever, equipment health directly through the CI write-back flow. Data Cloud also holds a separate three-stage `Account_Risk_Score__cio` pipeline (`Account_Portal_Aggregates__cio` + `Account_Case_Aggregates__cio` → `Account_Risk_Score__cio`), the primary input for Project 2 (Renewal Prep Agent), which is now functionally complete. That architecture is omitted from the diagram above since this README documents Project 1 only.
 
 ## Design decisions and tradeoffs
 
@@ -97,7 +97,7 @@ The flows were built with a defensive three-tier identity resolution (`ContactId
 
 ### ⭐ Staged Calculated Insights, to avoid a JOIN fan-out
 
-This org's two major Data Cloud metrics, Equipment Health Score and the not-yet-built Project 2's Account Risk Score, are both built as **three staged Calculated Insights** rather than one. For Equipment Health Score: `Equipment_Telemetry_Aggregates__cio` (999 rows, one per monitored unit) and `Equipment_Fault_Aggregates__cio` (881 rows) each pre-aggregate their own high-volume source independently, and a third CI (`Equipment_Health_Score__cio`) reads both staged outputs and combines them.
+This org's two major Data Cloud metrics, Equipment Health Score and Project 2's Account Risk Score, are both built as **three staged Calculated Insights** rather than one. For Equipment Health Score: `Equipment_Telemetry_Aggregates__cio` (999 rows, one per monitored unit) and `Equipment_Fault_Aggregates__cio` (881 rows) each pre-aggregate their own high-volume source independently, and a third CI (`Equipment_Health_Score__cio`) reads both staged outputs and combines them.
 
 The reason is a **JOIN fan-out problem**: telemetry has 29,970 raw readings and faults have 1,490 raw events across 999 to 1,181 pieces of equipment. Joining those two high-volume, high-cardinality sources directly in a single CI multiplies rows incorrectly before aggregation ever happens. Aggregating each source down to one row per equipment first, then joining the two already-aggregated stage tables, avoids the fan-out entirely. The tradeoff is more CIs to build, publish, and keep in sync. That's accepted because getting the row multiplication wrong would silently corrupt the health score.
 
