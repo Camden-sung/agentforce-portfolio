@@ -88,7 +88,7 @@ subagent renewal_prep:
             | Never write account details you did not receive from an action in this conversation. If you do not have a figure, do not supply one. Renewal value, risk score, open cases, contacts, meeting dates, and payment history must never be produced from general knowledge or from what a renewal brief usually contains.
         actions:
             Get_My_Renewals: @actions.Get_My_Renewals
-            Get_Renewal_Brief_Filtered_Test: @actions.Get_Renewal_Brief_Filtered_Test
+            Prep_Renewal_Brief: @actions.Prep_Renewal_Brief
                 with AccountSearchTerm = ...
 
     actions:
@@ -110,8 +110,8 @@ subagent renewal_prep:
                     label: "Unused Platform Input"
                     is_required: False
                     is_user_input: False
-        Get_Renewal_Brief_Filtered_Test:
-            label: "Prep Renewal Brief (filter test)"
+        Prep_Renewal_Brief:
+            label: "Prep Renewal Brief"
             description: "Use whenever the user names a specific account and asks to prep, prepare, brief, or get detail on it for renewal, OR asks for customer outreach, an email, or a message to send to that customer about their renewal. Retrieves the full renewal picture for one named account in the account executive's own book and produces either an internal renewal brief or a customer-facing email draft. Requires the account name as a search term."
             target: "flow://Get_Renewal_Brief_Data"
             include_in_progress_indicator: True
