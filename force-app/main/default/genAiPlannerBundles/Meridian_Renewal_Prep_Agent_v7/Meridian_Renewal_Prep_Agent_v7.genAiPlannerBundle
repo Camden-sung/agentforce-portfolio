@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Internal agent for Meridian Building Solutions account executives preparing for contract renewals. Surfaces the AE&apos;s own book of upcoming renewals, produces a renewal brief for a named account, and drafts customer outreach.</description>
+    <localTopicLinks>
+        <genAiPluginName>GeneralFAQ_16jg50000011oGj</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>agent_router_16jg50000011oGj</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>ambiguous_question_16jg50000011oGj</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>off_topic_16jg50000011oGj</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>renewal_prep_16jg50000011oGj</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>ambiguous_question_16jg50000011oGj</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect conversation to relevant topics when user request is too ambiguous</description>
+        <developerName>ambiguous_question_16jg50000011oGj</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+            <developerName>instruction0_179g5000001Z7xN</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001Z7xN</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>ambiguous_question</localDeveloperName>
+        <masterLabel>Ambiguous Question</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>off_topic_16jg50000011oGj</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect conversation to relevant topics when user request goes off-topic</description>
+        <developerName>off_topic_16jg50000011oGj</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+            <developerName>instruction0_179g5000001Z7xM</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001Z7xM</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>off_topic</localDeveloperName>
+        <masterLabel>Off Topic</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>agent_router_16jg50000011oGj</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Welcome the user and determine the appropriate subagent based on user input</description>
+        <developerName>agent_router_16jg50000011oGj</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {!@variables.currentAppName}
+Current Object Name: {!@variables.currentObjectApiName}
+Current Page Type: {!@variables.currentPageType}
+Current Record ID: {!@variables.currentRecordId}
+
+{{state.AgentScriptInternal_agent_instructions}}</description>
+            <developerName>instruction0_179g5000001Z7xL</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001Z7xL</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>GeneralFAQ_16jg50000011oGj</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Answers customer questions about company products, specifications, policies, or business procedures by searching knowledge articles or other data sources.</description>
+        <developerName>GeneralFAQ_16jg50000011oGj</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+            <developerName>instruction0_179g5000001Z7xK</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001Z7xK</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>AnswerQuestionsWithKnowledge_179g5000001Z7xK</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>AnswerQuestionsWithKnowledge_179g5000001Z7xK</fullName>
+            <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: &apos;What is your return policy?&apos; &apos;How do I fix an issue?&apos; or &apos;What features does a product have?&apos;</description>
+            <developerName>AnswerQuestionsWithKnowledge_179g5000001Z7xK</developerName>
+            <invocationTarget>streamKnowledgeSearch</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+            <masterLabel>Answer Questions with Knowledge</masterLabel>
+            <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+            <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+        </localActions>
+        <localDeveloperName>GeneralFAQ</localDeveloperName>
+        <masterLabel>General FAQ</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>renewal_prep_16jg50000011oGj</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles account executive requests about contract renewals: which of their own renewals need attention, preparing a renewal brief for a named account, and drafting customer outreach for a renewal. Use for any question about renewals, expiring contracts, renewal risk, or a book of business.</description>
+        <developerName>renewal_prep_16jg50000011oGj</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+            <developerName>instruction0_179g5000001Z7xJ</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179g5000001Z7xJ</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Get_My_Renewals_179g5000001Z7xJ</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Prep_Renewal_Brief_179g5000001Z7xJ</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Prep_Renewal_Brief_179g5000001Z7xJ</fullName>
+            <description>Use whenever the user names a specific account and asks to prep, prepare, brief, or get detail on it for renewal, OR asks for customer outreach, an email, or a message to send to that customer about their renewal. Retrieves the full renewal picture for one named account in the account executive&apos;s own book and produces either an internal renewal brief or a customer-facing email draft. Requires the account name as a search term.</description>
+            <developerName>Prep_Renewal_Brief_179g5000001Z7xJ</developerName>
+            <invocationTarget>Get_Renewal_Brief_Data</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Prep_Renewal_Brief</localDeveloperName>
+            <masterLabel>Prep Renewal Brief</masterLabel>
+            <progressIndicatorMessage>Pulling the data and writing the brief</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>Get_My_Renewals_179g5000001Z7xJ</fullName>
+            <description>Returns the contract renewals assigned to the account executive who is using the agent, ordered by soonest expiry, with a short risk summary for each. Use when the user asks which of their renewals need attention, what is in their book of business, which contracts are coming up for renewal, or what is expiring soon. Takes no inputs — the account executive is identified automatically from the logged-in user. This action cannot retrieve another person&apos;s renewals and cannot be narrowed to a single account. This action returns the whole list only. It cannot prepare, brief, or give detail on a single named account — use the renewal brief action for that.</description>
+            <developerName>Get_My_Renewals_179g5000001Z7xJ</developerName>
+            <invocationTarget>Get_My_Renewals</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_My_Renewals</localDeveloperName>
+            <masterLabel>Get_My_Renewals</masterLabel>
+            <progressIndicatorMessage>Checking your renewals</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>renewal_prep</localDeveloperName>
+        <masterLabel>Renewal Prep</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <masterLabel>Meridian Renewal Prep Agent</masterLabel>
+    <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+</GenAiPlannerBundle>

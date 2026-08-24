@@ -1,0 +1,21 @@
+{
+  "required": ["AccountSearchTerm"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "AccountSearchTerm": {
+      "title": "Account Search Term",
+      "description": "The account name or part of it, exactly as the user said it. Never substitute an account ID, contact name, or account executive name.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "GenerateOutreach": {
+      "title": "Generate Outreach",
+      "description": "Set to true ONLY when the user asks for customer outreach, an email, or a message to send to the customer. Leave false or omit for every other request, including preparing, prepping, briefing, or reviewing an account. False produces the internal renewal brief; true produces a customer-facing email draft.",
+      "lightning:type": "lightning__booleanType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}
