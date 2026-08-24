@@ -59,6 +59,12 @@
     </decisions>
     <environments>Default</environments>
     <formulas>
+        <name>frm_ACVDisplay</name>
+        <dataType>String</dataType>
+        <expression
+    >&quot;$&quot; &amp; TEXT(ROUND({!Loop_Contracts.Annual_Contract_Value__c}, 0))</expression>
+    </formulas>
+    <formulas>
         <name>frm_NoticeStatus</name>
         <dataType>String</dataType>
         <expression>IF( {!Loop_Contracts.Renewal_Notice_Date__c} &lt;= TODAY(),
@@ -79,12 +85,6 @@ IF( {!Loop_Contracts.Account__r.Risk_AR_Points__c} &gt;= {!Loop_Contracts.Accoun
 IF( {!Loop_Contracts.Account__r.Risk_Case_Points__c} &gt;= {!Loop_Contracts.Account__r.Risk_Portal_Points__c},
   &quot;driven by open cases&quot;,
   &quot;driven by low portal engagement&quot; ))))</expression>
-    </formulas>
-    <formulas>
-        <name>frm_ACVDisplay</name>
-        <dataType>String</dataType>
-        <expression
-    >&quot;$&quot; &amp; TEXT(ROUND({!Loop_Contracts.Annual_Contract_Value__c}, 0))</expression>
     </formulas>
     <interviewLabel>Get My Renewals {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Get My Renewals</label>
@@ -163,8 +163,7 @@ IF( {!Loop_Contracts.Account__r.Risk_Case_Points__c} &gt;= {!Loop_Contracts.Acco
         <text>{!Loop_Contracts.Name} — {!Loop_Contracts.Account__r.Name}
 {!Loop_Contracts.Coverage_Level__c} | ACV {!frm_ACVDisplay} | margin {!Loop_Contracts.Contract_Margin__c}%
 Ends {!Loop_Contracts.End_Date__c} ({!Loop_Contracts.Days_Until_Expiration__c} days) | Notice window {!frm_NoticeStatus}
-Risk {!Loop_Contracts.Account__r.Account_Risk_Score__c}/100 — {!frm_TopDriver}
-</text>
+Risk {!Loop_Contracts.Account__r.Account_Risk_Score__c}/100 — {!frm_TopDriver}</text>
     </textTemplates>
     <variables>
         <name>Unused_Platform_Input</name>
