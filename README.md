@@ -2,7 +2,13 @@
 
 ## What this is
 
-**Meridian Building Solutions** is a mock mid-market commercial HVAC and building automation company, built out end-to-end in a free Salesforce Agentforce + Data Cloud (Data 360) Developer Edition org as a portfolio piece. This repo is Project 1 of a three-project arc: a customer-facing **Agentforce Service Agent** deployed on an authenticated Experience Cloud portal. Logged-in customers (facility managers, building engineers) ask it about their service contract coverage, upcoming maintenance visits, technicians, inspection results, and equipment health, get general how-does-this-work answers grounded in a Knowledge base, and can submit non-urgent service requests directly through the conversation. It exists to demonstrate real Agentforce + Data Cloud build skills (agent design, custom action flows, RAG grounding, and Calculated Insights) to engineers and hiring managers evaluating that experience, not to run an actual business.
+**Meridian Building Solutions** is a mock mid-market commercial HVAC and building automation company, built out end-to-end in a free Salesforce Agentforce + Data Cloud (Data 360) Developer Edition org as a portfolio piece. This repo holds the first two projects of a three-project arc, both complete.
+
+**Project 1** is a customer-facing **Agentforce Service Agent** deployed on an authenticated Experience Cloud portal. Logged-in customers (facility managers, building engineers) ask it about their service contract coverage, upcoming maintenance visits, technicians, inspection results, and equipment health, get general how-does-this-work answers grounded in a Knowledge base, and can submit non-urgent service requests directly through the conversation. It is the subject of the architecture diagram and design notes below.
+
+**Project 2** is an internal **Renewal Prep Agent** for account executives, covered in its own section further down.
+
+Together they exist to demonstrate real Agentforce + Data Cloud build skills (agent design, custom action flows, RAG grounding, and Calculated Insights) to engineers and hiring managers evaluating that experience, not to run an actual business.
 
 ## Architecture
 
@@ -78,9 +84,9 @@ flowchart TB
 
 _Gold edges trace the identity/security boundary. The `ContactId → AccountId` filter is the only thing standing between a portal user and another customer's data (see below). Cylinders are data at rest; the hexagon is the routing decision point; rectangles are process/action steps._
 
-The Knowledge grounding path (bottom-left of the Data Cloud box) and the Equipment Health Score write-back path (bottom-right) are independent Data Cloud pipelines that both land back in the CRM objects the agent's action flows read: Knowledge indirectly through the retriever, equipment health directly through the CI write-back flow. Data Cloud also holds a separate three-stage `Account_Risk_Score__cio` pipeline (`Account_Portal_Aggregates__cio` + `Account_Case_Aggregates__cio` → `Account_Risk_Score__cio`), the primary input for Project 2 (Renewal Prep Agent), which is now functionally complete. That architecture is omitted from the diagram above since this README documents Project 1 only.
+The Knowledge grounding path (bottom-left of the Data Cloud box) and the Equipment Health Score write-back path (bottom-right) are independent Data Cloud pipelines that both land back in the CRM objects the agent's action flows read: Knowledge indirectly through the retriever, equipment health directly through the CI write-back flow. Data Cloud also holds a separate three-stage `Account_Risk_Score__cio` pipeline (`Account_Portal_Aggregates__cio` + `Account_Case_Aggregates__cio` → `Account_Risk_Score__cio`), the primary input for Project 2. That architecture is omitted from the diagram above, which covers Project 1 only.
 
-## Design decisions and tradeoffs
+## Project 1 design decisions and tradeoffs
 
 ### ⭐ Identity and security model
 
@@ -118,3 +124,38 @@ This also sidesteps a specific fragility in the standard tooling: the out-of-the
 - **The Agentforce router classifies on subagent _descriptions_ only.** Instructions written into a subagent are never read at routing time. Getting the description wording right (e.g. `GeneralFAQ` explicitly claims "how to submit a request" questions, `Account_Service_Info` owns possessive "my record" questions) was the single biggest source of routing bugs during the build.
 - **Case creation defaults are hardcoded, not LLM-set**: `Priority` is fixed at `Low` so customer insistence can't inflate routing priority, and `Type` is left for human triage since trade classification isn't something a customer can self-diagnose.
 - **Emergency vs. insistence guardrails were tuned after a real test failure** where "extremely urgent" phrasing over-escalated a comfort complaint. Only explicit safety hazards (no heat/cooling in a critical space, gas/refrigerant leak, water intrusion, smoke) redirect to the emergency line without writing a Case; urgency language alone does not.
+
+## Project 2: Renewal Prep Agent
+
+An **internal** agent for account executives, not a customer-facing one. It answers two things: what is in my book of business right now, and prepare me for this specific renewal. Two actions back it, both Flow-targeted:
+
+- `Get_My_Renewals` returns the AE's pending renewals, sorted by soonest expiry, one block per contract with tier, value, margin, notice window, and a risk read. The AE is identified from the logged-in user, so the action cannot be pointed at someone else's book.
+- `Prep_Renewal_Brief` takes an account name and produces either an internal renewal brief or a customer-facing email draft, depending on a boolean the agent sets from the user's phrasing.
+
+The brief pulls from CRM (`Service_Contract__c`, `Maintenance_Visit__c`, `Case`, `Contact`) and reads two Data Cloud DMOs directly in the same flow (`ERP_AR_Aging_DMO__dlm` for receivables, `CSR_Call_Log_DMO__dlm` for support call sentiment), filtered on the account's ERP customer id.
+
+### ⭐ The customer-safe payload is a separate build, not a filtered one
+
+One flow assembles two independent text blocks. `txt_ServiceSection` is the internal picture: contract margin, risk score, AR status and credit hold, satisfaction ratings, emergency callout counts, negative-sentiment support calls. `txt_OutreachData` is built separately and contains only facts that are safe to say to a customer.
+
+The distinction matters because the obvious alternative is to hand over everything and instruct the model not to mention margin. That is a wording mitigation, and wording mitigations fail eventually. Building a second payload that never contains the field is a control: **the model cannot misrepresent a field it was never given.** Fields were removed from the outreach payload as specific failure modes appeared, including preventive maintenance delivery counts (a delivered-versus-contracted comparison reads as an accusation either direction) and emergency callout counts.
+
+### ⭐ Both raw payloads are hidden from the reasoning model
+
+The prompt templates are invoked **inside the flow**, not by the agent, so generation happens where the data already is. The two data outputs (`var_Output`, `var_OutreachData`) are then marked `filter_from_agent: True`, meaning the reasoning model never receives them at all. It only ever sees the finished `var_BriefText` or `var_OutreachText`, plus a `var_Status` string telling it whether the account search resolved cleanly, was ambiguous, or found nothing.
+
+This is defense in depth over the same boundary: the customer-safe payload is scoped by construction, and the internal payload is structurally out of reach of the component most likely to leak it.
+
+### ⭐ A risk score of zero is not evidence of a healthy account
+
+`Account_Risk_Score__cio` scores portal engagement, open cases, and payment behavior. It does not measure service delivery, and nothing in the score's name says so.
+
+This surfaced on a real account scoring 0 that simultaneously had negative-sentiment support calls on record, visits scheduled and not attended, and preventive maintenance delivered far in excess of the contracted entitlement. The triage line for it read "no significant risk signal," which is exactly the wrong sentence to put in front of an AE walking into that conversation.
+
+The fix went into the **flow**, not the prompt, because `Get_My_Renewals` output reaches the agent with no template in between and there is nothing downstream to catch it. The zero branch now reads "no risk signal from portal, cases, or AR (service delivery not scored)". The brief's prompt template carries a matching instruction: name the largest contributing component unless every component is zero, and never present a zero score as evidence the account is fine.
+
+### Other notable decisions in Project 2
+
+- **Preventive maintenance visits are two record types, not one.** "PM visits" means Preventive Maintenance plus Quarterly Tune-up, and treating it as a single value undercounts delivery. The same shape appears in call sentiment, where "negative" covers both `Negative` and `Very Negative`.
+- **Only negative-sentiment calls are itemised in the brief.** Neutral and positive calls are counted, not listed. An AE preparing for a renewal conversation needs the exceptions, not a transcript index.
+- **The triage list rounds annual contract value to whole dollars** (`$89,228`, not `89,228.1`). It is a ranking view, so precision there costs scanning speed and buys nothing. The brief keeps full precision.
