@@ -1,0 +1,46 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "CoverageSummary": {
+      "title": "CoverageSummary",
+      "description": "What the agent relays.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
+    },
+    "HealthSummary": {
+      "title": "HealthSummary",
+      "description": "Health Summary",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
+    },
+    "InspectionSummary": {
+      "title": "InspectionSummary",
+      "description": "Inspection Summary",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
+    },
+    "NextVisitSummary": {
+      "title": "NextVisitSummary",
+      "description": "Next Visit Summary",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
+    },
+    "TechnicianName": {
+      "title": "TechnicianName",
+      "description": "Technician Name",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

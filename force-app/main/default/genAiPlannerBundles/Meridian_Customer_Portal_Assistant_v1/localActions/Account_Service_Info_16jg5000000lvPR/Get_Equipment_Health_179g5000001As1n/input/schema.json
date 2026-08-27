@@ -1,0 +1,28 @@
+{
+  "required": [],
+  "unevaluatedProperties": false,
+  "properties": {
+    "ContactIdInput": {
+      "title": "ContactIdInput",
+      "description": "ContactIdInput",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "EquipmentTypeRequested": {
+      "title": "EquipmentTypeRequested",
+      "description": "EquipmentTypeRequested",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "TestAccountId": {
+      "title": "TestAccountId",
+      "description": "testing fallback",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

@@ -43,7 +43,7 @@
   >unfiled$public/CommunityHeadlessRegistrationTemplate</headlessRegistrationTemplate>
     <networkMemberGroups>
         <profile>admin</profile>
-        <profile>meridian portal customer</profile>
+        <profile>Meridian Portal Customer</profile>
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting
