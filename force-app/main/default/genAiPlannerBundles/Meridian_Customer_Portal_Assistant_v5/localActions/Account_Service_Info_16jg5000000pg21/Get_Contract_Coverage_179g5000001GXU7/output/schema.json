@@ -1,14 +1,14 @@
 {
-  "unevaluatedProperties" : false,
-  "properties" : {
-    "CoverageSummary" : {
-      "title" : "CoverageSummary",
-      "description" : "A customer-ready summary of the active service contract.",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isDisplayable" : false,
-      "copilotAction:isUsedByPlanner" : true
+  "unevaluatedProperties": false,
+  "properties": {
+    "CoverageSummary": {
+      "title": "CoverageSummary",
+      "description": "A customer-ready summary of the active service contract.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
     }
   },
-  "lightning:type" : "lightning__objectType"
+  "lightning:type": "lightning__objectType"
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
         <name>Generate_Brief</name>
@@ -55,14 +55,16 @@
             <assignToReference>var_Output</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Multiple renewals match. Which did you mean? {!var_MatchNames}</stringValue>
+                <stringValue
+        >Multiple renewals match. Which did you mean? {!var_MatchNames}</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>var_Status</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>AMBIGUOUS: more than one contract in your book matches. Candidates: {!var_MatchNames}</stringValue>
+                <stringValue
+        >AMBIGUOUS: more than one contract in your book matches. Candidates: {!var_MatchNames}</stringValue>
             </value>
         </assignmentItems>
     </assignments>
@@ -370,14 +372,16 @@
             <assignToReference>var_Output</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>No renewal found matching that name in your book of business.</stringValue>
+                <stringValue
+        >No renewal found matching that name in your book of business.</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>var_Status</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>NOT_FOUND: no contract in your book matches that name</stringValue>
+                <stringValue
+        >NOT_FOUND: no contract in your book matches that name</stringValue>
             </value>
         </assignmentItems>
     </assignments>
@@ -418,14 +422,16 @@
             <assignToReference>var_MatchedErpId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Loop_Book.Account__r.External_ERP_Customer_Id__c</elementReference>
+                <elementReference
+        >Loop_Book.Account__r.External_ERP_Customer_Id__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>var_MatchedErpId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Loop_Book.Account__r.External_ERP_Customer_Id__c</elementReference>
+                <elementReference
+        >Loop_Book.Account__r.External_ERP_Customer_Id__c</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -455,7 +461,8 @@
             <assignToReference>var_Status</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>OK: resolved to {!var_MatchedAccountName}</stringValue>
+                <stringValue
+        >OK: resolved to {!var_MatchedAccountName}</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -471,7 +478,8 @@
             <assignToReference>var_BriefText</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Generate_Brief.promptResponse</elementReference>
+                <elementReference
+        >Generate_Brief.promptResponse</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -484,7 +492,8 @@
             <assignToReference>var_OutreachText</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Generate_Outreach.promptResponse</elementReference>
+                <elementReference
+        >Generate_Outreach.promptResponse</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -501,14 +510,16 @@
             <name>Negative</name>
             <conditionLogic>1 OR 2</conditionLogic>
             <conditions>
-                <leftValueReference>Loop_Calls.sentiment_label__c</leftValueReference>
+                <leftValueReference
+        >Loop_Calls.sentiment_label__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Negative</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Loop_Calls.sentiment_label__c</leftValueReference>
+                <leftValueReference
+        >Loop_Calls.sentiment_label__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Very Negative</stringValue>
@@ -588,31 +599,36 @@
             <name>PM_Completed</name>
             <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
             <conditions>
-                <leftValueReference>Loop_Visits.Visit_Type__c</leftValueReference>
+                <leftValueReference
+        >Loop_Visits.Visit_Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Preventive Maintenance</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Loop_Visits.Visit_Type__c</leftValueReference>
+                <leftValueReference
+        >Loop_Visits.Visit_Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Quarterly Tune-up</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Loop_Visits.Visit_Status__c</leftValueReference>
+                <leftValueReference
+        >Loop_Visits.Visit_Status__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Completed</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Loop_Visits.Scheduled_Start__c</leftValueReference>
+                <leftValueReference
+        >Loop_Visits.Scheduled_Start__c</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
-                    <elementReference>var_MatchedContract.Start_Date__c</elementReference>
+                    <elementReference
+          >var_MatchedContract.Start_Date__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -624,14 +640,16 @@
             <name>Emergency_Completed</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Loop_Visits.Visit_Type__c</leftValueReference>
+                <leftValueReference
+        >Loop_Visits.Visit_Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Emergency Repair</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Loop_Visits.Visit_Status__c</leftValueReference>
+                <leftValueReference
+        >Loop_Visits.Visit_Status__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Completed</stringValue>
@@ -646,7 +664,8 @@
             <name>Other_Completed</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Loop_Visits.Visit_Status__c</leftValueReference>
+                <leftValueReference
+        >Loop_Visits.Visit_Status__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Completed</stringValue>
@@ -661,14 +680,16 @@
             <name>Overdue</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Loop_Visits.Visit_Status__c</leftValueReference>
+                <leftValueReference
+        >Loop_Visits.Visit_Status__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Scheduled</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Loop_Visits.Scheduled_Start__c</leftValueReference>
+                <leftValueReference
+        >Loop_Visits.Scheduled_Start__c</leftValueReference>
                 <operator>LessThan</operator>
                 <rightValue>
                     <elementReference>$Flow.CurrentDate</elementReference>
@@ -781,19 +802,22 @@
     <formulas>
         <name>frm_ARAgeDays</name>
         <dataType>String</dataType>
-        <expression>IF( ISBLANK({!Get_AR_Aging.snapshot_date__c}), &quot;unknown&quot;,
+        <expression
+    >IF( ISBLANK({!Get_AR_Aging.snapshot_date__c}), &quot;unknown&quot;,
     TEXT({!$Flow.CurrentDate} - {!Get_AR_Aging.snapshot_date__c}) )</expression>
     </formulas>
     <formulas>
         <name>frm_ARAsOf</name>
         <dataType>String</dataType>
-        <expression>IF( ISBLANK({!Get_AR_Aging.snapshot_date__c}), &quot;unknown&quot;,
+        <expression
+    >IF( ISBLANK({!Get_AR_Aging.snapshot_date__c}), &quot;unknown&quot;,
     TEXT({!Get_AR_Aging.snapshot_date__c}) )</expression>
     </formulas>
     <formulas>
         <name>frm_ARDetail</name>
         <dataType>String</dataType>
-        <expression>IF( ISBLANK({!Get_AR_Aging.erp_customer_id__c}), &quot;-&quot;,
+        <expression
+    >IF( ISBLANK({!Get_AR_Aging.erp_customer_id__c}), &quot;-&quot;,
     &quot;total $&quot; &amp; TEXT(ROUND({!Get_AR_Aging.total_outstanding__c}, 0)) &amp;
     &quot; | aged 60+ $&quot; &amp; TEXT(ROUND({!frm_ARAged}, 0)) &amp;
     &quot; | 120+ $&quot; &amp; TEXT(ROUND({!Get_AR_Aging.days_120_plus__c}, 0)) )</expression>
@@ -801,34 +825,39 @@
     <formulas>
         <name>frm_ARStatus</name>
         <dataType>String</dataType>
-        <expression>IF( ISBLANK({!Get_AR_Aging.erp_customer_id__c}), &quot;no AR record on file&quot;,
+        <expression
+    >IF( ISBLANK({!Get_AR_Aging.erp_customer_id__c}), &quot;no AR record on file&quot;,
 IF( {!Get_AR_Aging.credit_status__c} = &quot;On Hold&quot;, &quot;CREDIT HOLD&quot;,
 IF( {!frm_ARAged} &gt; 0, &quot;aged balances present&quot;, &quot;current&quot; )))</expression>
     </formulas>
     <formulas>
         <name>frm_AvgSat</name>
         <dataType>String</dataType>
-        <expression>IF( {!var_SatCount} = 0, &quot;no rated visits on record&quot;,
+        <expression
+    >IF( {!var_SatCount} = 0, &quot;no rated visits on record&quot;,
     TEXT( ROUND({!var_SatSum} / {!var_SatCount}, 1) ) &amp; &quot; / 5 (&quot; &amp; TEXT({!var_SatCount}) &amp; &quot; rated)&quot; )</expression>
     </formulas>
     <formulas>
         <name>frm_CallLine</name>
         <dataType>String</dataType>
-        <expression>&quot;  - [&quot; &amp; {!Loop_Calls.sentiment_label__c} &amp; &quot;] &quot; &amp;
+        <expression
+    >&quot;  - [&quot; &amp; {!Loop_Calls.sentiment_label__c} &amp; &quot;] &quot; &amp;
 {!Loop_Calls.topic__c} &amp; &quot; (&quot; &amp; {!Loop_Calls.contact_email__c} &amp; &quot;, &quot; &amp;
 TEXT(DATEVALUE({!Loop_Calls.call_timestamp__c})) &amp; &quot;)&quot; &amp; BR()</expression>
     </formulas>
     <formulas>
         <name>frm_CallSummary</name>
         <dataType>String</dataType>
-        <expression>IF( {!var_CallTotal} = 0, &quot;no support calls on record&quot;,
+        <expression
+    >IF( {!var_CallTotal} = 0, &quot;no support calls on record&quot;,
     TEXT({!var_CallTotal}) &amp; &quot; on record, &quot; &amp; TEXT({!var_CallNegative}) &amp;
     &quot; with negative sentiment&quot; )</expression>
     </formulas>
     <formulas>
         <name>frm_CaseLine</name>
         <dataType>String</dataType>
-        <expression>&quot;  - [&quot; &amp; TEXT({!Loop_Cases.Priority}) &amp; &quot;/&quot; &amp; TEXT({!Loop_Cases.Status}) &amp; &quot;] &quot; &amp; {!Loop_Cases.Subject} &amp; &quot; (&quot; &amp; TEXT({!Loop_Cases.Type}) &amp; &quot;)&quot; &amp; BR()</expression>
+        <expression
+    >&quot;  - [&quot; &amp; TEXT({!Loop_Cases.Priority}) &amp; &quot;/&quot; &amp; TEXT({!Loop_Cases.Status}) &amp; &quot;] &quot; &amp; {!Loop_Cases.Subject} &amp; &quot; (&quot; &amp; TEXT({!Loop_Cases.Type}) &amp; &quot;)&quot; &amp; BR()</expression>
     </formulas>
     <formulas>
         <name>frm_CaseSummary</name>
@@ -840,13 +869,15 @@ TEXT(DATEVALUE({!Loop_Calls.call_timestamp__c})) &amp; &quot;)&quot; &amp; BR()<
     <formulas>
         <name>frm_ContactLine</name>
         <dataType>String</dataType>
-        <expression>&quot;  - &quot; &amp; {!Loop_Contacts.FirstName} &amp; &quot; &quot; &amp; {!Loop_Contacts.LastName} &amp;
+        <expression
+    >&quot;  - &quot; &amp; {!Loop_Contacts.FirstName} &amp; &quot; &quot; &amp; {!Loop_Contacts.LastName} &amp;
 &quot;, &quot; &amp; {!Loop_Contacts.Title} &amp; BR()</expression>
     </formulas>
     <formulas>
         <name>frm_ContactSummary</name>
         <dataType>String</dataType>
-        <expression>IF( LEN({!var_ContactList}) = 0, &quot;no contacts on record for this account&quot;,
+        <expression
+    >IF( LEN({!var_ContactList}) = 0, &quot;no contacts on record for this account&quot;,
     {!var_ContactList} )</expression>
     </formulas>
     <formulas>
@@ -864,17 +895,20 @@ TEXT(DATEVALUE({!Loop_Calls.call_timestamp__c})) &amp; &quot;)&quot; &amp; BR()<
     <formulas>
         <name>frm_IsMatch</name>
         <dataType>Boolean</dataType>
-        <expression>CONTAINS(UPPER({!Loop_Book.Account__r.Name}), UPPER({!AccountSearchTerm}))</expression>
+        <expression
+    >CONTAINS(UPPER({!Loop_Book.Account__r.Name}), UPPER({!AccountSearchTerm}))</expression>
     </formulas>
     <formulas>
         <name>frm_MatchLine</name>
         <dataType>String</dataType>
-        <expression>{!Loop_Book.Account__r.Name} &amp; &quot; (&quot; &amp; {!Loop_Book.Name} &amp; &quot;); &quot;</expression>
+        <expression
+    >{!Loop_Book.Account__r.Name} &amp; &quot; (&quot; &amp; {!Loop_Book.Name} &amp; &quot;); &quot;</expression>
     </formulas>
     <formulas>
         <name>frm_NoticeStatus</name>
         <dataType>String</dataType>
-        <expression>IF( ISBLANK({!var_MatchedContract.Renewal_Notice_Date__c}), &quot;no notice date on record&quot;,
+        <expression
+    >IF( ISBLANK({!var_MatchedContract.Renewal_Notice_Date__c}), &quot;no notice date on record&quot;,
 IF( {!var_MatchedContract.Renewal_Notice_Date__c} &lt;= {!$Flow.CurrentDate},
     &quot;OPEN since &quot; &amp; TEXT({!var_MatchedContract.Renewal_Notice_Date__c}),
     &quot;opens &quot; &amp; TEXT({!var_MatchedContract.Renewal_Notice_Date__c}) ))</expression>
@@ -896,14 +930,16 @@ IF( {!var_MatchedContract.Renewal_Notice_Date__c} &lt;= {!$Flow.CurrentDate},
     <formulas>
         <name>frm_PMExpected</name>
         <dataType>Number</dataType>
-        <expression>FLOOR( {!var_MatchedContract.Number_of_PM_Visits_Per_Year__c} *
+        <expression
+    >FLOOR( {!var_MatchedContract.Number_of_PM_Visits_Per_Year__c} *
        ( ({!$Flow.CurrentDate} - {!var_MatchedContract.Start_Date__c}) / 365 ) )</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
         <name>frm_PMOutstanding</name>
         <dataType>Number</dataType>
-        <expression>MAX( 0, {!frm_PMExpected} - {!var_PMDelivered} )</expression>
+        <expression
+    >MAX( 0, {!frm_PMExpected} - {!var_PMDelivered} )</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
@@ -919,13 +955,15 @@ IF( {!var_PMDelivered} &lt; ({!frm_PMExpected} / 2), &quot;SIGNIFICANTLY BEHIND&
     <formulas>
         <name>frm_RiskAgeDays</name>
         <dataType>String</dataType>
-        <expression>IF( ISBLANK({!var_MatchedContract.Account__r.Risk_Score_Last_Synced__c}), &quot;unknown&quot;,
+        <expression
+    >IF( ISBLANK({!var_MatchedContract.Account__r.Risk_Score_Last_Synced__c}), &quot;unknown&quot;,
     TEXT({!$Flow.CurrentDate} - DATEVALUE({!var_MatchedContract.Account__r.Risk_Score_Last_Synced__c})) )</expression>
     </formulas>
     <formulas>
         <name>frm_RiskComponents</name>
         <dataType>String</dataType>
-        <expression>IF( ISBLANK({!var_MatchedContract.Account__r.Account_Risk_Score__c}),
+        <expression
+    >IF( ISBLANK({!var_MatchedContract.Account__r.Account_Risk_Score__c}),
     &quot;not available&quot;,
 IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
     &quot;all risk components are zero&quot;,
@@ -936,27 +974,31 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
     <formulas>
         <name>frm_RiskLine</name>
         <dataType>String</dataType>
-        <expression>IF( ISBLANK({!var_MatchedContract.Account__r.Account_Risk_Score__c}),
+        <expression
+    >IF( ISBLANK({!var_MatchedContract.Account__r.Account_Risk_Score__c}),
     &quot;not available&quot;,
     TEXT({!var_MatchedContract.Account__r.Account_Risk_Score__c}) &amp; &quot;/100&quot; )</expression>
     </formulas>
     <formulas>
         <name>frm_RiskSynced</name>
         <dataType>String</dataType>
-        <expression>IF( ISBLANK({!var_MatchedContract.Account__r.Risk_Score_Last_Synced__c}),
+        <expression
+    >IF( ISBLANK({!var_MatchedContract.Account__r.Risk_Score_Last_Synced__c}),
     &quot;never synced&quot;,
     TEXT(DATEVALUE({!var_MatchedContract.Account__r.Risk_Score_Last_Synced__c})) )</expression>
     </formulas>
     <formulas>
         <name>frm_SatCounted</name>
         <dataType>Number</dataType>
-        <expression>IF( ISPICKVAL({!Loop_Visits.Customer_Satisfaction_Rating__c}, &quot;&quot;), 0, 1 )</expression>
+        <expression
+    >IF( ISPICKVAL({!Loop_Visits.Customer_Satisfaction_Rating__c}, &quot;&quot;), 0, 1 )</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
         <name>frm_SatValue</name>
         <dataType>Number</dataType>
-        <expression>IF( ISPICKVAL({!Loop_Visits.Customer_Satisfaction_Rating__c}, &quot;&quot;), 0,
+        <expression
+    >IF( ISPICKVAL({!Loop_Visits.Customer_Satisfaction_Rating__c}, &quot;&quot;), 0,
     VALUE(LEFT(TEXT({!Loop_Visits.Customer_Satisfaction_Rating__c}), 1)) )</expression>
         <scale>0</scale>
     </formulas>
@@ -968,11 +1010,13 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
     <formulas>
         <name>frm_StatedVsComputed</name>
         <dataType>String</dataType>
-        <expression>&quot;AE&apos;s stored likelihood of RENEWING: &quot; &amp; TEXT({!var_MatchedContract.Renewal_Probability__c}) &amp;
+        <expression
+    >&quot;AE&apos;s stored likelihood of RENEWING: &quot; &amp; TEXT({!var_MatchedContract.Renewal_Probability__c}) &amp;
 &quot; (higher = more likely to renew). Computed RISK: &quot; &amp; {!frm_RiskLine} &amp;
 &quot; (higher = more risk). These scales run in OPPOSITE directions.&quot;</expression>
     </formulas>
-    <interviewLabel>Get Renewal Brief Data {!$Flow.CurrentDateTime}</interviewLabel>
+    <interviewLabel
+  >Get Renewal Brief Data {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Get Renewal Brief Data</label>
     <loops>
         <name>Loop_Book</name>
@@ -1068,7 +1112,8 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
         <label>Get_Account_Contacts</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_Contacts</targetReference>
         </connector>
@@ -1077,7 +1122,8 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
             <field>AccountId</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>var_MatchedContract.Account__c</elementReference>
+                <elementReference
+        >var_MatchedContract.Account__c</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -1091,7 +1137,8 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
         <label>Get_AR_Aging</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Account_Contacts</targetReference>
         </connector>
@@ -1112,7 +1159,8 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
         <label>Get_Contract_Visits</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_Visits</targetReference>
         </connector>
@@ -1133,7 +1181,8 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
         <label>Get_CSR_Calls</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_Calls</targetReference>
         </connector>
@@ -1154,7 +1203,8 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
         <label>Get_My_Book</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_Book</targetReference>
         </connector>
@@ -1182,7 +1232,8 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
         <label>Get_Open_Cases</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_Cases</targetReference>
         </connector>
@@ -1191,7 +1242,8 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
             <field>AccountId</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>var_MatchedContract.Account__c</elementReference>
+                <elementReference
+        >var_MatchedContract.Account__c</elementReference>
             </value>
         </filters>
         <filters>
@@ -1218,7 +1270,8 @@ IF( {!var_MatchedContract.Account__r.Account_Risk_Score__c} = 0,
     <textTemplates>
         <name>txt_OutreachData</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>CUSTOMER-SAFE FACTS ONLY. Everything below may be said to the customer.
+        <text
+    >CUSTOMER-SAFE FACTS ONLY. Everything below may be said to the customer.
 
 ACCOUNT: {!var_MatchedAccountName}
 CONTACTS ON RECORD:

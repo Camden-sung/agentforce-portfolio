@@ -1,22 +1,22 @@
 {
-  "unevaluatedProperties" : false,
-  "properties" : {
-    "NextVisitSummary" : {
-      "title" : "NextVisitSummary",
-      "description" : "A customer-ready summary of the next scheduled visit.",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isDisplayable" : true,
-      "copilotAction:isUsedByPlanner" : true
+  "unevaluatedProperties": false,
+  "properties": {
+    "NextVisitSummary": {
+      "title": "NextVisitSummary",
+      "description": "A customer-ready summary of the next scheduled visit.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true
     },
-    "TechnicianName" : {
-      "title" : "TechnicianName",
-      "description" : "The name of the technician assigned to the next visit.",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isDisplayable" : false,
-      "copilotAction:isUsedByPlanner" : true
+    "TechnicianName": {
+      "title": "TechnicianName",
+      "description": "The name of the technician assigned to the next visit.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
     }
   },
-  "lightning:type" : "lightning__objectType"
+  "lightning:type": "lightning__objectType"
 }

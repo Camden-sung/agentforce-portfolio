@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>67.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
@@ -11,7 +11,8 @@
             <assignToReference>var_AccountId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>AgentContext_Get_Contact.AccountId</elementReference>
+                <elementReference
+        >AgentContext_Get_Contact.AccountId</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -63,7 +64,8 @@
             <assignToReference>NextVisitSummary</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>You don&apos;t have any upcoming service visits scheduled right now. If you&apos;d like to schedule one, I can help you submit a request.</stringValue>
+                <stringValue
+        >You don&apos;t have any upcoming service visits scheduled right now. If you&apos;d like to schedule one, I can help you submit a request.</stringValue>
             </value>
         </assignmentItems>
     </assignments>
@@ -129,14 +131,16 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Assign_NextVisitSummary_None_Found</targetReference>
+            <targetReference
+      >Assign_NextVisitSummary_None_Found</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes_Visit_Found</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Maintenance_Visit.Scheduled_Start__c</leftValueReference>
+                <leftValueReference
+        >Get_Maintenance_Visit.Scheduled_Start__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -158,7 +162,8 @@
     <formulas>
         <name>frm_VisitDate</name>
         <dataType>Date</dataType>
-        <expression>DATEVALUE({!Get_Maintenance_Visit.Scheduled_Start__c})</expression>
+        <expression
+    >DATEVALUE({!Get_Maintenance_Visit.Scheduled_Start__c})</expression>
     </formulas>
     <interviewLabel>Get Next Visit {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Get Next Visit</label>
@@ -186,7 +191,8 @@
         <label>AgentContext Get Contact</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>AgentContext_Assign_Account_Id</targetReference>
         </connector>
@@ -207,7 +213,8 @@
         <label>Get Contact</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Account_Id</targetReference>
         </connector>
@@ -228,7 +235,8 @@
         <label>Get Maintenance Visit</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Technician</targetReference>
         </connector>
@@ -265,7 +273,8 @@
         <label>Get Technician</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Visit_Found</targetReference>
         </connector>
@@ -274,7 +283,8 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Maintenance_Visit.Technician__c</elementReference>
+                <elementReference
+        >Get_Maintenance_Visit.Technician__c</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -286,7 +296,8 @@
         <label>Get User</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Identify_Customer</targetReference>
         </connector>
@@ -314,7 +325,8 @@
     <textTemplates>
         <name>txt_Visit</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>Your next scheduled visit is a {!Get_Maintenance_Visit.Visit_Type__c} for your {!Get_Maintenance_Visit.Equipment__r.Equipment_Type__c} on {!frm_VisitDate}, with technician {!Get_Technician.Name}.</text>
+        <text
+    >Your next scheduled visit is a {!Get_Maintenance_Visit.Visit_Type__c} for your {!Get_Maintenance_Visit.Equipment__r.Equipment_Type__c} on {!frm_VisitDate}, with technician {!Get_Technician.Name}.</text>
     </textTemplates>
     <variables>
         <name>ContactIdInput</name>

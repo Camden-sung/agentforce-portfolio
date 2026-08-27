@@ -1,14 +1,14 @@
 {
-  "required" : [ ],
-  "unevaluatedProperties" : false,
-  "properties" : {
-    "Unused_Platform_Input" : {
-      "title" : "Unused Platform Input",
-      "description" : "Not used. This flow ignores this value. Do not supply account, contact, user, or account executive information.",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isUserInput" : false
+  "required": [],
+  "unevaluatedProperties": false,
+  "properties": {
+    "Unused_Platform_Input": {
+      "title": "Unused Platform Input",
+      "description": "Not used. This flow ignores this value. Do not supply account, contact, user, or account executive information.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
     }
   },
-  "lightning:type" : "lightning__objectType"
+  "lightning:type": "lightning__objectType"
 }

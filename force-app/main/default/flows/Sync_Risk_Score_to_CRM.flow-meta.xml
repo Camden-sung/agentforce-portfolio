@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>67.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
@@ -39,7 +39,8 @@
         <expression>ROUND({!$Record.RiskScore__c}, 0)</expression>
         <scale>0</scale>
     </formulas>
-    <interviewLabel>Sync Risk Score to CRM {!$Flow.CurrentDateTime}</interviewLabel>
+    <interviewLabel
+  >Sync Risk Score to CRM {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Sync Risk Score to CRM</label>
     <processMetadataValues>
         <name>BuilderType</name>
@@ -70,13 +71,15 @@
             <field>External_ERP_Customer_Id__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$Record.AccountExternalId__c</elementReference>
+                <elementReference
+        >$Record.AccountExternalId__c</elementReference>
             </value>
         </filters>
         <inputAssignments>
             <field>AR_Outstanding_Scored__c</field>
             <value>
-                <elementReference>$Record.ARTotalOutstanding__c</elementReference>
+                <elementReference
+        >$Record.ARTotalOutstanding__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

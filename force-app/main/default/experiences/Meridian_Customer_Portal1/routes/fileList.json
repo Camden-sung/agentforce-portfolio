@@ -1,11 +1,11 @@
 {
-  "activeViewId" : "49354fa5-cced-4097-8c4d-df2905871da4",
-  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags" : [ ],
-  "devName" : "File_List",
-  "id" : "624665be-6d3f-4fe4-aef3-25c122ae757f",
-  "label" : "File List",
-  "routeType" : "list-069",
-  "type" : "route",
-  "urlPrefix" : "contentdocument"
+  "activeViewId": "49354fa5-cced-4097-8c4d-df2905871da4",
+  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags": [],
+  "devName": "File_List",
+  "id": "624665be-6d3f-4fe4-aef3-25c122ae757f",
+  "label": "File List",
+  "routeType": "list-069",
+  "type": "route",
+  "urlPrefix": "contentdocument"
 }

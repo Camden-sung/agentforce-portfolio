@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>67.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
@@ -40,7 +40,8 @@
             <assignToReference>CoverageSummary</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>You don&apos;t currently have an active service contract on file. Please contact your Meridian account team.</stringValue>
+                <stringValue
+        >You don&apos;t currently have an active service contract on file. Please contact your Meridian account team.</stringValue>
             </value>
         </assignmentItems>
     </assignments>
@@ -69,7 +70,8 @@
             <assignToReference>var_AccountId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Contact_Internal_User.AccountId</elementReference>
+                <elementReference
+        >Get_Contact_Internal_User.AccountId</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -146,9 +148,11 @@
     <formulas>
         <name>frm_Emergency</name>
         <dataType>String</dataType>
-        <expression>IF({!Get_Service_Contract.Includes_Emergency_Service__c}, &quot;emergency service included&quot;, &quot;no emergency service&quot;)</expression>
+        <expression
+    >IF({!Get_Service_Contract.Includes_Emergency_Service__c}, &quot;emergency service included&quot;, &quot;no emergency service&quot;)</expression>
     </formulas>
-    <interviewLabel>Get Contract Coverage {!$Flow.CurrentDateTime}</interviewLabel>
+    <interviewLabel
+  >Get Contract Coverage {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Get Contract Coverage</label>
     <processMetadataValues>
         <name>BuilderType</name>
@@ -174,7 +178,8 @@
         <label>Get Contact</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Account_Id</targetReference>
         </connector>
@@ -195,7 +200,8 @@
         <label>Get Contact Internal User</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Copy_1_of_Assign_Account_Id</targetReference>
         </connector>
@@ -216,7 +222,8 @@
         <label>Get Service Contract</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Contract_Found</targetReference>
         </connector>
@@ -246,7 +253,8 @@
         <label>Get User</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Identify_Customer</targetReference>
         </connector>
@@ -274,7 +282,8 @@
     <textTemplates>
         <name>txt_Coverage</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>Your active service contract is {!Get_Service_Contract.Coverage_Level__c}-level {!Get_Service_Contract.Contract_Type__c} agreement. It includes {!Get_Service_Contract.Number_of_PM_Visits_Per_Year__c} preventive maintenance visits per year, {!frm_Emergency}, and a {!Get_Service_Contract.Response_SLA_Hours__c}-hour emergency response target. It runs through {!Get_Service_Contract.End_Date__c}.</text>
+        <text
+    >Your active service contract is {!Get_Service_Contract.Coverage_Level__c}-level {!Get_Service_Contract.Contract_Type__c} agreement. It includes {!Get_Service_Contract.Number_of_PM_Visits_Per_Year__c} preventive maintenance visits per year, {!frm_Emergency}, and a {!Get_Service_Contract.Response_SLA_Hours__c}-hour emergency response target. It runs through {!Get_Service_Contract.End_Date__c}.</text>
     </textTemplates>
     <variables>
         <name>ContactIdInput</name>

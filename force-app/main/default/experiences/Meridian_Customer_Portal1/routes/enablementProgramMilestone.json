@@ -1,11 +1,11 @@
 {
-  "activeViewId" : "d700751d-fa11-48a4-9b1f-97c74b2da112",
-  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags" : [ ],
-  "devName" : "Enablement_Program_Milestone",
-  "id" : "a0ed7b7e-d1de-4655-a0b7-bc6d9dd59ecf",
-  "label" : "Enablement Program Milestone",
-  "routeType" : "enablement-program-milestone",
-  "type" : "route",
-  "urlPrefix" : "enablement-program-milestone"
+  "activeViewId": "d700751d-fa11-48a4-9b1f-97c74b2da112",
+  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags": [],
+  "devName": "Enablement_Program_Milestone",
+  "id": "a0ed7b7e-d1de-4655-a0b7-bc6d9dd59ecf",
+  "label": "Enablement Program Milestone",
+  "routeType": "enablement-program-milestone",
+  "type": "route",
+  "urlPrefix": "enablement-program-milestone"
 }

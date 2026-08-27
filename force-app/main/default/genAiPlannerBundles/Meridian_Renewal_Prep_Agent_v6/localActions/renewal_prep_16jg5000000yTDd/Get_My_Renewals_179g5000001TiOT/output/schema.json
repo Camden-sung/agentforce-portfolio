@@ -1,14 +1,14 @@
 {
-  "unevaluatedProperties" : false,
-  "properties" : {
-    "var_Output" : {
-      "title" : "var_Output",
-      "description" : "Pre-formatted plain-text list of the account executive's pending renewals, sorted by soonest expiry. Each renewal is a block of lines covering contract and account name, coverage tier, annual contract value and margin, end date with days remaining, notice-window status, and a risk score with its largest contributing driver. Where a risk score is unavailable the text says so explicitly. If the account executive has no pending renewals, the value is a single sentence stating that rather than a list.",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isDisplayable" : false,
-      "copilotAction:isUsedByPlanner" : true
+  "unevaluatedProperties": false,
+  "properties": {
+    "var_Output": {
+      "title": "var_Output",
+      "description": "Pre-formatted plain-text list of the account executive's pending renewals, sorted by soonest expiry. Each renewal is a block of lines covering contract and account name, coverage tier, annual contract value and margin, end date with days remaining, notice-window status, and a risk score with its largest contributing driver. Where a risk score is unavailable the text says so explicitly. If the account executive has no pending renewals, the value is a single sentence stating that rather than a list.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
     }
   },
-  "lightning:type" : "lightning__objectType"
+  "lightning:type": "lightning__objectType"
 }

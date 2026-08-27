@@ -1,11 +1,11 @@
 {
-  "activeViewId" : "f84fe1ae-95a1-43fb-9a7a-8b0df9675dee",
-  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags" : [ ],
-  "devName" : "Report_Related_List",
-  "id" : "a7abb635-5cea-44ef-bdb8-29c92e3625b3",
-  "label" : "Report Related List",
-  "routeType" : "relatedlist-00O",
-  "type" : "route",
-  "urlPrefix" : "report"
+  "activeViewId": "f84fe1ae-95a1-43fb-9a7a-8b0df9675dee",
+  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags": [],
+  "devName": "Report_Related_List",
+  "id": "a7abb635-5cea-44ef-bdb8-29c92e3625b3",
+  "label": "Report Related List",
+  "routeType": "relatedlist-00O",
+  "type": "route",
+  "urlPrefix": "report"
 }

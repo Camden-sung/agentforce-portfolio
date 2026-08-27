@@ -1,11 +1,11 @@
 {
-  "activeViewId" : "26f73566-8adf-4166-bfe8-bc7c5344e9c6",
-  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags" : [ ],
-  "devName" : "Enablement_Program_Related_List",
-  "id" : "926250ce-630f-4d02-afd5-6ba223cc6622",
-  "label" : "Enablement Program Related List",
-  "routeType" : "relatedlist-0Qo",
-  "type" : "route",
-  "urlPrefix" : "enablementprogram"
+  "activeViewId": "26f73566-8adf-4166-bfe8-bc7c5344e9c6",
+  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags": [],
+  "devName": "Enablement_Program_Related_List",
+  "id": "926250ce-630f-4d02-afd5-6ba223cc6622",
+  "label": "Enablement Program Related List",
+  "routeType": "relatedlist-0Qo",
+  "type": "route",
+  "urlPrefix": "enablementprogram"
 }

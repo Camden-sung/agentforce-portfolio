@@ -1,11 +1,11 @@
 {
-  "activeViewId" : "219d1436-8190-4113-946a-059d139831ea",
-  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags" : [ ],
-  "devName" : "Messages",
-  "id" : "8ad5d419-d6da-48c6-888c-a890fc1fcb16",
-  "label" : "Messages",
-  "routeType" : "messages",
-  "type" : "route",
-  "urlPrefix" : "messages"
+  "activeViewId": "219d1436-8190-4113-946a-059d139831ea",
+  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags": [],
+  "devName": "Messages",
+  "id": "8ad5d419-d6da-48c6-888c-a890fc1fcb16",
+  "label": "Messages",
+  "routeType": "messages",
+  "type": "route",
+  "urlPrefix": "messages"
 }

@@ -1,11 +1,11 @@
 {
-  "activeViewId" : "aed996ad-b786-4afb-8fba-9f57c4f2f4a7",
-  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags" : [ ],
-  "devName" : "Report_Builder",
-  "id" : "1e577fc7-8618-49c9-b591-c034e5f7ba88",
-  "label" : "Report Builder",
-  "routeType" : "createreport",
-  "type" : "route",
-  "urlPrefix" : "createreport"
+  "activeViewId": "aed996ad-b786-4afb-8fba-9f57c4f2f4a7",
+  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags": [],
+  "devName": "Report_Builder",
+  "id": "1e577fc7-8618-49c9-b591-c034e5f7ba88",
+  "label": "Report Builder",
+  "routeType": "createreport",
+  "type": "route",
+  "urlPrefix": "createreport"
 }

@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersionIdentifier>duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_6</activeVersionIdentifier>
-    <description>Turns structured renewal data into an AE-facing brief with a recommended play</description>
+    <activeVersionIdentifier
+  >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_6</activeVersionIdentifier>
+    <description
+  >Turns structured renewal data into an AE-facing brief with a recommended play</description>
     <developerName>Meridian_Renewal_Brief</developerName>
     <masterLabel>Renewal Brief</masterLabel>
     <overridable>false</overridable>
     <templateVersions>
-        <content>You are a renewal analyst supporting an account executive at Meridian Building
+        <content
+    >You are a renewal analyst supporting an account executive at Meridian Building
 Solutions, a commercial HVAC and building automation company. Write a renewal
 brief for an internal audience.
 
@@ -67,7 +70,8 @@ Do not write a closing pleasantry or add anything after the final recommended
 action. Ages and staleness are already stated in the data. Repeat them as given; never
 calculate a duration yourself.
 </content>
-        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <fileDroppingStrategy
+    >{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>BriefData</apiName>
             <definition>primitive://String</definition>
@@ -78,10 +82,12 @@ calculate a duration yourself.
         <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
-        <versionIdentifier>duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</versionIdentifier>
+        <versionIdentifier
+    >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</versionIdentifier>
     </templateVersions>
     <templateVersions>
-        <content>You are a renewal analyst supporting an account executive at Meridian Building Solutions, a
+        <content
+    >You are a renewal analyst supporting an account executive at Meridian Building Solutions, a
 commercial HVAC and building automation company. Write a renewal brief for an internal
 audience.
 
@@ -152,7 +158,8 @@ who to involve, what to fix, and what to raise in the conversation.
 TONE: direct and factual, for a colleague who knows the business. Roughly 250–350 words. No
 greeting, no sign-off, no closing pleasantry. Stop after the final recommended action.
 </content>
-        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <fileDroppingStrategy
+    >{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>BriefData</apiName>
             <definition>primitive://String</definition>
@@ -164,10 +171,12 @@ greeting, no sign-off, no closing pleasantry. Stop after the final recommended a
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
         <templateFormat>FormulaExpression</templateFormat>
-        <versionIdentifier>duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_3</versionIdentifier>
+        <versionIdentifier
+    >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_3</versionIdentifier>
     </templateVersions>
     <templateVersions>
-        <content>You are a renewal analyst supporting an account executive at Meridian Building Solutions, a
+        <content
+    >You are a renewal analyst supporting an account executive at Meridian Building Solutions, a
 commercial HVAC and building automation company. Write a renewal brief for an internal
 audience.
 
@@ -243,7 +252,8 @@ who to involve, what to fix, and what to raise in the conversation.
 TONE: direct and factual, for a colleague who knows the business. Roughly 250–350 words. No
 greeting, no sign-off, no closing pleasantry. Stop after the final recommended action.
 </content>
-        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <fileDroppingStrategy
+    >{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>BriefData</apiName>
             <definition>primitive://String</definition>
@@ -255,10 +265,12 @@ greeting, no sign-off, no closing pleasantry. Stop after the final recommended a
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
         <templateFormat>FormulaExpression</templateFormat>
-        <versionIdentifier>duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_4</versionIdentifier>
+        <versionIdentifier
+    >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_4</versionIdentifier>
     </templateVersions>
     <templateVersions>
-        <content>You are a renewal analyst supporting an account executive at Meridian Building Solutions, a
+        <content
+    >You are a renewal analyst supporting an account executive at Meridian Building Solutions, a
 commercial HVAC and building automation company. Write a renewal brief for an internal
 audience.
 
@@ -330,7 +342,8 @@ who to involve, what to fix, and what to raise in the conversation.
 TONE: direct and factual, for a colleague who knows the business. Roughly 250–350 words. No
 greeting, no sign-off, no closing pleasantry. Stop after the final recommended action.
 </content>
-        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <fileDroppingStrategy
+    >{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>BriefData</apiName>
             <definition>primitive://String</definition>
@@ -342,10 +355,12 @@ greeting, no sign-off, no closing pleasantry. Stop after the final recommended a
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
         <templateFormat>FormulaExpression</templateFormat>
-        <versionIdentifier>duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_5</versionIdentifier>
+        <versionIdentifier
+    >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_5</versionIdentifier>
     </templateVersions>
     <templateVersions>
-        <content>You are a renewal analyst supporting an account executive at Meridian Building Solutions, a
+        <content
+    >You are a renewal analyst supporting an account executive at Meridian Building Solutions, a
 commercial HVAC and building automation company. Write a renewal brief for an internal
 audience.
 
@@ -414,7 +429,8 @@ who to involve, what to fix, and what to raise in the conversation.
 TONE: direct and factual, for a colleague who knows the business. Roughly 250–350 words. No
 greeting, no sign-off, no closing pleasantry. Stop after the final recommended action.
 </content>
-        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <fileDroppingStrategy
+    >{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>BriefData</apiName>
             <definition>primitive://String</definition>
@@ -426,7 +442,8 @@ greeting, no sign-off, no closing pleasantry. Stop after the final recommended a
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
         <templateFormat>FormulaExpression</templateFormat>
-        <versionIdentifier>duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_6</versionIdentifier>
+        <versionIdentifier
+    >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_6</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>

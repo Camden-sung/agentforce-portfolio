@@ -1,42 +1,42 @@
 {
-  "required" : [ "RequestDescription", "RequestSubject" ],
-  "unevaluatedProperties" : false,
-  "properties" : {
-    "ContactIdInput" : {
-      "title" : "ContactIdInput",
-      "description" : "The Salesforce Contact ID of the authenticated customer. Supplied by the system.",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isUserInput" : false
+  "required": ["RequestDescription", "RequestSubject"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "ContactIdInput": {
+      "title": "ContactIdInput",
+      "description": "The Salesforce Contact ID of the authenticated customer. Supplied by the system.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
     },
-    "RequestDescription" : {
-      "title" : "RequestDescription",
-      "description" : "A clear description of the issue in the customer's own words, including the affected site or equipment.",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isUserInput" : false
+    "RequestDescription": {
+      "title": "RequestDescription",
+      "description": "A clear description of the issue in the customer's own words, including the affected site or equipment.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
     },
-    "RequestSubject" : {
-      "title" : "RequestSubject",
-      "description" : "A short subject line summarizing the customer's issue, in a few words.",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isUserInput" : false
+    "RequestSubject": {
+      "title": "RequestSubject",
+      "description": "A short subject line summarizing the customer's issue, in a few words.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
     },
-    "TestAccountId" : {
-      "title" : "TestAccountId",
-      "description" : "Internal testing only. Not for use.",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isUserInput" : false
+    "TestAccountId": {
+      "title": "TestAccountId",
+      "description": "Internal testing only. Not for use.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
     },
-    "TestContactId" : {
-      "title" : "TestContactId",
-      "description" : "Internal testing only. Not for use.",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isUserInput" : false
+    "TestContactId": {
+      "title": "TestContactId",
+      "description": "Internal testing only. Not for use.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
     }
   },
-  "lightning:type" : "lightning__objectType"
+  "lightning:type": "lightning__objectType"
 }

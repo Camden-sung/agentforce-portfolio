@@ -1,12 +1,12 @@
 {
-  "activeViewId" : "d36cfc86-49a4-48a9-80f3-760fc85abcbb",
-  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags" : [ ],
-  "devName" : "Error",
-  "id" : "93123a1b-abd2-4f74-b385-f458d07d48c7",
-  "label" : "Error",
-  "pageAccess" : "UseParent",
-  "routeType" : "error",
-  "type" : "route",
-  "urlPrefix" : "error"
+  "activeViewId": "d36cfc86-49a4-48a9-80f3-760fc85abcbb",
+  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags": [],
+  "devName": "Error",
+  "id": "93123a1b-abd2-4f74-b385-f458d07d48c7",
+  "label": "Error",
+  "pageAccess": "UseParent",
+  "routeType": "error",
+  "type": "route",
+  "urlPrefix": "error"
 }

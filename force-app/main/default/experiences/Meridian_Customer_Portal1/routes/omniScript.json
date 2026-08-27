@@ -1,12 +1,12 @@
 {
-  "activeViewId" : "3ff4a908-718f-4fee-966d-79d6fa5f9d49",
-  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags" : [ ],
-  "devName" : "Omniscript",
-  "id" : "883d651d-d48e-4433-938a-f95666629787",
-  "label" : "OmniScript",
-  "pageAccess" : "UseParent",
-  "routeType" : "omniscript",
-  "type" : "route",
-  "urlPrefix" : "omniscript"
+  "activeViewId": "3ff4a908-718f-4fee-966d-79d6fa5f9d49",
+  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags": [],
+  "devName": "Omniscript",
+  "id": "883d651d-d48e-4433-938a-f95666629787",
+  "label": "OmniScript",
+  "pageAccess": "UseParent",
+  "routeType": "omniscript",
+  "type": "route",
+  "urlPrefix": "omniscript"
 }

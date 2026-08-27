@@ -1,227 +1,264 @@
 {
-  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "componentName" : "siteforce:dynamicLayout",
-  "dataProviders" : [ ],
-  "id" : "823f81ee-6257-43ed-bdd0-747235f30c72",
-  "label" : "Enablement Program Link",
-  "regions" : [ {
-    "id" : "a2648bc0-2dc6-4f89-83d0-936ee3839005",
-    "regionName" : "header",
-    "type" : "region"
-  }, {
-    "components" : [ {
-      "componentAttributes" : {
-        "background" : "background: rgba(0,0,0,0)",
-        "backgroundOverlay" : "rgba(0,0,0,0.5)",
-        "contentAreaWidth" : 100,
-        "sectionConfig" : {
-          "UUID" : "fdec7796-8853-4b1b-9d24-f5ae2923d70a",
-          "columns" : [ {
-            "UUID" : "9929b1da-a991-4b94-a25b-ab74a4483a9d",
-            "columnKey" : "col1",
-            "columnName" : "column 1",
-            "columnWidth" : "12",
-            "seedComponents" : [ {
-              "attributes" : {
-                "sfdc:identifier" : "runtime_ses_ext_contentDetailHeader"
-              },
-              "fqn" : "runtime_ses_ext:contentDetailHeader"
-            } ]
-          } ]
+  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "componentName": "siteforce:dynamicLayout",
+  "dataProviders": [],
+  "id": "823f81ee-6257-43ed-bdd0-747235f30c72",
+  "label": "Enablement Program Link",
+  "regions": [
+    {
+      "id": "a2648bc0-2dc6-4f89-83d0-936ee3839005",
+      "regionName": "header",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "background": "background: rgba(0,0,0,0)",
+            "backgroundOverlay": "rgba(0,0,0,0.5)",
+            "contentAreaWidth": 100,
+            "sectionConfig": {
+              "UUID": "fdec7796-8853-4b1b-9d24-f5ae2923d70a",
+              "columns": [
+                {
+                  "UUID": "9929b1da-a991-4b94-a25b-ab74a4483a9d",
+                  "columnKey": "col1",
+                  "columnName": "column 1",
+                  "columnWidth": "12",
+                  "seedComponents": [
+                    {
+                      "attributes": {
+                        "sfdc:identifier": "runtime_ses_ext_contentDetailHeader"
+                      },
+                      "fqn": "runtime_ses_ext:contentDetailHeader"
+                    }
+                  ]
+                }
+              ]
+            },
+            "sectionHeight": 32
+          },
+          "componentName": "forceCommunity:section",
+          "id": "fdec7796-8853-4b1b-9d24-f5ae2923d70a",
+          "regions": [
+            {
+              "components": [
+                {
+                  "componentAttributes": {
+                    "recordId": "{!recordId}",
+                    "showDueDate": true,
+                    "titleHeadingLevel": "h1"
+                  },
+                  "componentName": "runtime_ses_ext:contentDetailHeader",
+                  "id": "e935df72-240d-425b-b367-22ab48a3d1d9",
+                  "renderPriority": "NEUTRAL",
+                  "renditionMap": {},
+                  "type": "component"
+                }
+              ],
+              "id": "9929b1da-a991-4b94-a25b-ab74a4483a9d",
+              "regionLabel": "column 1",
+              "regionName": "col1",
+              "renditionMap": {},
+              "type": "region"
+            }
+          ],
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
         },
-        "sectionHeight" : 32
-      },
-      "componentName" : "forceCommunity:section",
-      "id" : "fdec7796-8853-4b1b-9d24-f5ae2923d70a",
-      "regions" : [ {
-        "components" : [ {
-          "componentAttributes" : {
-            "recordId" : "{!recordId}",
-            "showDueDate" : true,
-            "titleHeadingLevel" : "h1"
+        {
+          "componentAttributes": {
+            "background": "background: rgba(0,0,0,0)",
+            "backgroundOverlay": "rgba(0,0,0,0.5)",
+            "contentAreaWidth": 100,
+            "sectionConfig": {
+              "UUID": "5cdcd649-06b6-47a3-87c4-b812a3621853",
+              "columns": [
+                {
+                  "UUID": "99062f44-cf8a-4cea-9107-1e3c6783f8a5",
+                  "columnKey": "col1",
+                  "columnName": "column 1",
+                  "columnWidth": "8",
+                  "seedComponents": [
+                    {
+                      "attributes": {
+                        "richTextValue": "<hr class=\"slds-m-top_none\"/>",
+                        "sfdc:identifier": "forceCommunity_htmlBlock"
+                      },
+                      "fqn": "forceCommunity:htmlBlock"
+                    },
+                    {
+                      "attributes": {
+                        "sfdc:identifier": "runtime_ses_ext_linkDetail"
+                      },
+                      "fqn": "runtime_ses_ext:linkDetail"
+                    },
+                    {
+                      "attributes": {
+                        "richTextValue": "<hr/>",
+                        "sfdc:identifier": "forceCommunity_htmlBlock"
+                      },
+                      "fqn": "forceCommunity:htmlBlock"
+                    }
+                  ]
+                },
+                {
+                  "UUID": "b06d89ff-8783-4a71-b051-789e43b31103",
+                  "columnKey": "col2",
+                  "columnName": "column 2",
+                  "columnWidth": "4",
+                  "seedComponents": [
+                    {
+                      "attributes": {
+                        "displayAsCard": "true",
+                        "displayMode": "compact",
+                        "sfdc:identifier": "runtime_ses_ext_programDetailHeader",
+                        "showDescription": "false"
+                      },
+                      "fqn": "runtime_ses_ext:programDetailHeader"
+                    },
+                    {
+                      "attributes": {
+                        "displayAsCard": "true",
+                        "sfdc:identifier": "runtime_ses_ext_programOutcomeCard",
+                        "showDescription": "false",
+                        "showIcon": "false",
+                        "title": ""
+                      },
+                      "fqn": "runtime_ses_ext:programOutcomeCard"
+                    },
+                    {
+                      "attributes": {
+                        "sfdc:identifier": "runtime_ses_ext_programTaskListCard"
+                      },
+                      "fqn": "runtime_ses_ext:programTaskListCard"
+                    }
+                  ]
+                }
+              ]
+            },
+            "sectionHeight": 32
           },
-          "componentName" : "runtime_ses_ext:contentDetailHeader",
-          "id" : "e935df72-240d-425b-b367-22ab48a3d1d9",
-          "renderPriority" : "NEUTRAL",
-          "renditionMap" : { },
-          "type" : "component"
-        } ],
-        "id" : "9929b1da-a991-4b94-a25b-ab74a4483a9d",
-        "regionLabel" : "column 1",
-        "regionName" : "col1",
-        "renditionMap" : { },
-        "type" : "region"
-      } ],
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    }, {
-      "componentAttributes" : {
-        "background" : "background: rgba(0,0,0,0)",
-        "backgroundOverlay" : "rgba(0,0,0,0.5)",
-        "contentAreaWidth" : 100,
-        "sectionConfig" : {
-          "UUID" : "5cdcd649-06b6-47a3-87c4-b812a3621853",
-          "columns" : [ {
-            "UUID" : "99062f44-cf8a-4cea-9107-1e3c6783f8a5",
-            "columnKey" : "col1",
-            "columnName" : "column 1",
-            "columnWidth" : "8",
-            "seedComponents" : [ {
-              "attributes" : {
-                "richTextValue" : "<hr class=\"slds-m-top_none\"/>",
-                "sfdc:identifier" : "forceCommunity_htmlBlock"
-              },
-              "fqn" : "forceCommunity:htmlBlock"
-            }, {
-              "attributes" : {
-                "sfdc:identifier" : "runtime_ses_ext_linkDetail"
-              },
-              "fqn" : "runtime_ses_ext:linkDetail"
-            }, {
-              "attributes" : {
-                "richTextValue" : "<hr/>",
-                "sfdc:identifier" : "forceCommunity_htmlBlock"
-              },
-              "fqn" : "forceCommunity:htmlBlock"
-            } ]
-          }, {
-            "UUID" : "b06d89ff-8783-4a71-b051-789e43b31103",
-            "columnKey" : "col2",
-            "columnName" : "column 2",
-            "columnWidth" : "4",
-            "seedComponents" : [ {
-              "attributes" : {
-                "displayAsCard" : "true",
-                "displayMode" : "compact",
-                "sfdc:identifier" : "runtime_ses_ext_programDetailHeader",
-                "showDescription" : "false"
-              },
-              "fqn" : "runtime_ses_ext:programDetailHeader"
-            }, {
-              "attributes" : {
-                "displayAsCard" : "true",
-                "sfdc:identifier" : "runtime_ses_ext_programOutcomeCard",
-                "showDescription" : "false",
-                "showIcon" : "false",
-                "title" : ""
-              },
-              "fqn" : "runtime_ses_ext:programOutcomeCard"
-            }, {
-              "attributes" : {
-                "sfdc:identifier" : "runtime_ses_ext_programTaskListCard"
-              },
-              "fqn" : "runtime_ses_ext:programTaskListCard"
-            } ]
-          } ]
-        },
-        "sectionHeight" : 32
-      },
-      "componentName" : "forceCommunity:section",
-      "id" : "5cdcd649-06b6-47a3-87c4-b812a3621853",
-      "regions" : [ {
-        "components" : [ {
-          "componentAttributes" : {
-            "richTextValue" : "<hr class=\"slds-m-top_none\"/>"
-          },
-          "componentName" : "forceCommunity:htmlBlock",
-          "id" : "b886e9b8-ff63-4ff1-874c-e786ca5a6f87",
-          "renderPriority" : "NEUTRAL",
-          "renditionMap" : { },
-          "type" : "component"
-        }, {
-          "componentAttributes" : {
-            "recordId" : "{!recordId}"
-          },
-          "componentName" : "runtime_ses_ext:linkDetail",
-          "id" : "d9a5a048-98a8-4a44-b811-0e911730c49d",
-          "renderPriority" : "NEUTRAL",
-          "renditionMap" : { },
-          "type" : "component"
-        }, {
-          "componentAttributes" : {
-            "richTextValue" : "<hr/>"
-          },
-          "componentName" : "forceCommunity:htmlBlock",
-          "id" : "c3eb7937-815a-4cc2-8bd9-6256ced4ec3c",
-          "renderPriority" : "NEUTRAL",
-          "renditionMap" : { },
-          "type" : "component"
-        } ],
-        "id" : "99062f44-cf8a-4cea-9107-1e3c6783f8a5",
-        "regionLabel" : "column 1",
-        "regionName" : "col1",
-        "renditionMap" : { },
-        "type" : "region"
-      }, {
-        "components" : [ {
-          "componentAttributes" : {
-            "displayAsCard" : true,
-            "displayMode" : "compact",
-            "recordId" : "{!recordId}",
-            "showDescription" : false,
-            "showDueDate" : true,
-            "titleHeadingLevel" : "h1"
-          },
-          "componentName" : "runtime_ses_ext:programDetailHeader",
-          "id" : "b6adc47a-3d86-445c-849d-fb08019f069e",
-          "renderPriority" : "NEUTRAL",
-          "renditionMap" : { },
-          "type" : "component"
-        }, {
-          "componentAttributes" : {
-            "displayAsCard" : true,
-            "recordId" : "{!recordId}",
-            "showDescription" : false,
-            "showDueDate" : true,
-            "showIcon" : false,
-            "title" : "",
-            "titleHeadingLevel" : "h2",
-            "titleStyle" : "small"
-          },
-          "componentName" : "runtime_ses_ext:programOutcomeCard",
-          "id" : "2c460ac5-2342-4f1d-ac6b-bdb8fd6c207e",
-          "renderPriority" : "NEUTRAL",
-          "renditionMap" : { },
-          "type" : "component"
-        }, {
-          "componentAttributes" : {
-            "displayAsCard" : true,
-            "recordId" : "{!recordId}",
-            "showDescription" : true,
-            "showDueDate" : true,
-            "showExpandOrCollapseButtons" : true,
-            "showIcons" : true,
-            "showProgress" : true,
-            "title" : "Milestones and Tasks",
-            "titleHeadingLevel" : "h2",
-            "titleStyle" : "small"
-          },
-          "componentName" : "runtime_ses_ext:programTaskListCard",
-          "id" : "27b0b0ae-4fd1-4e1d-ac99-5b6b03a8717b",
-          "renderPriority" : "NEUTRAL",
-          "renditionMap" : { },
-          "type" : "component"
-        } ],
-        "id" : "b06d89ff-8783-4a71-b051-789e43b31103",
-        "regionLabel" : "column 2",
-        "regionName" : "col2",
-        "renditionMap" : { },
-        "type" : "region"
-      } ],
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
-    "id" : "5ff25cea-29df-4dd4-8979-704c8187e4f6",
-    "regionName" : "content",
-    "type" : "region"
-  }, {
-    "id" : "5a9a799d-db83-4f1e-a213-c92db4161852",
-    "regionName" : "footer",
-    "type" : "region"
-  } ],
-  "themeLayoutType" : "Inner",
-  "type" : "view",
-  "viewType" : "enablement-program-link"
+          "componentName": "forceCommunity:section",
+          "id": "5cdcd649-06b6-47a3-87c4-b812a3621853",
+          "regions": [
+            {
+              "components": [
+                {
+                  "componentAttributes": {
+                    "richTextValue": "<hr class=\"slds-m-top_none\"/>"
+                  },
+                  "componentName": "forceCommunity:htmlBlock",
+                  "id": "b886e9b8-ff63-4ff1-874c-e786ca5a6f87",
+                  "renderPriority": "NEUTRAL",
+                  "renditionMap": {},
+                  "type": "component"
+                },
+                {
+                  "componentAttributes": {
+                    "recordId": "{!recordId}"
+                  },
+                  "componentName": "runtime_ses_ext:linkDetail",
+                  "id": "d9a5a048-98a8-4a44-b811-0e911730c49d",
+                  "renderPriority": "NEUTRAL",
+                  "renditionMap": {},
+                  "type": "component"
+                },
+                {
+                  "componentAttributes": {
+                    "richTextValue": "<hr/>"
+                  },
+                  "componentName": "forceCommunity:htmlBlock",
+                  "id": "c3eb7937-815a-4cc2-8bd9-6256ced4ec3c",
+                  "renderPriority": "NEUTRAL",
+                  "renditionMap": {},
+                  "type": "component"
+                }
+              ],
+              "id": "99062f44-cf8a-4cea-9107-1e3c6783f8a5",
+              "regionLabel": "column 1",
+              "regionName": "col1",
+              "renditionMap": {},
+              "type": "region"
+            },
+            {
+              "components": [
+                {
+                  "componentAttributes": {
+                    "displayAsCard": true,
+                    "displayMode": "compact",
+                    "recordId": "{!recordId}",
+                    "showDescription": false,
+                    "showDueDate": true,
+                    "titleHeadingLevel": "h1"
+                  },
+                  "componentName": "runtime_ses_ext:programDetailHeader",
+                  "id": "b6adc47a-3d86-445c-849d-fb08019f069e",
+                  "renderPriority": "NEUTRAL",
+                  "renditionMap": {},
+                  "type": "component"
+                },
+                {
+                  "componentAttributes": {
+                    "displayAsCard": true,
+                    "recordId": "{!recordId}",
+                    "showDescription": false,
+                    "showDueDate": true,
+                    "showIcon": false,
+                    "title": "",
+                    "titleHeadingLevel": "h2",
+                    "titleStyle": "small"
+                  },
+                  "componentName": "runtime_ses_ext:programOutcomeCard",
+                  "id": "2c460ac5-2342-4f1d-ac6b-bdb8fd6c207e",
+                  "renderPriority": "NEUTRAL",
+                  "renditionMap": {},
+                  "type": "component"
+                },
+                {
+                  "componentAttributes": {
+                    "displayAsCard": true,
+                    "recordId": "{!recordId}",
+                    "showDescription": true,
+                    "showDueDate": true,
+                    "showExpandOrCollapseButtons": true,
+                    "showIcons": true,
+                    "showProgress": true,
+                    "title": "Milestones and Tasks",
+                    "titleHeadingLevel": "h2",
+                    "titleStyle": "small"
+                  },
+                  "componentName": "runtime_ses_ext:programTaskListCard",
+                  "id": "27b0b0ae-4fd1-4e1d-ac99-5b6b03a8717b",
+                  "renderPriority": "NEUTRAL",
+                  "renditionMap": {},
+                  "type": "component"
+                }
+              ],
+              "id": "b06d89ff-8783-4a71-b051-789e43b31103",
+              "regionLabel": "column 2",
+              "regionName": "col2",
+              "renditionMap": {},
+              "type": "region"
+            }
+          ],
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "5ff25cea-29df-4dd4-8979-704c8187e4f6",
+      "regionName": "content",
+      "type": "region"
+    },
+    {
+      "id": "5a9a799d-db83-4f1e-a213-c92db4161852",
+      "regionName": "footer",
+      "type": "region"
+    }
+  ],
+  "themeLayoutType": "Inner",
+  "type": "view",
+  "viewType": "enablement-program-link"
 }
