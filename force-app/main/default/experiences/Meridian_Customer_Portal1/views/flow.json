@@ -1,40 +1,34 @@
 {
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "componentName": "siteforce:sldsOneColLayout",
-  "dataProviders": [],
-  "id": "5599f313-0069-4035-8bc1-165e8c5130c4",
-  "label": "Flow",
-  "regions": [
-    {
-      "id": "9acb635e-0c79-4ecb-9903-6991503f6aad",
-      "regionName": "header",
-      "type": "region"
-    },
-    {
-      "components": [
-        {
-          "componentAttributes": {
-            "flowArguments": "",
-            "flowName": "{!flowName}"
-          },
-          "componentName": "forceCommunity:flowCommunity",
-          "id": "4764b32a-ac5a-4132-9ae0-9a3401ead0c6",
-          "renderPriority": "NEUTRAL",
-          "renditionMap": {},
-          "type": "component"
-        }
-      ],
-      "id": "058a6fc5-07db-46b3-b06f-4ad7df9d5083",
-      "regionName": "content",
-      "type": "region"
-    },
-    {
-      "id": "89232ad9-21af-41d0-a096-0603f5c01aba",
-      "regionName": "footer",
-      "type": "region"
-    }
-  ],
-  "themeLayoutType": "Inner",
-  "type": "view",
-  "viewType": "flow"
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "5599f313-0069-4035-8bc1-165e8c5130c4",
+  "label" : "Flow",
+  "regions" : [ {
+    "id" : "9acb635e-0c79-4ecb-9903-6991503f6aad",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "{!flowName}"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "4764b32a-ac5a-4132-9ae0-9a3401ead0c6",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "058a6fc5-07db-46b3-b06f-4ad7df9d5083",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "89232ad9-21af-41d0-a096-0603f5c01aba",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "flow"
 }

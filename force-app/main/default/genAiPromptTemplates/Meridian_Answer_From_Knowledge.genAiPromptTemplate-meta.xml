@@ -1,15 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersionIdentifier
-  >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</activeVersionIdentifier>
-    <description
-  >Answers customer questions from Meridian knowledge articles via the KB retriever.</description>
+    <activeVersionIdentifier>duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</activeVersionIdentifier>
+    <description>Answers customer questions from Meridian knowledge articles via the KB retriever.</description>
     <developerName>Meridian_Answer_From_Knowledge</developerName>
     <masterLabel>Meridian Answer From Knowledge</masterLabel>
     <overridable>false</overridable>
     <templateVersions>
-        <content
-    >You are a customer service assistant for Meridian Building Solutions, a commercial HVAC and building automation company. A customer has asked:
+        <content>You are a customer service assistant for Meridian Building Solutions, a commercial HVAC and building automation company. A customer has asked:
 
 {!$Input:Question}
 
@@ -24,13 +21,11 @@ Guidelines:
 - When you reference an article, refer to it by its title. Never show or mention an article&apos;s URL slug or any internal identifier.
 - Only answer questions about Meridian&apos;s services, contracts, equipment, inspections, or procedures.
 </content>
-        <fileDroppingStrategy
-    >{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Question</apiName>
             <definition>primitive://String</definition>
-            <description
-      >This is the variable the agent will fill with the customer&apos;s question.</description>
+            <description>This is the variable the agent will fill with the customer&apos;s question.</description>
             <masterLabel>Question</masterLabel>
             <referenceName>Input:Question</referenceName>
             <required>true</required>
@@ -39,8 +34,7 @@ Guidelines:
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
         <templateDataProviders>
-            <definition
-      >invocable://getEinsteinRetrieverResults/Meridian_KB_Body_Index_Retriever_1Cx_EBn13996973</definition>
+            <definition>invocable://getEinsteinRetrieverResults/Meridian_KB_Body_Index_Retriever_1Cx_EBn13996973</definition>
             <label>Meridian_KB_Body_Index Retriever</label>
             <parameters>
                 <definition>primitive://String</definition>
@@ -52,8 +46,7 @@ Guidelines:
                 <definition>primitive://List&lt;String&gt;</definition>
                 <isRequired>false</isRequired>
                 <parameterName>outputFieldNames</parameterName>
-                <valueExpression
-        >[&quot;Chunk&quot;,&quot;Name&quot;,&quot;URL&quot;]</valueExpression>
+                <valueExpression>[&quot;Chunk&quot;,&quot;Name&quot;,&quot;URL&quot;]</valueExpression>
             </parameters>
             <parameters>
                 <definition>primitive://Integer</definition>
@@ -61,11 +54,9 @@ Guidelines:
                 <parameterName>resultCount</parameterName>
                 <valueExpression>3</valueExpression>
             </parameters>
-            <referenceName
-      >EinsteinSearch:Meridian_KB_Body_Index_Retriever_1Cx_EBn13996973</referenceName>
+            <referenceName>EinsteinSearch:Meridian_KB_Body_Index_Retriever_1Cx_EBn13996973</referenceName>
         </templateDataProviders>
-        <versionIdentifier
-    >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</versionIdentifier>
+        <versionIdentifier>duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>

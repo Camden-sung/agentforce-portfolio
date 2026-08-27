@@ -1,21 +1,21 @@
 {
-  "required": [],
-  "unevaluatedProperties": false,
-  "properties": {
-    "ContactIdInput": {
-      "title": "ContactIdInput",
-      "description": "The Salesforce Contact ID of the authenticated customer. Supplied by the system.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": false
+  "required" : [ ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "ContactIdInput" : {
+      "title" : "ContactIdInput",
+      "description" : "The Salesforce Contact ID of the authenticated customer. Supplied by the system.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
     },
-    "TestAccountId": {
-      "title": "TestAccountId",
-      "description": "Internal testing only. Not for use.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": false
+    "TestAccountId" : {
+      "title" : "TestAccountId",
+      "description" : "Internal testing only. Not for use.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
     }
   },
-  "lightning:type": "lightning__objectType"
+  "lightning:type" : "lightning__objectType"
 }

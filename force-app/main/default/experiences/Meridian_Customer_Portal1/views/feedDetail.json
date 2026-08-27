@@ -1,39 +1,33 @@
 {
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "componentName": "siteforce:sldsOneColLayout",
-  "dataProviders": [],
-  "id": "cd8fb350-7085-4b64-a59d-a87a0f42e4f3",
-  "label": "Feed Detail",
-  "regions": [
-    {
-      "id": "6b36a463-05e9-495f-a516-7022dc34f59d",
-      "regionName": "header",
-      "type": "region"
-    },
-    {
-      "components": [
-        {
-          "componentAttributes": {
-            "id": "{!recordId}"
-          },
-          "componentName": "forceCommunity:feedItemDetail",
-          "id": "95a0b943-0ea5-451f-8f18-84175b3a31bf",
-          "renderPriority": "NEUTRAL",
-          "renditionMap": {},
-          "type": "component"
-        }
-      ],
-      "id": "5099b687-808f-4c10-90fa-456c0bf4c7b8",
-      "regionName": "content",
-      "type": "region"
-    },
-    {
-      "id": "46ac7adb-fd7c-4436-8a8c-86ed9f345a1c",
-      "regionName": "footer",
-      "type": "region"
-    }
-  ],
-  "themeLayoutType": "Inner",
-  "type": "view",
-  "viewType": "feeditem-generic"
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "cd8fb350-7085-4b64-a59d-a87a0f42e4f3",
+  "label" : "Feed Detail",
+  "regions" : [ {
+    "id" : "6b36a463-05e9-495f-a516-7022dc34f59d",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "id" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:feedItemDetail",
+      "id" : "95a0b943-0ea5-451f-8f18-84175b3a31bf",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5099b687-808f-4c10-90fa-456c0bf4c7b8",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "46ac7adb-fd7c-4436-8a8c-86ed9f345a1c",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "feeditem-generic"
 }

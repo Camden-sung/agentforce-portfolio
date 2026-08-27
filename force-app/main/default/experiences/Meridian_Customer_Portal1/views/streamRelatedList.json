@@ -1,27 +1,23 @@
 {
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "componentName": "siteforce:sldsOneColLayout",
-  "dataProviders": [],
-  "id": "889b6529-f89e-424d-a51a-5f340df809e6",
-  "label": "Stream Related List",
-  "regions": [
-    {
-      "id": "6418e836-6152-4551-8500-a48b8b332c99",
-      "regionName": "header",
-      "type": "region"
-    },
-    {
-      "id": "c3117883-034a-49e6-964f-696df2fb1669",
-      "regionName": "content",
-      "type": "region"
-    },
-    {
-      "id": "ddc32f67-0b52-45b0-8a83-b8b01311b663",
-      "regionName": "footer",
-      "type": "region"
-    }
-  ],
-  "themeLayoutType": "Inner",
-  "type": "view",
-  "viewType": "relatedlist-0Fq"
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "889b6529-f89e-424d-a51a-5f340df809e6",
+  "label" : "Stream Related List",
+  "regions" : [ {
+    "id" : "6418e836-6152-4551-8500-a48b8b332c99",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "c3117883-034a-49e6-964f-696df2fb1669",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "ddc32f67-0b52-45b0-8a83-b8b01311b663",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "relatedlist-0Fq"
 }

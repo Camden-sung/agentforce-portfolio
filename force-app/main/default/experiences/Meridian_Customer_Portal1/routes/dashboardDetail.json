@@ -1,11 +1,11 @@
 {
-  "activeViewId": "eb3691a2-2398-4928-91cc-8376dac277d0",
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags": [],
-  "devName": "Dashboard_Detail",
-  "id": "8438de88-228a-4998-8c98-656d57056b98",
-  "label": "Dashboard Detail",
-  "routeType": "detail-01Z",
-  "type": "route",
-  "urlPrefix": "dashboard"
+  "activeViewId" : "eb3691a2-2398-4928-91cc-8376dac277d0",
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags" : [ ],
+  "devName" : "Dashboard_Detail",
+  "id" : "8438de88-228a-4998-8c98-656d57056b98",
+  "label" : "Dashboard Detail",
+  "routeType" : "detail-01Z",
+  "type" : "route",
+  "urlPrefix" : "dashboard"
 }

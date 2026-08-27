@@ -1,11 +1,11 @@
 {
-  "activeViewId": "5c339b7b-2160-464a-8de1-60af0f33b915",
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags": ["too-many-requests", "allow-in-static-site"],
-  "devName": "Too_Many_Requests",
-  "id": "323eba9f-8e14-4b16-bb8a-2cffcab6f241",
-  "label": "Too Many Requests",
-  "routeType": "too-many-requests",
-  "type": "route",
-  "urlPrefix": "too-many-requests"
+  "activeViewId" : "5c339b7b-2160-464a-8de1-60af0f33b915",
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags" : [ "too-many-requests", "allow-in-static-site" ],
+  "devName" : "Too_Many_Requests",
+  "id" : "323eba9f-8e14-4b16-bb8a-2cffcab6f241",
+  "label" : "Too Many Requests",
+  "routeType" : "too-many-requests",
+  "type" : "route",
+  "urlPrefix" : "too-many-requests"
 }

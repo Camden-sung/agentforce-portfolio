@@ -1,28 +1,28 @@
 {
-  "required": ["EquipmentTypeRequested"],
-  "unevaluatedProperties": false,
-  "properties": {
-    "ContactIdInput": {
-      "title": "ContactIdInput",
-      "description": "The Salesforce Contact ID of the authenticated customer. Supplied by the system.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": false
+  "required" : [ "EquipmentTypeRequested" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "ContactIdInput" : {
+      "title" : "ContactIdInput",
+      "description" : "The Salesforce Contact ID of the authenticated customer. Supplied by the system.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
     },
-    "EquipmentTypeRequested": {
-      "title": "EquipmentTypeRequested",
-      "description": "The type of equipment to check. Must be exactly one of: Rooftop Unit (RTU); Chiller; Boiler; Air Handler (AHU); VAV Box; Cooling Tower; Heat Pump; Building Automation Controller; Pump; Fan/Exhaust; Split System; Package Unit.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": false
+    "EquipmentTypeRequested" : {
+      "title" : "EquipmentTypeRequested",
+      "description" : "The type of equipment to check. Must be exactly one of: Rooftop Unit (RTU); Chiller; Boiler; Air Handler (AHU); VAV Box; Cooling Tower; Heat Pump; Building Automation Controller; Pump; Fan/Exhaust; Split System; Package Unit.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
     },
-    "TestAccountId": {
-      "title": "TestAccountId",
-      "description": "Internal testing only. Not for use.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": false
+    "TestAccountId" : {
+      "title" : "TestAccountId",
+      "description" : "Internal testing only. Not for use.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
     }
   },
-  "lightning:type": "lightning__objectType"
+  "lightning:type" : "lightning__objectType"
 }

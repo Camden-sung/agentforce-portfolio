@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>true</custom>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.AR_Outstanding_Scored__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
@@ -10,6 +15,11 @@
         <editable>true</editable>
         <field>Account.AccountSource</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Account_Risk_Score__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -92,6 +102,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Open_Case_Count_scored__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.OperatingHoursId</field>
         <readable>true</readable>
@@ -112,9 +127,34 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Portal_Event_Count_Scored__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Rating</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Risk_AR_Points__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Risk_Case_Points__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Risk_Portal_Points__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Risk_Score_Last_Synced__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1003,8 +1043,7 @@
         <layout>AccountBrand-Account Brand Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >AlternativePaymentMethod-Alternative Payment Method Layout</layout>
+        <layout>AlternativePaymentMethod-Alternative Payment Method Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ApiAnomalyEventStore-API Anomaly Event Store Layout</layout>
@@ -1040,12 +1079,10 @@
         <layout>AuthorizationForm-Authorization Form Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >AuthorizationFormConsent-Authorization Form Consent Layout</layout>
+        <layout>AuthorizationFormConsent-Authorization Form Consent Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >AuthorizationFormDataUse-Authorization Form Data Use Layout</layout>
+        <layout>AuthorizationFormDataUse-Authorization Form Data Use Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AuthorizationFormText-Authorization Form Text Layout</layout>
@@ -1069,8 +1106,7 @@
         <layout>CartDeliveryGroup-Cart Delivery Group Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >CartDeliveryGroupMethod-Cart Delivery Group Method Layout</layout>
+        <layout>CartDeliveryGroupMethod-Cart Delivery Group Method Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CartItem-Cart Item Layout</layout>
@@ -1112,8 +1148,7 @@
         <layout>ContactPointPhone-Contact Point Phone Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >ContactPointTypeConsent-Contact Point Type Consent Layout</layout>
+        <layout>ContactPointTypeConsent-Contact Point Type Consent Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ContentVersion-Content Version Layout</layout>
@@ -1125,15 +1160,13 @@
         <layout>ContractLineItem-Contract Line Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >CredentialStuffingEventStore-Credential Stuffing Event Store Layout</layout>
+        <layout>CredentialStuffingEventStore-Credential Stuffing Event Store Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CreditMemo-Credit Memo Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >CreditMemoInvApplication-Credit Memo Invoice Application Layout</layout>
+        <layout>CreditMemoInvApplication-Credit Memo Invoice Application Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CreditMemoLine-Credit Memo Line Layout</layout>
@@ -1208,26 +1241,25 @@
         <layout>FlowInterview-Flow Interview Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>FlowRecord-Flow Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>FulfillmentOrder-Fulfillment Order Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >FulfillmentOrderItemAdjustment-Fulfillment Order Item Adjustment Layout</layout>
+        <layout>FulfillmentOrderItemAdjustment-Fulfillment Order Item Adjustment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >FulfillmentOrderItemTax-Fulfillment Order Item Tax Layout</layout>
+        <layout>FulfillmentOrderItemTax-Fulfillment Order Item Tax Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >FulfillmentOrderLineItem-Fulfillment Order Product Layout</layout>
+        <layout>FulfillmentOrderLineItem-Fulfillment Order Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >GuestUserAnomalyEventStore-Guest User Anomaly Event Store Layout</layout>
+        <layout>GuestUserAnomalyEventStore-Guest User Anomaly Event Store Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Idea-Idea Layout</layout>
@@ -1257,12 +1289,10 @@
         <layout>LegalEntity-Legal Entity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >LiveChatTranscriptActive-Chat Transcript %28In Progress%29 Layout</layout>
+        <layout>LiveChatTranscriptActive-Chat Transcript %28In Progress%29 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >LiveChatTranscriptWaiting-Chat Transcript %28Waiting%29 Layout</layout>
+        <layout>LiveChatTranscriptWaiting-Chat Transcript %28Waiting%29 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Location-Location Layout</layout>
@@ -1271,8 +1301,7 @@
         <layout>LocationGroup-Location Group Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >LocationGroupAssignment-Location Group Assignment Layout</layout>
+        <layout>LocationGroupAssignment-Location Group Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LoginAnomalyEventStore-Login Anomaly Event Store Layout</layout>
@@ -1314,8 +1343,7 @@
         <layout>Payment-Payment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >PaymentAuthAdjustment-Payment Authorization Adjustment Layout</layout>
+        <layout>PaymentAuthAdjustment-Payment Authorization Adjustment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PaymentAuthorization-Payment Authorization Layout</layout>
@@ -1345,8 +1373,7 @@
         <layout>Product2-Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >ProductConsumptionSchedule-Product Consumption Schedule Layout</layout>
+        <layout>ProductConsumptionSchedule-Product Consumption Schedule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>QuickText-Quick Text Layout</layout>
@@ -1358,8 +1385,7 @@
         <layout>RefundLinePayment-Refund Line Payment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >ReportAnomalyEventStore-Report Anomaly Event Store Layout</layout>
+        <layout>ReportAnomalyEventStore-Report Anomaly Event Store Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ResourceAbsence-Resource Absence Layout</layout>
@@ -1371,8 +1397,7 @@
         <layout>ReturnOrder-Return Order Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >ReturnOrderItemAdjustment-Return Order Item Adjustment Layout</layout>
+        <layout>ReturnOrderItemAdjustment-Return Order Item Adjustment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ReturnOrderItemTax-Return Order Item Tax Layout</layout>
@@ -1396,8 +1421,7 @@
         <layout>ServiceAppointment-Service Appointment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >ServiceAppointmentShift-Service Appointment Shift Layout</layout>
+        <layout>ServiceAppointmentShift-Service Appointment Shift Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ServiceContract-Service Contract Layout</layout>
@@ -1418,8 +1442,7 @@
         <layout>Service_Contract__c-Service Contract Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >SessionHijackingEventStore-Session Hijacking Event Store Layout</layout>
+        <layout>SessionHijackingEventStore-Session Hijacking Event Store Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Shift-Shift Layout</layout>
@@ -1428,8 +1451,7 @@
         <layout>ShiftWorkTopic-Shift Work Topic Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >ShippingConfigurationSet-Shipping Configuration Set Layout</layout>
+        <layout>ShippingConfigurationSet-Shipping Configuration Set Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ShippingRateArea-Shipping Rate Area Layout</layout>
@@ -1456,15 +1478,13 @@
         <layout>Task-Task Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >ThreatDetectionFeedback-Threat Detection Feedback Layout</layout>
+        <layout>ThreatDetectionFeedback-Threat Detection Feedback Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>TimeSlot-Time Slot Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >UniversalAnomalyEventStore-Universal Anomaly Event Store Layout</layout>
+        <layout>UniversalAnomalyEventStore-Universal Anomaly Event Store Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>User-User Layout</layout>
@@ -1479,12 +1499,10 @@
         <layout>UserProvisioningLog-User Provisioning Log Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >UserProvisioningRequest-User Provisioning Request Layout</layout>
+        <layout>UserProvisioningRequest-User Provisioning Request Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >Waitlist-%5F%5FMISSING LABEL%5F%5F PropertyFile - val Waitlist not found in section StandardLayouts</layout>
+        <layout>Waitlist-%5F%5FMISSING LABEL%5F%5F PropertyFile - val Waitlist not found in section StandardLayouts</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>WebCart-Cart Layout</layout>

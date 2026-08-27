@@ -1,14 +1,14 @@
 {
-  "unevaluatedProperties": false,
-  "properties": {
-    "HealthSummary": {
-      "title": "HealthSummary",
-      "description": "A customer-ready summary of the equipment's health score.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isDisplayable": true,
-      "copilotAction:isUsedByPlanner": true
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "HealthSummary" : {
+      "title" : "HealthSummary",
+      "description" : "A customer-ready summary of the equipment's health score.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
     }
   },
-  "lightning:type": "lightning__objectType"
+  "lightning:type" : "lightning__objectType"
 }

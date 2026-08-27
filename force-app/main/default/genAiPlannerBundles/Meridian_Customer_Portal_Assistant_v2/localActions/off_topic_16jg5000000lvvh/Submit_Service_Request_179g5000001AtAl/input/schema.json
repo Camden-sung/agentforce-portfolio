@@ -1,0 +1,42 @@
+{
+  "required": [],
+  "unevaluatedProperties": false,
+  "properties": {
+    "ContactIdInput": {
+      "title": "ContactIdInput",
+      "description": "ContactIdInput",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "RequestDescription": {
+      "title": "RequestDescription",
+      "description": "RequestDescription",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "RequestSubject": {
+      "title": "RequestSubject",
+      "description": "RequestSubject",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "TestAccountId": {
+      "title": "TestAccountId",
+      "description": "testing fallback",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "TestContactId": {
+      "title": "TestContactId",
+      "description": "TestContactId",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

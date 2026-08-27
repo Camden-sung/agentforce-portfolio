@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
@@ -30,6 +30,38 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>External_ERP_Customer_Id__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Account_Risk_Score__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Risk_Score_Last_Synced__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Risk_Portal_Points__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Risk_Case_Points__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Risk_AR_Points__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Portal_Event_Count_Scored__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Open_Case_Count_scored__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AR_Outstanding_Scored__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -180,8 +212,8 @@
                 <customLink>Billing</customLink>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns />
-        <layoutColumns />
+        <layoutColumns/>
+        <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
     <platformActionList>

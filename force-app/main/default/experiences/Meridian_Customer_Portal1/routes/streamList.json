@@ -1,11 +1,11 @@
 {
-  "activeViewId": "e44fbaa5-6b58-401b-8906-f80199ba7669",
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags": [],
-  "devName": "Stream_List",
-  "id": "fe93a6f1-7e7c-435f-8781-c8a09083e76b",
-  "label": "Stream List",
-  "routeType": "list-0Fq",
-  "type": "route",
-  "urlPrefix": "streams"
+  "activeViewId" : "e44fbaa5-6b58-401b-8906-f80199ba7669",
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags" : [ ],
+  "devName" : "Stream_List",
+  "id" : "fe93a6f1-7e7c-435f-8781-c8a09083e76b",
+  "label" : "Stream List",
+  "routeType" : "list-0Fq",
+  "type" : "route",
+  "urlPrefix" : "streams"
 }

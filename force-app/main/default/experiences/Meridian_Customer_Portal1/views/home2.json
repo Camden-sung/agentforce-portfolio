@@ -1,94 +1,81 @@
 {
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "componentName": "siteforce:sldsOneColLayout",
-  "dataProviders": [],
-  "id": "6269f5cd-dd23-4a1e-a5d0-1bdb6cc59054",
-  "label": "Home 2",
-  "regions": [
-    {
-      "id": "9d79b2e0-f290-48c9-931d-0a9aa0d75ede",
-      "regionName": "header",
-      "type": "region"
-    },
-    {
-      "components": [
-        {
-          "componentAttributes": {
-            "richTextValue": "<div style=\"background: linear-gradient(135deg, #1b3a5c 0%, #2d5f8a 100%);\n            padding: 48px 40px; border-radius: 8px; color: #ffffff;\">\n  <p style=\"margin:0 0 8px; font-size:13px; letter-spacing:1.5px;\n            text-transform:uppercase; opacity:0.75;\">\n    Meridian Building Solutions\n  </p>\n  <h1 style=\"margin:0 0 14px; font-size:34px; font-weight:600; color:#ffffff;\">\n    Your Service Portal\n  </h1>\n  <p style=\"margin:0; font-size:17px; line-height:1.5; max-width:640px; opacity:0.92;\">\n    Ask the Meridian assistant about your service contract, upcoming maintenance\n    visits, inspection reports, and equipment health — or submit a service request\n    anytime.\n  </p>\n</div>"
-          },
-          "componentName": "forceCommunity:htmlBlock",
-          "id": "3c02ed42-19f1-4d03-9488-90cf135d4485",
-          "renderPriority": "NEUTRAL",
-          "renditionMap": {},
-          "type": "component"
-        },
-        {
-          "componentAttributes": {
-            "richTextValue": "<div style=\"display:flex; flex-wrap:wrap; gap:16px; margin-top:24px;\">\n\n  <div style=\"flex:1 1 220px; background:#ffffff; border:1px solid #dfe3e8;\n              border-radius:8px; padding:22px;\">\n    <h3 style=\"margin:0 0 6px; font-size:17px; color:#1b3a5c;\">Your Contract</h3>\n    <p style=\"margin:0; font-size:14px; color:#5a6570; line-height:1.45;\">\n      Coverage level, included maintenance visits, and emergency response times.\n    </p>\n  </div>\n\n  <div style=\"flex:1 1 220px; background:#ffffff; border:1px solid #dfe3e8;\n              border-radius:8px; padding:22px;\">\n    <h3 style=\"margin:0 0 6px; font-size:17px; color:#1b3a5c;\">Upcoming Visits</h3>\n    <p style=\"margin:0; font-size:14px; color:#5a6570; line-height:1.45;\">\n      See when your next scheduled service visit is and who's assigned to it.\n    </p>\n  </div>\n\n  <div style=\"flex:1 1 220px; background:#ffffff; border:1px solid #dfe3e8;\n              border-radius:8px; padding:22px;\">\n    <h3 style=\"margin:0 0 6px; font-size:17px; color:#1b3a5c;\">Inspection Reports</h3>\n    <p style=\"margin:0; font-size:14px; color:#5a6570; line-height:1.45;\">\n      Review recent inspection findings and recommended actions.\n    </p>\n  </div>\n\n  <div style=\"flex:1 1 220px; background:#ffffff; border:1px solid #dfe3e8;\n              border-radius:8px; padding:22px;\">\n    <h3 style=\"margin:0 0 6px; font-size:17px; color:#1b3a5c;\">Equipment Health</h3>\n    <p style=\"margin:0; font-size:14px; color:#5a6570; line-height:1.45;\">\n      Check how your equipment is running, based on live monitoring data.\n    </p>\n  </div>\n\n</div>"
-          },
-          "componentName": "forceCommunity:htmlBlock",
-          "id": "725ff081-fbb3-4262-8f1d-bdd8f65d932b",
-          "renderPriority": "NEUTRAL",
-          "renditionMap": {},
-          "type": "component"
-        }
-      ],
-      "id": "01ba9224-39a6-4f3c-b7f8-f7b2f79e8d47",
-      "regionName": "content",
-      "type": "region"
-    },
-    {
-      "components": [
-        {
-          "componentAttributes": {
-            "richTextValue": "<div style=\"background:#ffffff; border:1px solid #dfe3e8; border-radius:8px;\n            padding:24px; margin-top:24px;\">\n  <h2 style=\"margin:0 0 14px; font-size:20px; color:#1b3a5c;\">Help Articles</h2>\n  <ul style=\"margin:0; padding-left:20px; line-height:2; font-size:15px;\">\n    <li><a href=\"/customers/article/understanding-your-service-contract-coverage-levels\">Understanding Your Service Contract Coverage Levels</a></li>\n    <li><a href=\"/customers/article/preventive-maintenance-visit-schedule-and-frequency\">Preventive Maintenance Visit Schedule and Frequency</a></li>\n    <li><a href=\"/customers/article/how-to-read-your-inspection-report\">How to Read Your Inspection Report</a></li>\n    <li><a href=\"/customers/article/reading-your-equipment-health-score\">Reading Your Equipment Health Score</a></li>\n    <li><a href=\"/customers/article/how-to-submit-a-non-urgent-service-request\">How to Submit a Non-Urgent Service Request</a></li>\n    <li><a href=\"/customers/article/after-hours-emergency-contact-procedures\">After-Hours Emergency Contact Procedures</a></li>\n  </ul>\n</div>"
-          },
-          "componentName": "forceCommunity:htmlBlock",
-          "id": "e52ed773-5146-4c03-8fe7-7606d97bd200",
-          "renderPriority": "NEUTRAL",
-          "renditionMap": {},
-          "type": "component"
-        },
-        {
-          "componentAttributes": {
-            "clientVersion": "WebV1",
-            "deploymentName": "Meridian_Portal_Channel",
-            "hideChatButtonOnLoad": "Default",
-            "isExpSiteAuthMode": true,
-            "scrtUrl": "https://meridianbuildingsolutions-dev-ed.develop.my.salesforce-scrt.com",
-            "siteEndpoint": "https://meridianbuildingsolutions-dev-ed.develop.my.site.com/ESWMeridianPortalChanne1784661805403"
-          },
-          "componentName": "experience_messaging:embeddedMessaging",
-          "id": "d3584bf1-d958-43a8-a99e-bf65bafb60d7",
-          "renderPriority": "NEUTRAL",
-          "renditionMap": {},
-          "type": "component"
-        }
-      ],
-      "id": "5b2ffcd9-5df3-4d65-83e9-d93fe89df517",
-      "regionName": "footer",
-      "type": "region"
-    },
-    {
-      "components": [
-        {
-          "componentAttributes": {
-            "customHeadTags": "",
-            "description": "",
-            "title": "Home"
-          },
-          "componentName": "forceCommunity:seoAssistant",
-          "id": "2690df3f-b176-4f01-bfc4-4a2f2322b1b7",
-          "renditionMap": {},
-          "type": "component"
-        }
-      ],
-      "id": "4b8d7054-031b-446e-8c79-8cc1d1846448",
-      "regionName": "sfdcHiddenRegion",
-      "type": "region"
-    }
-  ],
-  "themeLayoutType": "Inner",
-  "type": "view",
-  "viewType": "home"
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "6269f5cd-dd23-4a1e-a5d0-1bdb6cc59054",
+  "label" : "Home 2",
+  "regions" : [ {
+    "id" : "9d79b2e0-f290-48c9-931d-0a9aa0d75ede",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"background: linear-gradient(135deg, #1b3a5c 0%, #2d5f8a 100%);\n            padding: 48px 40px; border-radius: 8px; color: #ffffff;\">\n  <p style=\"margin:0 0 8px; font-size:13px; letter-spacing:1.5px;\n            text-transform:uppercase; opacity:0.75;\">\n    Meridian Building Solutions\n  </p>\n  <h1 style=\"margin:0 0 14px; font-size:34px; font-weight:600; color:#ffffff;\">\n    Your Service Portal\n  </h1>\n  <p style=\"margin:0; font-size:17px; line-height:1.5; max-width:640px; opacity:0.92;\">\n    Ask the Meridian assistant about your service contract, upcoming maintenance\n    visits, inspection reports, and equipment health — or submit a service request\n    anytime.\n  </p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "3c02ed42-19f1-4d03-9488-90cf135d4485",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display:flex; flex-wrap:wrap; gap:16px; margin-top:24px;\">\n\n  <div style=\"flex:1 1 220px; background:#ffffff; border:1px solid #dfe3e8;\n              border-radius:8px; padding:22px;\">\n    <h3 style=\"margin:0 0 6px; font-size:17px; color:#1b3a5c;\">Your Contract</h3>\n    <p style=\"margin:0; font-size:14px; color:#5a6570; line-height:1.45;\">\n      Coverage level, included maintenance visits, and emergency response times.\n    </p>\n  </div>\n\n  <div style=\"flex:1 1 220px; background:#ffffff; border:1px solid #dfe3e8;\n              border-radius:8px; padding:22px;\">\n    <h3 style=\"margin:0 0 6px; font-size:17px; color:#1b3a5c;\">Upcoming Visits</h3>\n    <p style=\"margin:0; font-size:14px; color:#5a6570; line-height:1.45;\">\n      See when your next scheduled service visit is and who's assigned to it.\n    </p>\n  </div>\n\n  <div style=\"flex:1 1 220px; background:#ffffff; border:1px solid #dfe3e8;\n              border-radius:8px; padding:22px;\">\n    <h3 style=\"margin:0 0 6px; font-size:17px; color:#1b3a5c;\">Inspection Reports</h3>\n    <p style=\"margin:0; font-size:14px; color:#5a6570; line-height:1.45;\">\n      Review recent inspection findings and recommended actions.\n    </p>\n  </div>\n\n  <div style=\"flex:1 1 220px; background:#ffffff; border:1px solid #dfe3e8;\n              border-radius:8px; padding:22px;\">\n    <h3 style=\"margin:0 0 6px; font-size:17px; color:#1b3a5c;\">Equipment Health</h3>\n    <p style=\"margin:0; font-size:14px; color:#5a6570; line-height:1.45;\">\n      Check how your equipment is running, based on live monitoring data.\n    </p>\n  </div>\n\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "725ff081-fbb3-4262-8f1d-bdd8f65d932b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "01ba9224-39a6-4f3c-b7f8-f7b2f79e8d47",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"background:#ffffff; border:1px solid #dfe3e8; border-radius:8px;\n            padding:24px; margin-top:24px;\">\n  <h2 style=\"margin:0 0 14px; font-size:20px; color:#1b3a5c;\">Help Articles</h2>\n  <ul style=\"margin:0; padding-left:20px; line-height:2; font-size:15px;\">\n    <li><a href=\"/customers/article/understanding-your-service-contract-coverage-levels\">Understanding Your Service Contract Coverage Levels</a></li>\n    <li><a href=\"/customers/article/preventive-maintenance-visit-schedule-and-frequency\">Preventive Maintenance Visit Schedule and Frequency</a></li>\n    <li><a href=\"/customers/article/how-to-read-your-inspection-report\">How to Read Your Inspection Report</a></li>\n    <li><a href=\"/customers/article/reading-your-equipment-health-score\">Reading Your Equipment Health Score</a></li>\n    <li><a href=\"/customers/article/how-to-submit-a-non-urgent-service-request\">How to Submit a Non-Urgent Service Request</a></li>\n    <li><a href=\"/customers/article/after-hours-emergency-contact-procedures\">After-Hours Emergency Contact Procedures</a></li>\n  </ul>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "e52ed773-5146-4c03-8fe7-7606d97bd200",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "clientVersion" : "WebV1",
+        "deploymentName" : "Meridian_Portal_Channel",
+        "hideChatButtonOnLoad" : "Default",
+        "isExpSiteAuthMode" : true,
+        "scrtUrl" : "https://meridianbuildingsolutions-dev-ed.develop.my.salesforce-scrt.com",
+        "siteEndpoint" : "https://meridianbuildingsolutions-dev-ed.develop.my.site.com/ESWMeridianPortalChanne1784661805403"
+      },
+      "componentName" : "experience_messaging:embeddedMessaging",
+      "id" : "d3584bf1-d958-43a8-a99e-bf65bafb60d7",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5b2ffcd9-5df3-4d65-83e9-d93fe89df517",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2690df3f-b176-4f01-bfc4-4a2f2322b1b7",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4b8d7054-031b-446e-8c79-8cc1d1846448",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
 }

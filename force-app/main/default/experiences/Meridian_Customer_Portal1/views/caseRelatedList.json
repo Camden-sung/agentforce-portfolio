@@ -1,45 +1,39 @@
 {
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "componentName": "siteforce:sldsOneColLayout",
-  "dataProviders": [],
-  "id": "72bbc928-5f35-4e5e-b52f-84b31232fa82",
-  "label": "Case Related List",
-  "regions": [
-    {
-      "id": "fa13755d-2974-40ef-8db6-9691be015de6",
-      "regionName": "header",
-      "type": "region"
-    },
-    {
-      "components": [
-        {
-          "componentAttributes": {
-            "customTitle": "",
-            "parentRecordId": "{!recordId}",
-            "relatedListName": "{!relationshipApiName}",
-            "showBreadCrumbs": true,
-            "showCustomTitle": false,
-            "showManualRefreshButton": true,
-            "showRowNumbers": true
-          },
-          "componentName": "forceCommunity:relatedList",
-          "id": "f6e12fd8-ff2e-49fe-9414-563fbf5082bb",
-          "renderPriority": "NEUTRAL",
-          "renditionMap": {},
-          "type": "component"
-        }
-      ],
-      "id": "f2ec83f5-35ea-41d4-b946-d06b747cd662",
-      "regionName": "content",
-      "type": "region"
-    },
-    {
-      "id": "890799a1-79da-4510-a3ab-ada75a78af4e",
-      "regionName": "footer",
-      "type": "region"
-    }
-  ],
-  "themeLayoutType": "Inner",
-  "type": "view",
-  "viewType": "relatedlist-500"
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "72bbc928-5f35-4e5e-b52f-84b31232fa82",
+  "label" : "Case Related List",
+  "regions" : [ {
+    "id" : "fa13755d-2974-40ef-8db6-9691be015de6",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customTitle" : "",
+        "parentRecordId" : "{!recordId}",
+        "relatedListName" : "{!relationshipApiName}",
+        "showBreadCrumbs" : true,
+        "showCustomTitle" : false,
+        "showManualRefreshButton" : true,
+        "showRowNumbers" : true
+      },
+      "componentName" : "forceCommunity:relatedList",
+      "id" : "f6e12fd8-ff2e-49fe-9414-563fbf5082bb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f2ec83f5-35ea-41d4-b946-d06b747cd662",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "890799a1-79da-4510-a3ab-ada75a78af4e",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "relatedlist-500"
 }

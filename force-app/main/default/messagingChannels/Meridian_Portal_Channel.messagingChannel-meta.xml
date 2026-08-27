@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MessagingChannel xmlns="http://soap.sforce.com/2006/04/metadata">
     <automatedResponses>
         <autoResponseContentType>TextResponse</autoResponseContentType>
         <language>en_US</language>
-        <response
-    >You&apos;ve opted out of receiving messages from us, so we won&apos;t contact you again.</response>
+        <response>You&apos;ve opted out of receiving messages from us, so we won&apos;t contact you again.</response>
         <type>OptOutConfirmation</type>
     </automatedResponses>
     <automatedResponses>
@@ -14,8 +13,7 @@
         <type>HelpResponse</type>
     </automatedResponses>
     <embeddedConfig>
-        <allowedFileTypes
-    >bmp,csv,doc,docx,gif,jpg,pdf,png,tiff,txt,xls,xlsx,xml</allowedFileTypes>
+        <allowedFileTypes>bmp,csv,doc,docx,gif,jpg,pdf,png,tiff,txt,xls,xlsx,xml</allowedFileTypes>
         <anonymousUserJwtExpirationTime>360</anonymousUserJwtExpirationTime>
         <authMode>Auth</authMode>
         <isAgentAvlCheckEnabled>false</isAgentAvlCheckEnabled>

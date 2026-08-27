@@ -1,45 +1,39 @@
 {
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "componentName": "siteforce:sldsOneColLayout",
-  "dataProviders": [],
-  "id": "ee8d3015-b685-4a8d-a491-7f9b9660397d",
-  "label": "Dashboard Related List",
-  "regions": [
-    {
-      "id": "c710677f-ac06-4d63-acf6-acef01f1aa37",
-      "regionName": "header",
-      "type": "region"
-    },
-    {
-      "components": [
-        {
-          "componentAttributes": {
-            "customTitle": "",
-            "parentRecordId": "{!recordId}",
-            "relatedListName": "{!relationshipApiName}",
-            "showBreadCrumbs": true,
-            "showCustomTitle": false,
-            "showManualRefreshButton": true,
-            "showRowNumbers": true
-          },
-          "componentName": "forceCommunity:relatedList",
-          "id": "5f063c21-d899-4bcd-9d83-b7fc0c856321",
-          "renderPriority": "NEUTRAL",
-          "renditionMap": {},
-          "type": "component"
-        }
-      ],
-      "id": "7ae1ef81-d8ae-416e-add9-507a7e24f6ee",
-      "regionName": "content",
-      "type": "region"
-    },
-    {
-      "id": "309a6734-4193-40e6-a4ac-ee71cc3bf22e",
-      "regionName": "footer",
-      "type": "region"
-    }
-  ],
-  "themeLayoutType": "Inner",
-  "type": "view",
-  "viewType": "relatedlist-01Z"
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "ee8d3015-b685-4a8d-a491-7f9b9660397d",
+  "label" : "Dashboard Related List",
+  "regions" : [ {
+    "id" : "c710677f-ac06-4d63-acf6-acef01f1aa37",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customTitle" : "",
+        "parentRecordId" : "{!recordId}",
+        "relatedListName" : "{!relationshipApiName}",
+        "showBreadCrumbs" : true,
+        "showCustomTitle" : false,
+        "showManualRefreshButton" : true,
+        "showRowNumbers" : true
+      },
+      "componentName" : "forceCommunity:relatedList",
+      "id" : "5f063c21-d899-4bcd-9d83-b7fc0c856321",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7ae1ef81-d8ae-416e-add9-507a7e24f6ee",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "309a6734-4193-40e6-a4ac-ee71cc3bf22e",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "relatedlist-01Z"
 }

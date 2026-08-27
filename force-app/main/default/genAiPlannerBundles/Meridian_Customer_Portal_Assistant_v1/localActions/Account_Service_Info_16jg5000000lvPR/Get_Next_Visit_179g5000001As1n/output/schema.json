@@ -1,0 +1,30 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "CoverageSummary": {
+      "title": "CoverageSummary",
+      "description": "What the agent relays.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
+    },
+    "NextVisitSummary": {
+      "title": "NextVisitSummary",
+      "description": "",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
+    },
+    "TechnicianName": {
+      "title": "TechnicianName",
+      "description": "",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

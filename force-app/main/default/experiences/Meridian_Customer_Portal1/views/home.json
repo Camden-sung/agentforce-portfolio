@@ -1,0 +1,139 @@
+{
+  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "componentName": "siteforce:sldsTwoCol84SidebarFeaturedLayout",
+  "dataProviders": [],
+  "id": "c96bf64c-a980-4000-9755-e791d631f6e0",
+  "label": "Home",
+  "regions": [
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "bannerText": "A place where you can easily find solutions and ask questions",
+            "bannerTextWithKnowledge": "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+            "bannerTextWithoutKnowledge": "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+            "pageType": "",
+            "showSubTopics": true,
+            "title": "Welcome!",
+            "uniqueNameOrId": ""
+          },
+          "componentName": "forceCommunity:headline",
+          "id": "769030e6-52b3-4d68-8275-0153928b76ac",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "98503db3-1ee7-49a3-a643-a999fb8ff4b1",
+      "regionName": "header",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "clientVersion": "WebV1",
+            "deploymentName": "Meridian_Portal_Channel",
+            "hideChatButtonOnLoad": "Visible",
+            "isExpSiteAuthMode": true,
+            "scrtUrl": "https://meridianbuildingsolutions-dev-ed.develop.my.salesforce-scrt.com",
+            "siteEndpoint": "https://meridianbuildingsolutions-dev-ed.develop.my.site.com/ESWMeridianPortalChanne1784661805403"
+          },
+          "componentName": "experience_messaging:embeddedMessaging",
+          "id": "6c283bb0-887d-4cbc-b04c-dfb3ed2f7b67",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "80674a76-f642-45ab-b090-6da04c474c9e",
+      "regionName": "featured",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "richTextValue": "<div style=\"background: linear-gradient(135deg, #1b3a5c 0%, #2d5f8a 100%);\n            padding: 48px 40px; border-radius: 8px; color: #ffffff;\">\n  <p style=\"margin:0 0 8px; font-size:13px; letter-spacing:1.5px;\n            text-transform:uppercase; opacity:0.75;\">\n    Meridian Building Solutions\n  </p>\n  <h1 style=\"margin:0 0 14px; font-size:34px; font-weight:600; color:#ffffff;\">\n    Your Service Portal\n  </h1>\n  <p style=\"margin:0; font-size:17px; line-height:1.5; max-width:640px; opacity:0.92;\">\n    Ask the Meridian assistant about your service contract, upcoming maintenance\n    visits, inspection reports, and equipment health — or submit a service request\n    anytime.\n  </p>\n</div>"
+          },
+          "componentName": "forceCommunity:htmlBlock",
+          "id": "8eac73fb-97bc-42ff-b236-42da0d0e385e",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "8c68fc87-6ddc-4602-994a-bf9859f7ea2f",
+      "regionName": "content",
+      "type": "region"
+    },
+    {
+      "id": "9e217a6b-97f7-457d-a505-c2af4d5b39dc",
+      "regionName": "sidebar",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "askCommunityLabel": "Ask a Question",
+            "buttonBgColor": "",
+            "buttonBgHoverColor": "",
+            "buttonBorderColor": "",
+            "buttonRadius": 0,
+            "buttonTextColor": "",
+            "buttonTextHoverColor": "",
+            "buttonTwoBgColor": "",
+            "buttonTwoBgHoverColor": "",
+            "buttonTwoBorderColor": "",
+            "buttonTwoRadius": 0,
+            "buttonTwoTextColor": "",
+            "buttonTwoTextHoverColor": "",
+            "confirmationMessage": "Got it!",
+            "contactSupportLabel": "Contact Support",
+            "followUpPromptLabel": "Can we close your question?",
+            "headerLabel": "Don't see what you're looking for?",
+            "isAskFollowPromptEnabled": true,
+            "isIncludeArticlesEnabled": false,
+            "isIncludeDiscussionsEnabled": true,
+            "isInitialSatisfactionPromptEnabled": true,
+            "isPublisherDeflectionEnabled": true,
+            "maxSuggestions": 5,
+            "satisfactionPromptLabel": "Did we help to answer your question?",
+            "showDetails": false,
+            "showTopics": true
+          },
+          "componentName": "siteforce:napiliFooter",
+          "id": "e0713034-2029-4e76-bcbc-e9311f497cbc",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "d015a433-80cf-4b42-84d2-1dfcbb86f620",
+      "regionName": "footer",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "customHeadTags": "",
+            "description": "",
+            "title": "Home"
+          },
+          "componentName": "forceCommunity:seoAssistant",
+          "id": "8bd0352a-946e-42a5-a0f8-3b5967af80ab",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "803305b2-20b2-4b81-a834-fdc351c15d23",
+      "regionName": "sfdcHiddenRegion",
+      "type": "region"
+    }
+  ],
+  "themeLayoutType": "Inner",
+  "type": "view",
+  "viewType": "home"
+}

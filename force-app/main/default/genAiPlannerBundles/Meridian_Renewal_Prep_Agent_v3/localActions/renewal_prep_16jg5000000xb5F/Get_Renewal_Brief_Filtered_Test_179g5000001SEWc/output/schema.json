@@ -1,0 +1,30 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "var_Output": {
+      "title": "Internal Brief Data",
+      "description": "Internal renewal data. Passed directly to the Renewal Brief prompt template and not available to you. The brief that the Renewal Brief action generates is what the user sees.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": false
+    },
+    "var_OutreachData": {
+      "title": "Customer Safe Data",
+      "description": "Customer-safe renewal facts. Reserved for the outreach drafting step and not available to you.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": false
+    },
+    "var_Status": {
+      "title": "Resolution Status",
+      "description": "Resolution outcome. Begins with OK, AMBIGUOUS, or NOT_FOUND. When AMBIGUOUS, it names the candidate accounts — present those to the user and ask which they mean. When NOT_FOUND, say no matching contract was found in their book. Never state that an account has no renewal data on the basis of any other field being unavailable.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": false,
+      "copilotAction:isUsedByPlanner": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

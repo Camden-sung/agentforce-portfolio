@@ -1,40 +1,34 @@
 {
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "componentName": "siteforce:sldsOneColLayout",
-  "dataProviders": [],
-  "id": "bf7c29a4-8535-47d0-bb23-1415197b4351",
-  "label": "Create Record",
-  "regions": [
-    {
-      "id": "9bcc97c9-c5fc-48f7-a3b6-68cee7ba3913",
-      "regionName": "header",
-      "type": "region"
-    },
-    {
-      "components": [
-        {
-          "componentAttributes": {
-            "actionApiName": "{!actionApiName}",
-            "isMicrobatch": false
-          },
-          "componentName": "forceCommunity:createRecordForm",
-          "id": "577cd978-6f0c-46f6-ab22-d57cfc95f90d",
-          "renderPriority": "NEUTRAL",
-          "renditionMap": {},
-          "type": "component"
-        }
-      ],
-      "id": "d800bed5-3947-4f15-b39a-82188ab629d9",
-      "regionName": "content",
-      "type": "region"
-    },
-    {
-      "id": "dbd31c7d-7fad-41a0-8e6b-a0b6e0740c3a",
-      "regionName": "footer",
-      "type": "region"
-    }
-  ],
-  "themeLayoutType": "Inner",
-  "type": "view",
-  "viewType": "createrecord"
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "bf7c29a4-8535-47d0-bb23-1415197b4351",
+  "label" : "Create Record",
+  "regions" : [ {
+    "id" : "9bcc97c9-c5fc-48f7-a3b6-68cee7ba3913",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "actionApiName" : "{!actionApiName}",
+        "isMicrobatch" : false
+      },
+      "componentName" : "forceCommunity:createRecordForm",
+      "id" : "577cd978-6f0c-46f6-ab22-d57cfc95f90d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d800bed5-3947-4f15-b39a-82188ab629d9",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "dbd31c7d-7fad-41a0-8e6b-a0b6e0740c3a",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "createrecord"
 }

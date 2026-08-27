@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Renewal_Notice_Date__c</fullName>
     <formula>End_Date__c - Renewal_Notice_Days__c</formula>

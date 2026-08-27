@@ -1,14 +1,14 @@
 {
-  "unevaluatedProperties": false,
-  "properties": {
-    "InspectionSummary": {
-      "title": "InspectionSummary",
-      "description": "A customer-ready summary of the most recent inspection report.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isDisplayable": true,
-      "copilotAction:isUsedByPlanner": true
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "InspectionSummary" : {
+      "title" : "InspectionSummary",
+      "description" : "A customer-ready summary of the most recent inspection report.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
     }
   },
-  "lightning:type": "lightning__objectType"
+  "lightning:type" : "lightning__objectType"
 }

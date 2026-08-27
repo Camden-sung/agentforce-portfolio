@@ -1,11 +1,11 @@
 {
-  "activeViewId": "e083001e-fe48-46c6-82e1-461bd93fa618",
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags": [],
-  "devName": "Topic_Detail",
-  "id": "9e2f0157-11ed-4883-9368-05e8cba6b9bb",
-  "label": "Topic Detail",
-  "routeType": "topic",
-  "type": "route",
-  "urlPrefix": "topic"
+  "activeViewId" : "e083001e-fe48-46c6-82e1-461bd93fa618",
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags" : [ ],
+  "devName" : "Topic_Detail",
+  "id" : "9e2f0157-11ed-4883-9368-05e8cba6b9bb",
+  "label" : "Topic Detail",
+  "routeType" : "topic",
+  "type" : "route",
+  "urlPrefix" : "topic"
 }

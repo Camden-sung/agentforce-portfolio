@@ -1,11 +1,11 @@
 {
-  "activeViewId": "c01dbb0e-ddff-4e64-84ee-8a6c3eb2bfc3",
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags": [],
-  "devName": "Enablement_Program_Text_Lesson",
-  "id": "52408230-db52-4430-942d-b049d4e25245",
-  "label": "Enablement Program Lesson",
-  "routeType": "enablement-program-text-lesson",
-  "type": "route",
-  "urlPrefix": "enablement-program-text-lesson"
+  "activeViewId" : "c01dbb0e-ddff-4e64-84ee-8a6c3eb2bfc3",
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags" : [ ],
+  "devName" : "Enablement_Program_Text_Lesson",
+  "id" : "52408230-db52-4430-942d-b049d4e25245",
+  "label" : "Enablement Program Lesson",
+  "routeType" : "enablement-program-text-lesson",
+  "type" : "route",
+  "urlPrefix" : "enablement-program-text-lesson"
 }

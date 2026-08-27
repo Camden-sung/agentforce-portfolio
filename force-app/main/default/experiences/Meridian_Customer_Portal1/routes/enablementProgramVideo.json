@@ -1,11 +1,11 @@
 {
-  "activeViewId": "670bc16f-6f3a-43f6-bb28-b396ea54e497",
-  "appPageId": "572c9968-62ae-4cb5-b6ec-5766362d5416",
-  "configurationTags": [],
-  "devName": "Enablement_Program_Video",
-  "id": "78cba1b9-c58f-4c99-b5a9-2977ed8169f0",
-  "label": "Enablement Program Video",
-  "routeType": "enablement-program-video",
-  "type": "route",
-  "urlPrefix": "enablement-program-video"
+  "activeViewId" : "670bc16f-6f3a-43f6-bb28-b396ea54e497",
+  "appPageId" : "572c9968-62ae-4cb5-b6ec-5766362d5416",
+  "configurationTags" : [ ],
+  "devName" : "Enablement_Program_Video",
+  "id" : "78cba1b9-c58f-4c99-b5a9-2977ed8169f0",
+  "label" : "Enablement Program Video",
+  "routeType" : "enablement-program-video",
+  "type" : "route",
+  "urlPrefix" : "enablement-program-video"
 }

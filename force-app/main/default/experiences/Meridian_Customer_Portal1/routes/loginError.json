@@ -1,11 +1,11 @@
 {
-  "activeViewId": "31b888a1-701b-4006-b61a-bf567d03d985",
-  "appPageId": "e9cd44be-8ad3-4164-9c3d-25babd36420a",
-  "configurationTags": [],
-  "devName": "Login_Error",
-  "id": "1f59dd19-99df-4da8-982f-8d31a039bb86",
-  "label": "Login Error",
-  "routeType": "login-error",
-  "type": "route",
-  "urlPrefix": "error"
+  "activeViewId" : "31b888a1-701b-4006-b61a-bf567d03d985",
+  "appPageId" : "e9cd44be-8ad3-4164-9c3d-25babd36420a",
+  "configurationTags" : [ ],
+  "devName" : "Login_Error",
+  "id" : "1f59dd19-99df-4da8-982f-8d31a039bb86",
+  "label" : "Login Error",
+  "routeType" : "login-error",
+  "type" : "route",
+  "urlPrefix" : "error"
 }

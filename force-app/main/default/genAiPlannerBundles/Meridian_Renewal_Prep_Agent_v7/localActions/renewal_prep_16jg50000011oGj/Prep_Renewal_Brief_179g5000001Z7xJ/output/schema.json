@@ -1,46 +1,46 @@
 {
-  "unevaluatedProperties": false,
-  "properties": {
-    "var_BriefText": {
-      "title": "Renewal Brief",
-      "description": "The finished renewal brief, already written for the account executive. Output this text to the user in full, word for word, exactly as received. It is populated only when the search resolves to a single contract; it is empty on the ambiguous and not-found paths.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isDisplayable": true,
-      "copilotAction:isUsedByPlanner": true
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "var_BriefText" : {
+      "title" : "Renewal Brief",
+      "description" : "The finished renewal brief, already written for the account executive. Output this text to the user in full, word for word, exactly as received. It is populated only when the search resolves to a single contract; it is empty on the ambiguous and not-found paths.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
     },
-    "var_Output": {
-      "title": "Internal Brief Data",
-      "description": "Internal renewal data. Consumed inside the flow to generate the brief text. Not available to you and never needed — the brief text output is what the user sees.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isDisplayable": false,
-      "copilotAction:isUsedByPlanner": false
+    "var_Output" : {
+      "title" : "Internal Brief Data",
+      "description" : "Internal renewal data. Consumed inside the flow to generate the brief text. Not available to you and never needed — the brief text output is what the user sees.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : false
     },
-    "var_OutreachData": {
-      "title": "Customer Safe Data",
-      "description": "Customer-safe renewal facts. Reserved for the outreach drafting step and not available to you.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isDisplayable": false,
-      "copilotAction:isUsedByPlanner": false
+    "var_OutreachData" : {
+      "title" : "Customer Safe Data",
+      "description" : "Customer-safe renewal facts. Reserved for the outreach drafting step and not available to you.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : false
     },
-    "var_OutreachText": {
-      "title": "Outreach Draft",
-      "description": "A drafted customer-facing email for this renewal. Output this text to the user in full, word for word, exactly as received. It is populated only when an outreach draft was requested and the search resolved to a single contract; otherwise it is empty.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isDisplayable": true,
-      "copilotAction:isUsedByPlanner": true
+    "var_OutreachText" : {
+      "title" : "Outreach Draft",
+      "description" : "A drafted customer-facing email for this renewal. Output this text to the user in full, word for word, exactly as received. It is populated only when an outreach draft was requested and the search resolved to a single contract; otherwise it is empty.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
     },
-    "var_Status": {
-      "title": "Resolution Status",
-      "description": "Resolution outcome. Begins with OK, AMBIGUOUS, or NOT_FOUND. When AMBIGUOUS, it names the candidate accounts — present those to the user and ask which they mean. When NOT_FOUND, say no matching contract was found in their book. Never state that an account has no renewal data on the basis of any other field being unavailable.",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isDisplayable": false,
-      "copilotAction:isUsedByPlanner": true
+    "var_Status" : {
+      "title" : "Resolution Status",
+      "description" : "Resolution outcome. Begins with OK, AMBIGUOUS, or NOT_FOUND. When AMBIGUOUS, it names the candidate accounts — present those to the user and ask which they mean. When NOT_FOUND, say no matching contract was found in their book. Never state that an account has no renewal data on the basis of any other field being unavailable.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
     }
   },
-  "lightning:type": "lightning__objectType"
+  "lightning:type" : "lightning__objectType"
 }

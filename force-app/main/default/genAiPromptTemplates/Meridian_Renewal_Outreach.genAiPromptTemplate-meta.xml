@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersionIdentifier
-  >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</activeVersionIdentifier>
+    <activeVersionIdentifier>duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</activeVersionIdentifier>
     <developerName>Meridian_Renewal_Outreach</developerName>
     <masterLabel>Meridian_Renewal_Outreach</masterLabel>
     <overridable>false</overridable>
     <templateVersions>
-        <content
-    >You are drafting an email for an account executive at Meridian Building
+        <content>You are drafting an email for an account executive at Meridian Building
 Solutions, a commercial HVAC and building automation company, to send to a
 customer ahead of their service contract renewal.
 
@@ -59,8 +57,7 @@ facts. No marketing language, no exclamation marks, no &quot;we value your
 partnership&quot;, and no closing thanks of any kind — end on the ask. Under 200
 words. Sign off as [AE name].
 </content>
-        <fileDroppingStrategy
-    >{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>OutreachData</apiName>
             <definition>primitive://String</definition>
@@ -71,8 +68,7 @@ words. Sign off as [AE name].
         <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
-        <versionIdentifier
-    >duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</versionIdentifier>
+        <versionIdentifier>duxP6SVjEUXAps6CpbfTSUFJdeDwHYz3N5EcSYM0xqY=_1</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>

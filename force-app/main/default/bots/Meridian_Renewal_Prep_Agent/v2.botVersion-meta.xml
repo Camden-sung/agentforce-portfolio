@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<BotVersion xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>v2</fullName>
+    <articleAnswersGPTEnabled>false</articleAnswersGPTEnabled>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message
+        >Hi, I&apos;m Agentforce! I use AI to search trusted sources, and more. Ask me &quot;What else can you do?&quot; to see how I can simplify your workday. How can I help?</message>
+                <messageIdentifier
+        >7603c002-4f07-4368-9243-99a71e45e3b0</messageIdentifier>
+            </botMessages>
+            <stepIdentifier
+      >0880b731-2f57-43e0-a56e-60762aa4c79c</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier
+      >8a2f2254-564d-47ea-a29e-40125f66a9dc</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Welcome</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Welcome</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>Something went wrong. Try again.</message>
+                <messageIdentifier
+        >bb920d36-e619-43af-bbfc-36879377426f</messageIdentifier>
+            </botMessages>
+            <stepIdentifier
+      >4418a2fd-fa85-40fd-a685-1f4787cfab9c</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier
+      >84e26903-cb05-48ff-9433-eddf8b6dbbbd</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Rich_Content_Error_Handling</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Error Handler</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <developerName>Transfer_To_Agent</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Transfer To Agent</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <citationsEnabled>false</citationsEnabled>
+    <conversationDefinitionPlanners>
+        <genAiPlannerName>Meridian_Renewal_Prep_Agent_v2</genAiPlannerName>
+    </conversationDefinitionPlanners>
+    <conversationSystemDialogs>
+        <dialog>Rich_Content_Error_Handling</dialog>
+        <type>ErrorHandling</type>
+    </conversationSystemDialogs>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Page type (record, list, home)</description>
+        <developerName>currentPageType</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current Page Type</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The Salesforce ID of the current record</description>
+        <developerName>currentRecordId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current Record Id</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Salesforce Application Name</description>
+        <developerName>currentAppName</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current App Name</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The agent instructions</description>
+        <developerName>AgentScriptInternal_agent_instructions</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Agent Instructions</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The next topic to be visited</description>
+        <developerName>AgentScriptInternal_next_topic</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Next Topic</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The API name of the current Salesforce object</description>
+        <developerName>currentObjectApiName</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current Object Api Name</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <copilotPrimaryLanguage>en_US</copilotPrimaryLanguage>
+    <copilotSecondaryLanguages>en_GB</copilotSecondaryLanguages>
+    <defaultStdObjForContactIdFltrEnabled
+  >false</defaultStdObjForContactIdFltrEnabled>
+    <entryDialog>Welcome</entryDialog>
+    <intentDisambiguationEnabled>false</intentDisambiguationEnabled>
+    <intentV3Enabled>false</intentV3Enabled>
+    <isScriptCompatibleAgent>true</isScriptCompatibleAgent>
+    <knowledgeActionEnabled>false</knowledgeActionEnabled>
+    <knowledgeFallbackEnabled>false</knowledgeFallbackEnabled>
+    <smallTalkEnabled>false</smallTalkEnabled>
+    <staticPromptsEnabled>false</staticPromptsEnabled>
+    <stopRecPrompts>false</stopRecPrompts>
+    <stopWelcomePrompts>false</stopWelcomePrompts>
+    <surfacesEnabled>false</surfacesEnabled>
+    <toneType>Casual</toneType>
+</BotVersion>

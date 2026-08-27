@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>67.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
@@ -11,8 +11,7 @@
             <assignToReference>var_AccountId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference
-        >AgentContext_Get_Contact.AccountId</elementReference>
+                <elementReference>AgentContext_Get_Contact.AccountId</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -57,8 +56,7 @@
             <assignToReference>InspectionSummary</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue
-        >I don&apos;t see any inspection reports on file for your account yet.</stringValue>
+                <stringValue>I don&apos;t see any inspection reports on file for your account yet.</stringValue>
             </value>
         </assignmentItems>
     </assignments>
@@ -124,16 +122,14 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference
-      >Assign_InspectionSummary_Inspection_Not_Found</targetReference>
+            <targetReference>Assign_InspectionSummary_Inspection_Not_Found</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes_Inspection_Found</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference
-        >Get_Inspection_Report.Inspection_Date__c</leftValueReference>
+                <leftValueReference>Get_Inspection_Report.Inspection_Date__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -152,8 +148,7 @@
         <dataType>String</dataType>
         <expression>LEFT({!var_AccountId}, 15)</expression>
     </formulas>
-    <interviewLabel
-  >Get Last Inspection {!$Flow.CurrentDateTime}</interviewLabel>
+    <interviewLabel>Get Last Inspection {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Get Last Inspection</label>
     <processMetadataValues>
         <name>BuilderType</name>
@@ -179,8 +174,7 @@
         <label>AgentContext Get Contact</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound
-    >false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>AgentContext_Assign_Account_Id</targetReference>
         </connector>
@@ -201,8 +195,7 @@
         <label>Get Contact</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound
-    >false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Account_Id</targetReference>
         </connector>
@@ -223,8 +216,7 @@
         <label>Get Equipment Asset</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound
-    >false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Inspector</targetReference>
         </connector>
@@ -233,8 +225,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference
-        >Get_Inspection_Report.Equipment__c</elementReference>
+                <elementReference>Get_Inspection_Report.Equipment__c</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -246,8 +237,7 @@
         <label>Get Inspection Report</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound
-    >false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Inspection_Found</targetReference>
         </connector>
@@ -270,8 +260,7 @@
         <label>Get Inspector</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound
-    >false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_InspectionSummary</targetReference>
         </connector>
@@ -280,8 +269,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference
-        >Get_Inspection_Report.Inspector__c</elementReference>
+                <elementReference>Get_Inspection_Report.Inspector__c</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -293,8 +281,7 @@
         <label>Get User</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound
-    >false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Identify_Customer</targetReference>
         </connector>
@@ -322,8 +309,7 @@
     <textTemplates>
         <name>txt_Inspection</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text
-    >Your most recent inspection was a {!Get_Inspection_Report.Inspection_Type__c} inspection of your {!Get_Equipment_Asset.Equipment_Type__c} on {!Get_Inspection_Report.Inspection_Date__c}. Overall condition: {!Get_Inspection_Report.Overall_Condition__c}. Result: {!Get_Inspection_Report.PassFail__c}. Recommended action: {!Get_Inspection_Report.Recommended_Action__c}. It was performed by {!Get_Inspector.Name}.</text>
+        <text>Your most recent inspection was a {!Get_Inspection_Report.Inspection_Type__c} inspection of your {!Get_Equipment_Asset.Equipment_Type__c} on {!Get_Inspection_Report.Inspection_Date__c}. Overall condition: {!Get_Inspection_Report.Overall_Condition__c}. Result: {!Get_Inspection_Report.PassFail__c}. Recommended action: {!Get_Inspection_Report.Recommended_Action__c}. It was performed by {!Get_Inspector.Name}.</text>
     </textTemplates>
     <variables>
         <name>ContactIdInput</name>
