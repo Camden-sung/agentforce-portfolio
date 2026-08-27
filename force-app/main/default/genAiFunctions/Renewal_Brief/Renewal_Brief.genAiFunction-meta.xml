@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >Turns structured renewal data into an AE-facing brief with a recommended play</description>
+    <developerName>Renewal_Brief</developerName>
+    <invocationTarget>Meridian_Renewal_Brief</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Renewal_Brief</localDeveloperName>
+    <masterLabel>Renewal Brief</masterLabel>
+    <progressIndicatorMessage>Loading...</progressIndicatorMessage>
+</GenAiFunction>
