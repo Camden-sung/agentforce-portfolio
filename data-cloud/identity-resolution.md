@@ -29,4 +29,4 @@ the raw source DMOs.
   build (the doc states only the one rule that was kept)
 
 These should be confirmed by opening the ruleset in Data Cloud > Identity
-Resolution before Project 2 relies on them.
+Resolution rather than assumed from this summary.
