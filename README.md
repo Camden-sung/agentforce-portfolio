@@ -101,6 +101,8 @@ The flows were built with a defensive three-tier identity resolution (`ContactId
 
 **Correction on scope of that guarantee:** an earlier version of the design doc claimed portal users have "zero direct object access." That's no longer literally true. The portal profile was later granted object read plus field-level security on `Knowledge__kav` (specifically `Article_Body__c` and `Category__c`), so an interviewer could catch a "zero access" claim that doesn't hold up. The accurate framing: _portal users have no access to any account-scoped object: contracts, equipment, visits, inspections all route through account-scoped flows in system context. The one direct grant is Knowledge, which is deliberately non-account-specific, since the same ten articles are visible to every customer, so there's nothing to scope and no sharing model to get wrong by granting it._
 
+**Project 2's scoring data is unreadable to portal users, and the profile states it explicitly.** All eight `Account` risk fields (`Account_Risk_Score__c`, the three `Risk_*_Points__c` components, the three `*_Scored__c` inputs, and `Risk_Score_Last_Synced__c`) carry `readable: false` and `editable: false` on the Meridian Portal Customer profile. This matters because the two projects share the Account object: the renewal agent writes a risk score onto the same records the portal agent reads from. Field-level security is what keeps internal scoring out of the customer-facing path, and it is a checkable artifact in the profile rather than a claim.
+
 ### ⭐ Staged Calculated Insights, to avoid a JOIN fan-out
 
 This org's two major Data Cloud metrics, Equipment Health Score and Project 2's Account Risk Score, are both built as **three staged Calculated Insights** rather than one. For Equipment Health Score: `Equipment_Telemetry_Aggregates__cio` (999 rows, one per monitored unit) and `Equipment_Fault_Aggregates__cio` (881 rows) each pre-aggregate their own high-volume source independently, and a third CI (`Equipment_Health_Score__cio`) reads both staged outputs and combines them.
@@ -159,3 +161,18 @@ The fix went into the **flow**, not the prompt, because `Get_My_Renewals` output
 - **Preventive maintenance visits are two record types, not one.** "PM visits" means Preventive Maintenance plus Quarterly Tune-up, and treating it as a single value undercounts delivery. The same shape appears in call sentiment, where "negative" covers both `Negative` and `Very Negative`.
 - **Only negative-sentiment calls are itemised in the brief.** Neutral and positive calls are counted, not listed. An AE preparing for a renewal conversation needs the exceptions, not a transcript index.
 - **The triage list rounds annual contract value to whole dollars** (`$89,228`, not `89,228.1`). It is a ranking view, so precision there costs scanning speed and buys nothing. The brief keeps full precision.
+
+## Reading the repository
+
+A full-scope retrieve of this org returns around 880 files, and most of them are Salesforce's rather than Meridian's: stock agents (`Copilot_for_Salesforce`, `EmployeeCopilotPlanner`), default flows and layouts, and auto-generated embedded messaging scaffolding. Those are tracked as they come out of the org.
+
+**Standard fields are the one deliberate exception.** `Account`, `Case`, and `Contact` are pruned to the fields this build actually reads. A Developer Edition org ships a sample schema (`SLA__c`, `UpsellOpportunity__c`, `EngineeringReqNumber__c` and similar) that would otherwise bury the nine custom fields Project 2 depends on. They come back on every wide retrieve and are pruned again rather than committed, so the field directories stay readable as a statement of what matters.
+
+Two things worth knowing when reading the tree:
+
+- **Both agents keep their full version lineage**, Portal Assistant v1 to v5 and Renewal Prep Agent v1 to v7, with matching authoring and planner bundles. The compiled planner bundle is what the runtime actually executes, so the diffs between consecutive bundles are the real record of how each agent changed.
+- **`Renewal_Brief` is an orphaned action, kept on purpose.** It is an asset-library `GenAiFunction` pointing straight at the `Meridian_Renewal_Brief` prompt template, left over from before the flow took over template invocation. The live agent does not use it: it reaches the same template through `Prep_Renewal_Brief` and the `Get_Renewal_Brief_Data` flow. Retained as a build artifact rather than deleted.
+
+### What the Metadata API cannot capture
+
+Data Cloud configuration does not retrieve, so none of it is in this repo: DLOs, DMOs and their relationships, Identity Resolution rulesets, Calculated Insight SQL, search indexes, retrievers, refresh schedules, and Data Stream config. That covers every `__cio` insight described above, plus `CSR_Call_Log_DMO__dlm` and `ERP_AR_Aging_DMO__dlm`, which the renewal brief queries directly. The SQL and setup notes live in `data-cloud/` instead, and the caveats there are worth reading before trusting any of it as a current description of the org.
