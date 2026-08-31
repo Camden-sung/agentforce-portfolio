@@ -99,7 +99,9 @@ This was chosen deliberately over the alternative (granting the portal user dire
 
 The flows were built with a defensive three-tier identity resolution (`ContactIdInput` bound to a messaging session variable → `$User.ContactId` → a test fallback), but in production `MessagingEndUser.ContactId` is null for this channel type (authenticated site login and verified messaging identity are separate concepts), so **`$User.ContactId` is the actual production path**. The third tier (`TestAccountId`/`TestContactId` inputs) was **deliberately removed** once the no-sharing model was in place, because under no-sharing they amounted to a live "set any account, read any account" bypass with no guardrail behind them. They must never be reintroduced to any new action flow.
 
-**Correction on scope of that guarantee:** an earlier version of the design doc claimed portal users have "zero direct object access." That's no longer literally true. The portal profile was later granted object read plus field-level security on `Knowledge__kav` (specifically `Article_Body__c` and `Category__c`), so an interviewer could catch a "zero access" claim that doesn't hold up. The accurate framing: _portal users have no access to any account-scoped object: contracts, equipment, visits, inspections all route through account-scoped flows in system context. The one direct grant is Knowledge, which is deliberately non-account-specific, since the same ten articles are visible to every customer, so there's nothing to scope and no sharing model to get wrong by granting it._
+**Correction on scope of that guarantee, now verified in metadata:** an earlier version of the design doc claimed portal users have "zero direct object access." That is not literally true, and the committed `Meridian Portal Customer` profile settles it either way. The profile grants object read on `Knowledge__kav` plus field-level read on `Article_Body__c` and `Category__c`. It carries no `objectPermissions` entry at all for `Service_Contract__c`, `Equipment_Asset__c`, `Maintenance_Visit__c`, `Inspection_Report__c`, or `Site__c`.
+
+So the accurate framing, and the one that survives being checked: _portal users have no access to any account-scoped object. Contracts, equipment, visits, and inspections all route through account-scoped flows in system context. The one direct grant is Knowledge, which is deliberately non-account-specific, since the same ten articles are visible to every customer, so there is nothing to scope and no sharing model to get wrong by granting it._
 
 **Project 2's scoring data is unreadable to portal users, and the profile states it explicitly.** All eight `Account` risk fields (`Account_Risk_Score__c`, the three `Risk_*_Points__c` components, the three `*_Scored__c` inputs, and `Risk_Score_Last_Synced__c`) carry `readable: false` and `editable: false` on the Meridian Portal Customer profile. This matters because the two projects share the Account object: the renewal agent writes a risk score onto the same records the portal agent reads from. Field-level security is what keeps internal scoring out of the customer-facing path, and it is a checkable artifact in the profile rather than a claim.
 
@@ -142,25 +144,61 @@ One flow assembles two independent text blocks. `txt_ServiceSection` is the inte
 
 The distinction matters because the obvious alternative is to hand over everything and instruct the model not to mention margin. That is a wording mitigation, and wording mitigations fail eventually. Building a second payload that never contains the field is a control: **the model cannot misrepresent a field it was never given.** Fields were removed from the outreach payload as specific failure modes appeared, including preventive maintenance delivery counts (a delivered-versus-contracted comparison reads as an accusation either direction) and emergency callout counts.
 
+Two refinements came out of testing that payload on real generated prose rather than reasoning about it:
+
+- **A disclosure intended to demonstrate a control can breach it.** The payload originally ended with an enumerated `WITHHELD BY DESIGN` line naming margin, risk score, AR status and the rest, added so a reader could see the boundary was deliberate. Naming what you withhold names what is interesting, and that line was itself leaking. It is now a single non-enumerated sentence saying internal information was excluded and not to speculate about it.
+- **Customer-safe and appropriate-to-send are different tests.** Satisfaction ratings, emergency callout counts, and over-delivery comparisons are all safe to disclose and all wrong to put in a renewal email. The payload containing a fact is not a reason to say it.
+
 ### ⭐ Both raw payloads are hidden from the reasoning model
 
-The prompt templates are invoked **inside the flow**, not by the agent, so generation happens where the data already is. The two data outputs (`var_Output`, `var_OutreachData`) are then marked `filter_from_agent: True`, meaning the reasoning model never receives them at all. It only ever sees the finished `var_BriefText` or `var_OutreachText`, plus a `var_Status` string telling it whether the account search resolved cleanly, was ambiguous, or found nothing.
+The two data outputs (`var_Output`, `var_OutreachData`) are marked `filter_from_agent: True`, so the reasoning model never receives them. It sees only the finished `var_BriefText` or `var_OutreachText`, plus a `var_Status` string reporting whether the account search resolved cleanly, was ambiguous, or found nothing.
 
-This is defense in depth over the same boundary: the customer-safe payload is scoped by construction, and the internal payload is structurally out of reach of the component most likely to leak it.
+This is defense in depth over the same boundary: the customer-safe payload is scoped by construction, and the internal payload is structurally out of reach of the component most likely to leak it. It was tested adversarially rather than assumed. Asked to prep a renewal, the task where margin and risk are most relevant, the agent produced a brief containing neither, because it never received them.
+
+The limit is worth stating plainly: this works because the model does not need the payload to do its job here. Where a model must read sensitive data to answer at all, no structural control exists and instructions are all there is.
+
+### ⭐ The agent layer is its own failure surface, so the LLM was removed from the delivery path
+
+The flow was correct on every occasion this project tested it. The agent was not, and its failures escalated:
+
+- Handed 6 contracts, it **relayed 3**, applying a risk threshold nobody specified. The three it dropped were exactly the accounts where the score is known blind.
+- Handed an ambiguity message, it asserted **"there is no renewal data available"** for an account with two matching contracts. A confident false statement, not silence.
+- Handed a correct generated brief, it **discarded it** and relayed the raw payload instead.
+- Handed nothing it could use, it **fabricated an entire brief**: $360,000 ARR, a CFO contact, QBRs, a product roadmap. Not one figure real, and fluent enough to pass a skim.
+
+The first three suppressed real data; the fourth manufactured it. The root cause was that **the agent never actually receives a prompt-template action's `promptResponse`**, and `is_displayable: True` does not render it, in builder preview or in Lightning. Instructing it to relay that output "word for word" is instructing it to copy something it cannot see, which is what produced the invention.
+
+Four rounds of instruction-writing each fixed the specific wording that had just failed and none generalised. The defect closed only when the LLM was removed from the delivery path: **the flow now invokes the prompt template itself and the agent relays a flow text output**, which it copies verbatim reliably. Testability survived the change because the raw payload remains its own output, so exact-value assertions still run against it. The cost is latency, roughly 1.5s to 8s on the brief path.
+
+A related lesson is why `var_Status` exists at all. All three terminal paths originally wrote to one output, which coupled the payload with the resolution status. Filtering that output for security also filtered the flow's control flow, leaving the agent unable to distinguish "ambiguous" from "empty" so it invented the most plausible explanation. **Separate outputs by security classification, not by convenience.**
 
 ### ⭐ A risk score of zero is not evidence of a healthy account
 
 `Account_Risk_Score__cio` scores portal engagement, open cases, and payment behavior. It does not measure service delivery, and nothing in the score's name says so.
 
-This surfaced on a real account scoring 0 that simultaneously had negative-sentiment support calls on record, visits scheduled and not attended, and preventive maintenance delivered far in excess of the contracted entitlement. The triage line for it read "no significant risk signal," which is exactly the wrong sentence to put in front of an AE walking into that conversation.
+This surfaced on the account originally picked as the demo **control**, the one chosen because nothing was wrong with it. Consuming the CSR call log, a source that had been modelled and then read by nothing for months, showed otherwise. It scores 0, and it has two Very Negative support calls specifically about scheduling, three visits Meridian booked and did not attend, and preventive maintenance running 6.3x the contracted entitlement. Two independent systems telling the same story. The account executive had it marked Very High likelihood to renew, and auto-renewal is on, so it renews silently unless someone intervenes.
 
-The fix went into the **flow**, not the prompt, because `Get_My_Renewals` output reaches the agent with no template in between and there is nothing downstream to catch it. The zero branch now reads "no risk signal from portal, cases, or AR (service delivery not scored)". The brief's prompt template carries a matching instruction: name the largest contributing component unless every component is zero, and never present a zero score as evidence the account is fine.
+Score said zero, the AE said very high, and both were reading the same three inputs. Neither could see service delivery or support sentiment. That is not an argument for a better score; it is an argument for a brief that reports the domains the score does not cover and says so.
+
+The triage line for that account read "no significant risk signal," which is the wrong sentence to put in front of an AE walking into that conversation. The fix went into the **flow**, not the prompt, because `Get_My_Renewals` output reaches the agent with no template in between and there is nothing downstream to catch it. The zero branch now reads "no risk signal from portal, cases, or AR (service delivery not scored)".
+
+The brief's prompt template needed a matching change, and the shape of it is the transferable part. The instruction "name the largest contributing component" has **no correct answer** when every component is zero, and a rule with no valid case gets emitted as output: the model wrote its own instruction into the brief. The fix was an escape rather than a prohibition, "name the largest driver unless all components are zero, in which case say nothing is contributing," plus a framing sentence that a zero score is not evidence of health.
+
+### ⭐ The same filter, doing a different job than in Project 1
+
+Project 2 deliberately does not copy Project 1's identity model, and the contrast is the point.
+
+`Get_My_Renewals` runs in **user context**, not system context without sharing. The AE is a real internal user with genuine object access and the platform sharing model sitting behind the filter, so running in system context would be _removing_ a safety layer to gain nothing. The scoping filter is `Account_Executive__c`, never `OwnerId`, and identity comes from `{!$User.Id}` inside the flow rather than from anything the model can supply. In Project 1 that in-flow filter was the entire security boundary; here it is a relevance rule with sharing behind it. **Copying the pattern without the reasoning is the failure mode.**
+
+Runs-as-invoking-user was proven rather than assumed: the same agent, asked the same question minutes apart, returned 6 accounts for one AE and 3 for the other, two disjoint sets with zero overlap, with the flow interview appearing in the second user's own debug log.
+
+Account lookup then **scopes first and matches second**. Rather than searching org-wide and filtering down, the flow retrieves the AE's own book and matches the search term against that set in a loop. Forced originally by a Flow limitation (Get Records cannot filter on a related field), it is the better design regardless: a search term can never widen the result beyond the user's own book. It also resolves org-wide ambiguity per user. "Tampa" matches two accounts across the org but exactly one in each AE's book, so each gets a correct single answer where filter-then-scope would have asked both a needless clarifying question. Not-found and not-yours return a byte-identical message, so the response cannot leak the existence of another AE's account.
 
 ### Other notable decisions in Project 2
 
 - **Preventive maintenance visits are two record types, not one.** "PM visits" means Preventive Maintenance plus Quarterly Tune-up, and treating it as a single value undercounts delivery. The same shape appears in call sentiment, where "negative" covers both `Negative` and `Very Negative`.
 - **Only negative-sentiment calls are itemised in the brief.** Neutral and positive calls are counted, not listed. An AE preparing for a renewal conversation needs the exceptions, not a transcript index.
-- **The triage list rounds annual contract value to whole dollars** (`$89,228`, not `89,228.1`). It is a ranking view, so precision there costs scanning speed and buys nothing. The brief keeps full precision.
+- **The triage list rounds annual contract value to whole dollars** (`$89228`, not `89228.1`). It is a ranking view, so cents cost scanning speed and buy nothing. The brief keeps full precision. Known gap: `TEXT(ROUND(...))` emits no thousands separator, so it reads `$89228` rather than `$89,228`.
 
 ## Reading the repository
 
