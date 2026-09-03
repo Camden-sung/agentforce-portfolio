@@ -9,7 +9,11 @@
 --
 -- Rows:     50 rows. Verified min 0, max 84, mean 14.02. Higher = more risk.
 -- Source:   ssot__Account__dlm joined to both stage-2 outputs and ERP_AR_Aging_DMO__dlm.
--- Schedule: 24h, start 05:00 UTC. NOTE: same start as its own inputs, unlike the equipment pipeline.
+-- Schedule: 24h, start 11:30 UTC = 07:30 local. Stages 1 and 2 run at 05:00 UTC
+--           (01:00 local), so stage 3 now has a 6.5h gap ahead of it.
+--           Corrected 2026-09-03: it previously started at 05:00 UTC, the same
+--           time as its own inputs, so it could read the prior cycle's aggregates.
+--           Data Cloud has no dependency chaining; the time gap is the mechanism.
 -- Dialect:  ANSI_SQL   Data Space: default   Status: IN_USE / ACTIVE
 
 SELECT
