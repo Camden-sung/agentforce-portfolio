@@ -65,3 +65,9 @@ $RECYCLE.BIN/
 
 # Node (in case you add tooling later)
 node_modules/
+# Stock profiles. Salesforce writes every profile that holds permissions on the
+# objects in a retrieve, regardless of what the manifest asks for and regardless
+# of .forceignore. They land on disk; they do not belong in the repo. The one
+# profile this build configured is negated back in.
+force-app/main/default/profiles/*
+!force-app/main/default/profiles/Meridian Portal Customer.profile-meta.xml
