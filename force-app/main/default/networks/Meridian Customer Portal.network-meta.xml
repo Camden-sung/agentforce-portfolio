@@ -8,7 +8,8 @@
     <disablePvtPagesForPwdResetInLWR>false</disablePvtPagesForPwdResetInLWR>
     <disableReputationRecordConversations
   >true</disableReputationRecordConversations>
-    <emailSenderAddress>camdensung@gmail.com</emailSenderAddress>
+    <emailSenderAddress
+  >noreply@meridianbuildingsolutions.dev.com</emailSenderAddress>
     <emailSenderName>Meridian Customer Portal</emailSenderName>
     <embeddedLoginEnabled>false</embeddedLoginEnabled>
     <enableApexCDNCaching>true</enableApexCDNCaching>

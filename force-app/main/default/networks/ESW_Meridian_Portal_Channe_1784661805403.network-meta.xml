@@ -10,7 +10,8 @@
     <disablePvtPagesForPwdResetInLWR>false</disablePvtPagesForPwdResetInLWR>
     <disableReputationRecordConversations
   >true</disableReputationRecordConversations>
-    <emailSenderAddress>camdensung@gmail.com</emailSenderAddress>
+    <emailSenderAddress
+  >noreply@meridianbuildingsolutions.dev.com</emailSenderAddress>
     <emailSenderName>ESW_Meridian_Portal_Channe_1784661805403</emailSenderName>
     <embeddedLoginEnabled>false</embeddedLoginEnabled>
     <enableApexCDNCaching>true</enableApexCDNCaching>
