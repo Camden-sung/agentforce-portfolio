@@ -202,14 +202,43 @@ Account lookup then **scopes first and matches second**. Rather than searching o
 
 ## Reading the repository
 
-A full-scope retrieve of this org returns around 880 files, and most of them are Salesforce's rather than Meridian's: stock agents (`Copilot_for_Salesforce`, `EmployeeCopilotPlanner`), default flows and layouts, and auto-generated embedded messaging scaffolding. Those are tracked as they come out of the org.
+This repo tracks what was **built** here, not a backup of the org. A full-scope
+retrieve returns roughly 1,265 files and about half are Salesforce's: stock agents,
+default flows, 184 page layouts, sample roles, and internal permission sets. All of
+that was retrieved once, reviewed, and removed. What remains is around 550 files.
 
-**Standard fields are the one deliberate exception.** `Account`, `Case`, and `Contact` are pruned to the fields this build actually reads. A Developer Edition org ships a sample schema (`SLA__c`, `UpsellOpportunity__c`, `EngineeringReqNumber__c` and similar) that would otherwise bury the nine custom fields Project 2 depends on. They come back on every wide retrieve and are pruned again rather than committed, so the field directories stay readable as a statement of what matters.
+Curation is enforced rather than remembered. `.forceignore` and `.gitignore` carry the
+decisions, because deleting alone does not hold: the next wide retrieve writes
+everything back. Two things learned making that stick, both counterintuitive enough to
+be worth writing down:
 
-Two things worth knowing when reading the tree:
+- On retrieve, a directory exclusion plus a negation in `.forceignore` is **ignored
+  outright** and the files are written anyway. Only explicit per-file entries work.
+- Explicit entries still fail on filenames containing spaces or percent-encoding, such
+  as `Custom%3A Sales Profile.profile-meta.xml`. Stock profiles are therefore handled
+  in `.gitignore` instead, since Salesforce writes every profile holding permissions on
+  the objects in a retrieve no matter what the manifest asked for.
 
-- **Both agents keep their full version lineage**, Portal Assistant v1 to v5 and Renewal Prep Agent v1 to v7, with matching authoring and planner bundles. The compiled planner bundle is what the runtime actually executes, so the diffs between consecutive bundles are the real record of how each agent changed.
-- **`Renewal_Brief` is an orphaned action, kept on purpose.** It is an asset-library `GenAiFunction` pointing straight at the `Meridian_Renewal_Brief` prompt template, left over from before the flow took over template invocation. The live agent does not use it: it reaches the same template through `Prep_Renewal_Brief` and the `Get_Renewal_Brief_Data` flow. Retained as a build artifact rather than deleted.
+`manifest/package-targeted.xml` is the day-to-day manifest, with every wildcard resolved
+to real member names. `manifest/package-audit.xml` is the wildcard-heavy one, used only
+to answer "what have I forgotten about", since named members can only return what you
+already knew existed.
+
+Three things worth knowing when reading the tree:
+
+- **Standard fields on `Account`, `Case` and `Contact` are pruned** to the ones this
+  build actually reads. A Developer Edition org ships a sample schema (`SLA__c`,
+  `UpsellOpportunity__c`, `EngineeringReqNumber__c` and similar) that would otherwise
+  bury the nine custom fields Project 2 depends on.
+- **Both agents keep their full version lineage**, Portal Assistant v1 to v5 and Renewal
+  Prep Agent v1 to v7, with matching authoring and planner bundles. The compiled planner
+  bundle is what the runtime actually executes, so the diffs between consecutive bundles
+  are the real record of how each agent changed.
+- **`Renewal_Brief` is an orphaned action, kept on purpose.** It is an asset-library
+  `GenAiFunction` pointing straight at the `Meridian_Renewal_Brief` prompt template, left
+  over from before the flow took over template invocation. The live agent does not use
+  it: it reaches the same template through `Prep_Renewal_Brief` and the
+  `Get_Renewal_Brief_Data` flow. Retained as a build artifact rather than deleted.
 
 ### What the Metadata API cannot capture
 
