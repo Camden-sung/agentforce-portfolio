@@ -6,6 +6,23 @@
   "label": "User Profile",
   "regions": [
     {
+      "components": [
+        {
+          "componentAttributes": {
+            "clientVersion": "WebV1",
+            "deploymentName": "Meridian_Portal_Channel",
+            "hideChatButtonOnLoad": "Default",
+            "isExpSiteAuthMode": true,
+            "scrtUrl": "https://meridianbuildingsolutions-dev-ed.develop.my.salesforce-scrt.com",
+            "siteEndpoint": "https://meridianbuildingsolutions-dev-ed.develop.my.site.com/ESWMeridianPortalChanne1784661805403"
+          },
+          "componentName": "experience_messaging:embeddedMessaging",
+          "id": "c1fc516e-430b-46fd-9be5-fa7669d20136",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
       "id": "0641bec1-e4f6-44d7-a2ca-1e772b2f7e09",
       "regionName": "header",
       "type": "region"
