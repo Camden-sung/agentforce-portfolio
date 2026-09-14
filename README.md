@@ -1,5 +1,20 @@
 # Meridian Building Solutions: Agentforce Portfolio
 
+Two working Agentforce agents on a real Salesforce and Data Cloud org, built for a fictional commercial HVAC company. Demos first, then the decisions behind them.
+
+|                                                       Portal Service Agent                                                       |                                                       Renewal Prep Agent                                                       |
+| :------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
+| [![Watch the Portal Service Agent demo](https://img.youtube.com/vi/u6t_8t2Xbw8/maxresdefault.jpg)](https://youtu.be/u6t_8t2Xbw8) | [![Watch the Renewal Prep Agent demo](https://img.youtube.com/vi/TbaXbrj7vbQ/maxresdefault.jpg)](https://youtu.be/TbaXbrj7vbQ) |
+|                                   Customer facing, on an authenticated Experience Cloud portal                                   |                                  Internal, for account executives prepping contract renewals                                   |
+
+### If you have five minutes
+
+1. **[Identity and security model](#-identity-and-security-model).** Why a single in-flow filter is the entire security boundary for portal users, and why that was chosen deliberately.
+2. **[The agent layer is its own failure surface](#-the-agent-layer-is-its-own-failure-surface-so-the-llm-was-removed-from-the-delivery-path).** The agent fabricated an entire renewal brief when it could not see the real one, which is why the model was taken out of the delivery path.
+3. **[The customer-safe payload is a separate build](#-the-customer-safe-payload-is-a-separate-build-not-a-filtered-one).** The outreach model cannot leak margin or risk scores because it is never sent them.
+4. **[A risk score of zero is not evidence of a healthy account](#-a-risk-score-of-zero-is-not-evidence-of-a-healthy-account).** The demo's control account turned out to have missed visits and very negative support calls that the score could not see.
+5. **[Calculated Insight SQL](data-cloud/calculated-insights/).** Six scoring definitions that are not retrievable through the Metadata API and had to be pulled from a Data Cloud REST endpoint.
+
 ## What this is
 
 **Meridian Building Solutions** is a mock mid-market commercial HVAC and building automation company, built out end-to-end in a free Salesforce Agentforce + Data Cloud (Data 360) Developer Edition org as a portfolio piece. This repo holds the first two projects of a three-project arc, both complete.
