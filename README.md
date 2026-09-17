@@ -4,7 +4,7 @@ Two working Agentforce agents on a real Salesforce and Data Cloud org, built for
 
 |                                                       Portal Service Agent                                                       |                                                       Renewal Prep Agent                                                       |
 | :------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-| [![Watch the Portal Service Agent demo](https://img.youtube.com/vi/u6t_8t2Xbw8/maxresdefault.jpg)](https://youtu.be/u6t_8t2Xbw8) | [![Watch the Renewal Prep Agent demo](https://img.youtube.com/vi/TbaXbrj7vbQ/maxresdefault.jpg)](https://youtu.be/TbaXbrj7vbQ) |
+| [![Watch the Portal Service Agent demo](https://img.youtube.com/vi/5W03-XlF6-A/maxresdefault.jpg)](https://youtu.be/5W03-XlF6-A) | [![Watch the Renewal Prep Agent demo](https://img.youtube.com/vi/V9eQCBaCj8k/maxresdefault.jpg)](https://youtu.be/V9eQCBaCj8k) |
 |                                   Customer facing, on an authenticated Experience Cloud portal                                   |                                  Internal, for account executives prepping contract renewals                                   |
 
 ### If you have five minutes
